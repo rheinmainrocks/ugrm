@@ -64,7 +64,7 @@ $data = new UGRMData(new \SplFileInfo(dirname(__FILE__) . DIRECTORY_SEPARATOR . 
                 <?php endif; ?>
                 <?php if ($group->twitter && $group->hashtag): ?><br><?php endif; ?>
                 <?php if ($group->hashtag): ?>
-                <a href="http://search.twitter.com/?q=%23<?php echo urlencode(substr($group->hashtag, 1)); ?>"># <?php echo substr($group->hashtag, 1); ?></a>
+                <a href="https://twitter.com/search?q=%23<?php echo urlencode(substr($group->hashtag, 1)); ?>"># <?php echo substr($group->hashtag, 1); ?></a>
                 <?php endif; ?>
             </dd>
             <?php endif; ?>
