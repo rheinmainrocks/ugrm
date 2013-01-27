@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /responsive.html
+Allow: /
+

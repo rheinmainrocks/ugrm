@@ -1,0 +1,19 @@
+@import url(normalize.css);
+@import url(font-awesome.css);
+/** Helpers **/
+* {
+  box-sizing: border-box; }
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+/** Colors **/
+html {
+  background-color: #fafafa; }
+
+/** Responsive Styles **/

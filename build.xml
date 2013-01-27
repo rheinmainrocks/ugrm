@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="offenraum.de" basedir="." default="main">
+
+    <!-- props -->
+    <property name="htdocs.dir" value="${basedir}/htdocs"/>
+    <property name="build.dir" value="${htdocs.dir}/build"/>
+    <property name="assets.dir" value="${htdocs.dir}/assets"/>
+    <property name="final_css" value="${build.dir}/complete.css"/>
+
+    <!-- libraries -->
+    <property name="yui-compressor" location="/opt/yui/yuicompressor-2.4.7.jar"/>
+    <property name="yui-compressor-ant-task" location="/opt/yui/yui-compressor-ant-task-0.5.jar"/>
+
+    <!-- classpath -->
+    <path id="yui.classpath">
+        <pathelement location="${yui-compressor}"/>
+        <pathelement location="${yui-compressor-ant-task}"/>
+    </path>
+
+    <!-- task definitions -->
+    <taskdef name="yui-compressor" classname="net.noha.tools.ant.yuicompressor.tasks.YuiCompressorTask">
+        <classpath refid="yui.classpath"/>
+    </taskdef>
+
+    <!-- targets -->
+    <target name="concat">
+
+        <mkdir dir="${build.dir}"/>
+
+        <echo message="SASSing…"/>
+        <exec executable="sass">
+            <arg value="${assets.dir}/styles.scss"/>
+            <arg value="${assets.dir}/styles.css"/>
+        </exec>
+
+
+        <echo message="Building ${final_css}"/>
+        <concat destfile="${final_css}" force="true" fixlastline="true">
+            <fileset file="${assets.dir}/styles.css"/>
+        </concat>
+
+        <copy todir="${build.dir}/">
+            <fileset file="${assets.dir}/fontawesome-*"/>
+        </copy>
+
+    </target>
+
+    <target name="compress" depends="concat">
+
+        <!-- CSS -->
+        <yui-compressor
+                warn="false"
+                munge="true"
+                preserveallsemicolons="false"
+                fromdir="${build.dir}"
+                todir="${build.dir}"
+                />
+
+        <!-- Optimize PNGs -->
+        <copy todir="${build.dir}/">
+            <fileset file="${assets.dir}/*.png"/>
+        </copy>
+        <apply executable="/usr/bin/optipng">
+            <fileset file="${build.dir}/*.png"/>
+        </apply>
+
+    </target>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="main" depends="clean,compress,concat"/>
+
+</project>

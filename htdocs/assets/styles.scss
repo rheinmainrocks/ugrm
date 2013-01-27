@@ -1,0 +1,63 @@
+@import "normalize.css";
+@import "font-awesome.css";
+@import "helpers";
+@import "colors";
+
+html {
+  background-color: $bg;
+  color: rgba($text, 0.85);
+}
+
+a {
+  color: $link;
+  text-decoration: none;
+}
+
+nav {
+  font-size: 0.8125em;
+  text-transform: uppercase;
+  a {
+    color: rgba($text, 0.5);
+  }
+  a:hover {
+    color: $text;
+  }
+}
+
+header {
+  position: relative;
+  h1 {
+    font-size: 0.8125em;
+    margin: 4em 0 2em 2em;
+  }
+  nav {
+    position: absolute;
+    right: 2em;
+    bottom: 2em;
+  }
+  border-bottom: 1px solid rgba($text, 0.2);
+}
+
+#left {
+  @extend .alignleft;
+  width: 25%;
+  padding: 2em;
+
+}
+
+#right {
+  @extend .alignleft;
+  width: 75%;
+  padding: 2em;
+}
+
+h2 {
+  font-size: 0.8125em;
+  margin-top: 0;
+}
+
+p, dl, div.description {
+  font-size: 0.8125em;
+}
+
+@import "responsive";
