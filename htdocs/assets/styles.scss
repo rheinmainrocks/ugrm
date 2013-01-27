@@ -60,4 +60,16 @@ p, dl, div.description {
   font-size: 0.8125em;
 }
 
+div.usergroup {
+  @extend .clearfix;
+  margin-bottom: 2em;
+  div.description {
+    img.logo {
+      @extend .alignright;
+      margin-left: 1em;
+      width: 25%;
+    }
+  }
+}
+
 @import "responsive";

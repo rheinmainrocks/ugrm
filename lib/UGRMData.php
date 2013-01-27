@@ -20,7 +20,6 @@ class UGRMData
         $usergroups = array();
         foreach (new IteratorIterator(new GlobIterator($this->dir->getPathname() . DIRECTORY_SEPARATOR . '*.xml')) as $file) {
             $usergroups[] = UsergroupFactory::fromXMLFile($file);
-
         }
         return $usergroups;
     }

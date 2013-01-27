@@ -4,15 +4,16 @@
 * {
   box-sizing: border-box; }
 
-.clearfix:before,
-.clearfix:after {
+.clearfix:before, div.usergroup:before,
+.clearfix:after,
+div.usergroup:after {
   content: "";
   display: table; }
 
-.clearfix:after {
+.clearfix:after, div.usergroup:after {
   clear: both; }
 
-.alignright {
+.alignright, div.usergroup div.description img.logo {
   float: right; }
 
 .alignleft, #left, #right {
@@ -60,5 +61,11 @@ h2 {
 
 p, dl, div.description {
   font-size: 0.8125em; }
+
+div.usergroup {
+  margin-bottom: 2em; }
+  div.usergroup div.description img.logo {
+    margin-left: 1em;
+    width: 25%; }
 
 /** Responsive Styles **/

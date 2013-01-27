@@ -7,7 +7,7 @@ spl_autoload_register(function ($classname) {
     require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . $classname . '.php';
 });
 
-$data = new UGRMData(new \SplFileInfo(dirname(__FILE__) .DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'usergroup'));
+$data = new UGRMData(new \SplFileInfo(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'usergroup'));
 
 
 ?><!doctype html>
@@ -46,15 +46,28 @@ $data = new UGRMData(new \SplFileInfo(dirname(__FILE__) .DIRECTORY_SEPARATOR . '
     <?php foreach ($data->listGroups() as $group): ?>
     <div class="usergroup">
         <h2><?php echo $group->name; ?></h2>
-        <div class="description"><?php echo $group->description; ?></div>
+
+        <div class="description">
+            <?php if ($group->logo): ?><a href="<?php echo $group->url; ?>"><img
+                src="/data/usergroup/<?php echo $group->logo; ?>" class="logo"></a><?php endif; ?>
+            <?php echo $group->description; ?>
+        </div>
         <dl>
             <dt>Homepage</dt>
             <dd><a href="<?php echo $group->url; ?>"><i class="icon-link"></i> <?php echo $group->url; ?></a></dd>
+            <?php if ($group->twitter || $group->hashtag): ?>
             <dt>Twitter</dt>
             <dd>
-                <a href="http://twitter.com/<?php echo substr($group->twitter, 1); ?>"><i class="icon-twitter"></i> <?php echo substr($group->twitter, 1); ?></a>
-                <a href="search.twitter.com/?q=%23<?php echo substr($group->hashtag, 1); ?>"><?php echo $group->hashtag; ?></a>
+                <?php if ($group->twitter): ?>
+                <a href="http://twitter.com/<?php echo substr($group->twitter, 1); ?>"><i
+                        class="icon-twitter"></i> <?php echo substr($group->twitter, 1); ?></a>
+                <?php endif; ?>
+                <?php if ($group->twitter && $group->hashtag): ?><br><?php endif; ?>
+                <?php if ($group->hashtag): ?>
+                <a href="search.twitter.com/?q=%23<?php echo urlencode(substr($group->hashtag, 1)); ?>"># <?php echo substr($group->hashtag, 1); ?></a>
+                <?php endif; ?>
             </dd>
+            <?php endif; ?>
         </dl>
     </div>
     <?php endforeach; ?>
