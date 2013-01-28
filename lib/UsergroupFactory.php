@@ -13,9 +13,18 @@ class UsergroupFactory
         $usergroup->nickname = strval($xml->nickname);
         $usergroup->url = strval($xml->url);
         $usergroup->description = strval($xml->description);
-        $usergroup->twitter = strval($xml->contact->twitter);
-        $usergroup->hashtag = strval($xml->contact->hashtag);
+        // Tags
         foreach ($xml->tags->tag as $tag) $usergroup->tags[] = strval($tag);
+        // Contact
+        static::setProps(array('twitter', 'hashtag'), $xml->contact, $usergroup, true);
+        if (property_exists($xml->contact, 'mailinglist')) {
+            foreach ($xml->contact->mailinglist as $m) {
+                $mailinglist = new Mailinglist();
+                static::setProps(array('url', 'label'), $m, $mailinglist);
+                static::setProps(array('description'), $m, $mailinglist, true);
+                $usergroup->mailinglists[] = $mailinglist;
+            }
+        }
 
         foreach (new IteratorIterator(new GlobIterator(dirname($xmlfile->getPathname()) . DIRECTORY_SEPARATOR . str_replace('.xml', '.*', $xmlfile->getFilename()))) as $infofile) {
             if (preg_match('/\.(logo|group)\.(gif|jpg|png)$/', $infofile->getFilename(), $match)) {

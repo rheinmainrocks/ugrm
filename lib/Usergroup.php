@@ -16,9 +16,26 @@ class Usergroup
      * @var string
      */
     public $nickname;
+
+    /**
+     * @var string[]
+     */
     public $tags = array();
+
+    /**
+     * @var string
+     */
     public $logo = false;
+
+    /**
+     * @var string
+     */
     public $group = false;
+
+    /**
+     * @var Mailinglist[]
+     */
+    public $mailinglists = array();
 
     /**
      * @var Meeting[]

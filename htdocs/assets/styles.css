@@ -106,5 +106,11 @@ article.usergroup {
     margin-bottom: 0.5em; }
     article.usergroup dl dd img.logo {
       width: 100%; }
+    article.usergroup dl dd ul, article.usergroup dl dd ol {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      article.usergroup dl dd ul li, article.usergroup dl dd ol li {
+        padding: 0; }
 
 /** Responsive Styles **/

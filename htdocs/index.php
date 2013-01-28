@@ -59,7 +59,9 @@ $l = function ($str) {
         <ul>
             <?php foreach ($meetings as $meeting): ?>
             <li>
-                <a href="/usergroup/<?php $e($meeting->usergroup->id); ?>"><time datetime="<?php echo $meeting->time->format(DATE_ATOM); ?>"><?php echo strftime('%a, %d. %B %Y, %H:%M Uhr', $meeting->time->format('U')); ?></time></a><br>Treffen der
+                <a href="/usergroup/<?php $e($meeting->usergroup->id); ?>">
+                    <time datetime="<?php echo $meeting->time->format(DATE_ATOM); ?>"><?php echo strftime('%a, %d. %B %Y, %H:%M Uhr', $meeting->time->format('U')); ?></time>
+                </a><br>Treffen der
                 <a href="/usergroup/<?php $e($meeting->usergroup->id); ?>"><abbr title="<?php $e($meeting->usergroup->name); ?>"><?php $e($meeting->usergroup->nickname); ?></abbr></a>
             </li>
             <?php endforeach; ?>
@@ -111,7 +113,6 @@ $l = function ($str) {
                         <?php endif; // $meeting->location ?>
                     </div>
                     <?php endif; ?>
-
             </div>
             <aside>
                 <dl>
@@ -123,6 +124,23 @@ $l = function ($str) {
                     <?php endif; ?>
                     <dt><i class="icon-link"></i> Homepage</dt>
                     <dd><a href="<?php echo $group->url; ?>"><?php echo $group->url; ?></a></dd>
+
+                    <?php if (count($group->mailinglists) > 0): ?>
+                    <dt>
+                        <i class="icon-envelope"></i> <?php echo count($group->mailinglists) > 1 ? 'Mailinglisten' : 'Mailingliste'; ?>
+                    </dt>
+                    <dd>
+                        <ol>
+                            <?php foreach ($group->mailinglists as $mailinglist): ?>
+                            <li>
+                                <a href="<?php $e($mailinglist->url); ?>"><?php $e($mailinglist->label); ?></a>
+                                <?php if ($mailinglist->description): ?><br><small><?php $e($mailinglist->description); ?></small><?php endif; ?>
+                            </li>
+                            <?php endforeach; ?>
+                        </ol>
+                    </dd>
+                    <?php endif; ?>
+
                     <?php if ($group->twitter || $group->hashtag): ?>
                     <dt><i class="icon-twitter"></i> Twitter</dt>
                     <dd>
