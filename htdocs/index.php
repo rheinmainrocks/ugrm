@@ -39,7 +39,7 @@ $m = function ($str) use ($markdownParser) {
     <meta name="author" content="Markus Tacker | http://coderbyheart.de/">
     <!-- See /humans.txt for more infos -->
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="/build/complete-min.20130128.css" type="text/css">
+    <link rel="stylesheet" href="/build/complete-min.<?php echo filemtime(__DIR__ . DIRECTORY_SEPARATOR . 'build' . DIRECTORY_SEPARATOR . 'complete-min.css'); ?>.css" type="text/css">
     <!--
     <link rel="stylesheet" href="/assets/styles.css" type="text/css">
     -->
@@ -155,17 +155,6 @@ $m = function ($str) use ($markdownParser) {
                     </dd>
                     <?php endif; ?>
 
-                    <?php if ($group->group): ?>
-                    <dt class="hidden">Gruppenfoto</dt>
-                    <dd class="showsingle">
-                        <img src="/data/usergroup/<?php echo $group->group; ?>" class="group" alt="<?php $e($group->name); ?>">
-                        <?php if ($group->group_credit): ?>
-                        <br>
-                        <small><?php $m($group->group_credit); ?></small>
-                        <?php endif; ?>
-                    </dd>
-                    <?php endif; ?>
-
                     <dt><i class="icon-link"></i> Homepage</dt>
                     <dd><a href="<?php echo $group->url; ?>"><?php echo $group->url; ?></a></dd>
 
@@ -195,6 +184,17 @@ $m = function ($str) use ($markdownParser) {
                         <?php if ($group->twitter && $group->hashtag): ?><br><?php endif; ?>
                         <?php if ($group->hashtag): ?>
                         <a href="https://twitter.com/search?q=%23<?php echo urlencode(substr($group->hashtag, 1)); ?>"># <?php echo substr($group->hashtag, 1); ?></a>
+                        <?php endif; ?>
+                    </dd>
+                    <?php endif; ?>
+
+                    <?php if ($group->group): ?>
+                    <dt>Gruppenfoto</dt>
+                    <dd class="showsingle">
+                        <img src="/data/usergroup/<?php echo $group->group; ?>" class="group" alt="<?php $e($group->name); ?>">
+                        <?php if ($group->group_credit): ?>
+                        <br>
+                        <small><?php $m($group->group_credit); ?></small>
                         <?php endif; ?>
                     </dd>
                     <?php endif; ?>

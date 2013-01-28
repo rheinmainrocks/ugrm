@@ -1,10 +1,10 @@
 Todo
  * Kalender mit den nächsten Treffen
  * Karte mit den nächsten Treffen
- * CSS Cache Buster automatisieren
  * Caching
 
 Done
  * Filter nach Tags
  * Alle Daten anzeigen
  * Detailansicht einer UG
+ * CSS Cache Buster automatisieren (Caching von filemtime?)
