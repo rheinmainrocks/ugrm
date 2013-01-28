@@ -1,6 +1,4 @@
 Todo
- * Alle Daten anzeigen
- * Detailansicht einer UG
  * Kalender mit den nächsten Treffen
  * Karte mit den nächsten Treffen
  * CSS Cache Buster automatisieren
@@ -8,3 +6,5 @@ Todo
 
 Done
  * Filter nach Tags
+ * Alle Daten anzeigen
+ * Detailansicht einer UG
