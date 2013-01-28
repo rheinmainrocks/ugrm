@@ -23,13 +23,14 @@ class UGRMData
         foreach (new IteratorIterator(new GlobIterator($this->dir->getPathname() . DIRECTORY_SEPARATOR . '*.xml')) as $file) {
             $ug = UsergroupFactory::fromXMLFile($file);
             if (isset($filter['tag']) && !in_array($filter['tag'], $ug->tags)) continue;
+            if (isset($filter['usergroup']) && $filter['usergroup'] != $ug->id) continue;
             $usergroups[] = $ug;
         }
         return $usergroups;
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getTags()
     {
@@ -48,6 +49,23 @@ class UGRMData
             );
         }
         return $tags;
+    }
+
+    /**
+     * @return Meeting[]
+     */
+    public function getMeetings()
+    {
+        $meetings = array();
+        $sort = array();
+        foreach ($this->listGroups() as $group) {
+            if ($meeting = $group->getFutureMeeting()) {
+                $meetings[] = $meeting;
+                $sort[] = $meeting->time->format('U');
+            }
+        }
+        array_multisort($sort, SORT_ASC, $meetings);
+        return $meetings;
     }
 
 }

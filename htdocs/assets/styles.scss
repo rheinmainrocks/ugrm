@@ -42,7 +42,27 @@ header {
   @extend .alignleft;
   width: 25%;
   padding: 2em;
-
+  a {
+    color: rgba($text, 0.5);
+  }
+  a:hover {
+    color: $text;
+  }
+  nav {
+    margin-bottom: 2em;
+  }
+  ul {
+    color: rgba($text, 0.5);
+    font-size: 0.75em;
+    padding: 0;
+    li {
+      list-style: none;
+      margin-bottom: 0.5em;
+    }
+    time {
+      text-transform: uppercase;
+    }
+  }
 }
 
 #right {

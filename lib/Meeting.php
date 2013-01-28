@@ -31,4 +31,9 @@ class Meeting
      * @var boolean
      */
     public $isPast;
+
+    /**
+     * @var Usergroup
+     */
+    public $usergroup;
 }

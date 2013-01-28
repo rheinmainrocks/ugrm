@@ -8,6 +8,7 @@ class UsergroupFactory
         $xml = simplexml_load_file($xmlfile->getPathname());
 
         $usergroup = new Usergroup();
+        $usergroup->id = str_replace('.xml', '', $xmlfile->getFilename());
         $usergroup->name = strval($xml->name);
         $usergroup->nickname = strval($xml->nickname);
         $usergroup->url = strval($xml->url);
@@ -31,6 +32,7 @@ class UsergroupFactory
             $sort = array();
             foreach ($xml->schedule->meeting as $m) {
                 $meeting = new Meeting();
+                $meeting->usergroup = $usergroup;
                 $meeting->time = new \DateTime(strval($m->time));
                 $meeting->isPast = $now->diff($meeting->time)->invert === 1;
                 $meeting->description = strval($m->description);

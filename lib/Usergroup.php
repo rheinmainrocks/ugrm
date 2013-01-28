@@ -5,6 +5,11 @@ class Usergroup
     /**
      * @var string
      */
+    public $id;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -19,4 +24,17 @@ class Usergroup
      * @var Meeting[]
      */
     public $meetings = array();
+
+    /**
+     * Gibt das nächste Meeting zurück
+     *
+     * @return Meeting|null
+     */
+    public function getFutureMeeting()
+    {
+        $futureMeetings = array_filter($this->meetings, function (Meeting $m) {
+            return !$m->isPast;
+        });
+        return count($futureMeetings) > 0 ? array_shift($futureMeetings) : null;
+    }
 }

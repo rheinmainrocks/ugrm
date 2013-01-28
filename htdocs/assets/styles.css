@@ -53,6 +53,21 @@ header {
 #left {
   width: 25%;
   padding: 2em; }
+  #left a {
+    color: rgba(76, 42, 50, 0.5); }
+  #left a:hover {
+    color: #4c2a32; }
+  #left nav {
+    margin-bottom: 2em; }
+  #left ul {
+    color: rgba(76, 42, 50, 0.5);
+    font-size: 0.75em;
+    padding: 0; }
+    #left ul li {
+      list-style: none;
+      margin-bottom: 0.5em; }
+    #left ul time {
+      text-transform: uppercase; }
 
 #right {
   width: 75%;
