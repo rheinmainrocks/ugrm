@@ -13,13 +13,17 @@ class UGRMData
     }
 
     /**
+     * @param array
      * @return Usergroup[]
      */
-    public function listGroups()
+    public function listGroups($filter = null)
     {
         $usergroups = array();
+        if ($filter === null) $filter = array();
         foreach (new IteratorIterator(new GlobIterator($this->dir->getPathname() . DIRECTORY_SEPARATOR . '*.xml')) as $file) {
-            $usergroups[] = UsergroupFactory::fromXMLFile($file);
+            $ug = UsergroupFactory::fromXMLFile($file);
+            if (isset($filter['tag']) && !in_array($filter['tag'], $ug->tags)) continue;
+            $usergroups[] = $ug;
         }
         return $usergroups;
     }

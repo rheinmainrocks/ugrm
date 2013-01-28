@@ -9,7 +9,13 @@ spl_autoload_register(function ($classname) {
     require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . $classname . '.php';
 });
 
+$req = substr(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), 1);
+$parts = explode('/', $req);
+
 $data = new UGRMData(new \SplFileInfo(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'usergroup'));
+$q = array();
+if ($parts[0] == 'tag' && isset($parts[1]) && !empty($parts[1])) $q['tag'] = $parts[1];
+$groups = $data->listGroups($q);
 
 $e = function ($str) {
     echo htmlspecialchars($str);
@@ -47,12 +53,12 @@ $l = function ($str) {
     <h2>Tags</h2>
     <nav class="tags">
         <?php foreach ($data->getTags() as $tag): ?>
-        <a href="/tag/<?php urlencode($tag['name']); ?>" data-count="<?php echo $tag['count']; ?>"><?php $e($tag['name']); ?></a>
+        <a href="/tag/<?php echo urlencode($tag['name']); ?>" data-count="<?php echo $tag['count']; ?>"><?php $e($tag['name']); ?></a>
         <?php endforeach; ?>
     </nav>
 </aside>
 <div id="right">
-    <?php foreach ($data->listGroups() as $group):
+    <?php foreach ($groups as $group):
 
     ?>
     <article class="usergroup">
