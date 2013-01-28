@@ -149,10 +149,6 @@ $m = function ($str) use ($markdownParser) {
                     <dt class="hidden">Logo</dt>
                     <dd>
                         <a href="<?php echo $group->url; ?>"><img src="/data/usergroup/<?php echo $group->logo; ?>" class="logo" alt="<?php $e($group->name); ?>" itemprop="logo"></a>
-                        <?php if ($group->logo_credit): ?>
-                        <br>
-                        <div class="small"><?php $m($group->logo_credit); ?></div>
-                        <?php endif; ?>
                     </dd>
                     <?php endif; ?>
 
@@ -193,13 +189,17 @@ $m = function ($str) use ($markdownParser) {
                     <dt class="showsingle">Gruppenfoto</dt>
                     <dd class="showsingle">
                         <img src="/data/usergroup/<?php echo $group->group; ?>" class="group" alt="<?php $e($group->name); ?>" itemprop="image">
-                        <?php if ($group->group_credit): ?>
-                        <br>
-                        <div class="small"><?php $m($group->group_credit); ?></div>
-                        <?php endif; ?>
                     </dd>
                     <?php endif; ?>
                 </dl>
+                <?php if($group->logo_credit || $group->group_credit): ?>
+                <?php if ($group->logo_credit): ?>
+                <div class="small showsingle"><?php $m($group->logo_credit); ?></div>
+                <?php endif; ?>
+                <?php if ($group->group_credit): ?>
+	        <div class="small showsingle"><?php $m($group->group_credit); ?></div>
+	        <?php endif; ?>
+	        <?php endif; ?>
             </aside>
         </article>
         <?php endforeach; ?>
