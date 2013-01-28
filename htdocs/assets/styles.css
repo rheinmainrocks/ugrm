@@ -1208,6 +1208,9 @@ h2 {
     font-weight: normal;
     color: rgba(76, 42, 50, 0.5); }
 
+div.small {
+  font-size: 0.875em; }
+
 h3 {
   margin-bottom: 0; }
 
@@ -1225,6 +1228,8 @@ article.usergroup {
     margin-bottom: 0.5em; }
     article.usergroup dl dd img.logo, article.usergroup dl dd img.group {
       width: 100%; }
+    article.usergroup dl dd img.group {
+      margin-top: 1em; }
     article.usergroup dl dd ul, article.usergroup dl dd ol {
       list-style: none;
       margin: 0;

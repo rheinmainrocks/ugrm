@@ -78,6 +78,10 @@ h2 {
   }
 }
 
+div.small {
+  font-size: 0.875em;
+}
+
 h3 {
   margin-bottom: 0;
 }
@@ -103,6 +107,9 @@ article.usergroup {
       margin-bottom: 0.5em;
       img.logo, img.group {
         width: 100%;
+      }
+      img.group {
+        margin-top: 1em;
       }
       ul, ol {
         list-style: none;
