@@ -1,5 +1,7 @@
 <?php
 
+setlocale(LC_ALL, $_SERVER['LOCALE']);
+
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', '1');
 
@@ -8,6 +10,14 @@ spl_autoload_register(function ($classname) {
 });
 
 $data = new UGRMData(new \SplFileInfo(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'usergroup'));
+
+$e = function ($str) {
+    echo htmlspecialchars($str);
+};
+
+$l = function ($str) {
+    echo parse_url($str, PHP_URL_HOST);
+}
 
 
 ?><!doctype html>
@@ -37,39 +47,84 @@ $data = new UGRMData(new \SplFileInfo(dirname(__FILE__) . DIRECTORY_SEPARATOR . 
     <h2>Tags</h2>
     <nav class="tags">
         <?php foreach ($data->getTags() as $tag): ?>
-        <a href="/tag/<?php echo $tag['name']; ?>"
-           data-count="<?php echo $tag['count']; ?>"><?php echo $tag['name']; ?></a>
+        <a href="/tag/<?php urlencode($tag['name']); ?>" data-count="<?php echo $tag['count']; ?>"><?php $e($tag['name']); ?></a>
         <?php endforeach; ?>
     </nav>
 </aside>
 <div id="right">
-    <?php foreach ($data->listGroups() as $group): ?>
-    <div class="usergroup">
-        <h2><?php echo $group->name; ?></h2>
+    <?php foreach ($data->listGroups() as $group):
 
+    ?>
+    <article class="usergroup">
         <div class="description">
-            <?php if ($group->logo): ?><a href="<?php echo $group->url; ?>"><img
-                src="/data/usergroup/<?php echo $group->logo; ?>" class="logo"></a><?php endif; ?>
-            <?php echo $group->description; ?>
+            <h2><?php $e($group->name); ?>
+                <small>(<?php $e($group->nickname); ?>)</small>
+            </h2>
+            <p><?php $e($group->description); ?></p>
+            <?php
+            $futureMeetings = array_filter($group->meetings, function (Meeting $m) {
+                return !$m->isPast;
+            });
+            /** @var Meeting $meeting */
+            if (count($futureMeetings) > 0): $meeting = array_shift($futureMeetings); ?>
+                <div itemscope itemtype="http://schema.org/Event" class="event">
+                    <h3><i class="icon-calendar"></i> Nächster
+                        Termin:<br><span itemprop="description"><?php $e($meeting->description); ?></span> <?php echo strftime('am %A, %d. %B %Y um %H:%M Uhr', $meeting->time->format('U')); ?>
+                    </h3>
+                    <?php if ($meeting->url): ?>
+                    <p>Details unter
+                        <a href="<?php echo $meeting->url; ?>" itemprop="url"><?php $l($meeting->url); ?></a>
+                    </p>
+                    <?php endif; ?>
+                    <span class="hidden" itemprop="name">Treffen der <?php $e($group->nickname); ?>
+                        <time datetime="<?php echo $meeting->time->format(DATE_ATOM); ?>" itemprop="startDate"><?php echo strftime('am %A, %d. %B %Y um %H:%M Uhr', $meeting->time->format('U')); ?></time>
+                    </span>
+                    <?php if ($meeting->location): ?>
+                    <h3><i class="icon-map-marker"></i> Ort</h3>
+                    <p itemprop="location" itemscope itemtype="http://schema.org/PostalAddress">
+                        <?php if ($meeting->location->url): ?><a href="<?php echo $meeting->location->url; ?>" itemprop="url"><?php endif; ?>
+                    <span itemprop="name"><?php $e($meeting->location->name); ?></span>
+                        <?php if ($meeting->location->url): ?></a><?php endif; ?>
+                        <br>
+                        <a href="https://maps.google.com/maps?q=<?php echo urlencode(sprintf("%s, %d %s, %s, %s (%s)", $meeting->location->street, $meeting->location->zip, $meeting->location->city, $meeting->location->region, $meeting->location->country, $meeting->location->name)); ?>">
+                            <span itemprop="streetAddress"><?php $e($meeting->location->street); ?></span>,
+                            <span itemprop="postalCode"><?php $e($meeting->location->zip); ?></span>
+                            <span itemprop="addressLocality"><?php $e($meeting->location->city); ?></span>
+                            <span itemprop="addressRegion" class="hidden"><?php $e($meeting->location->region); ?></span>
+                            <span itemprop="addressCountry" class="hidden"><?php $e($meeting->location->country); ?></span>
+                        </a>
+                    </p>
+                    <?php endif; // $meeting->location ?>
+                </div>
+                <?php endif; ?>
+
         </div>
-        <dl>
-            <dt>Homepage</dt>
-            <dd><a href="<?php echo $group->url; ?>"><i class="icon-link"></i> <?php echo $group->url; ?></a></dd>
-            <?php if ($group->twitter || $group->hashtag): ?>
-            <dt>Twitter</dt>
-            <dd>
-                <?php if ($group->twitter): ?>
-                <a href="http://twitter.com/<?php echo substr($group->twitter, 1); ?>"><i
-                        class="icon-twitter"></i> <?php echo substr($group->twitter, 1); ?></a>
+        <aside>
+            <dl>
+                <?php if ($group->logo): ?>
+                <dt class="hidden">Logo</dt>
+                <dd>
+                    <a href="<?php echo $group->url; ?>"><img src="/data/usergroup/<?php echo $group->logo; ?>" class="logo" alt="<?php $e($group->name); ?>"></a>
+                </dd>
                 <?php endif; ?>
-                <?php if ($group->twitter && $group->hashtag): ?><br><?php endif; ?>
-                <?php if ($group->hashtag): ?>
-                <a href="https://twitter.com/search?q=%23<?php echo urlencode(substr($group->hashtag, 1)); ?>"># <?php echo substr($group->hashtag, 1); ?></a>
+                <dt><i class="icon-link"></i> Homepage</dt>
+                <dd><a href="<?php echo $group->url; ?>"><?php echo $group->url; ?></a></dd>
+                <?php if ($group->twitter || $group->hashtag): ?>
+                <dt><i class="icon-twitter"></i> Twitter</dt>
+                <dd>
+                    <?php if ($group->twitter): ?>
+                    <a href="http://twitter.com/<?php echo substr($group->twitter, 1); ?>"><?php echo $group->twitter; ?>
+                    </a>
+                    <?php endif; ?>
+                    <?php if ($group->twitter && $group->hashtag): ?><br><?php endif; ?>
+                    <?php if ($group->hashtag): ?>
+                    <a href="https://twitter.com/search?q=%23<?php echo urlencode(substr($group->hashtag, 1)); ?>"># <?php echo substr($group->hashtag, 1); ?></a>
+                    <?php endif; ?>
+                </dd>
                 <?php endif; ?>
-            </dd>
-            <?php endif; ?>
-        </dl>
-    </div>
+            </dl>
+        </aside>
+    </article>
     <?php endforeach; ?>
 </div>
 </body>

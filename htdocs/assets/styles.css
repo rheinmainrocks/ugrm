@@ -4,20 +4,23 @@
 * {
   box-sizing: border-box; }
 
-.clearfix:before, div.usergroup:before,
+.clearfix:before, article.usergroup:before,
 .clearfix:after,
-div.usergroup:after {
+article.usergroup:after {
   content: "";
   display: table; }
 
-.clearfix:after, div.usergroup:after {
+.clearfix:after, article.usergroup:after {
   clear: both; }
 
-.alignright, div.usergroup div.description img.logo {
+.alignright {
   float: right; }
 
-.alignleft, #left, #right {
+.alignleft, #left, #right, article.usergroup div.description, article.usergroup aside {
   float: left; }
+
+.hidden {
+  display: none; }
 
 /** Colors **/
 html {
@@ -44,7 +47,7 @@ header {
     margin: 4em 0 2em 2em; }
   header nav {
     position: absolute;
-    right: 2em;
+    right: 4em;
     bottom: 2em; }
 
 #left {
@@ -57,15 +60,36 @@ header {
 
 h2 {
   font-size: 0.8125em;
+  margin-top: 0;
+  text-transform: uppercase; }
+  h2 small {
+    font-size: 1em;
+    font-weight: normal;
+    color: rgba(76, 42, 50, 0.5); }
+
+h3 {
+  font-size: 0.8125em;
+  margin-bottom: 0; }
+
+h3 + p {
   margin-top: 0; }
 
-p, dl, div.description {
+p, dl {
   font-size: 0.8125em; }
 
-div.usergroup {
+article.usergroup {
   margin-bottom: 2em; }
-  div.usergroup div.description img.logo {
-    margin-left: 1em;
+  article.usergroup div.description {
+    width: 75%;
+    padding-right: 4em; }
+  article.usergroup aside {
     width: 25%; }
+  article.usergroup dl dt {
+    font-weight: bold; }
+  article.usergroup dl dd {
+    margin-left: 0;
+    margin-bottom: 0.5em; }
+    article.usergroup dl dd img.logo {
+      width: 100%; }
 
 /** Responsive Styles **/
