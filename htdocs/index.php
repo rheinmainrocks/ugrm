@@ -50,6 +50,8 @@ $m = function ($str) use ($markdownParser) {
         <a href="/" rel="index"><img src="/build/logo.png" alt="UGRM &ndash; Usergroups RheinMain"></a>
     </h1>
     <nav>
+	<a href="http://coderbyheart.de/blog/usergroups-rheinmain">Was ist das?</a>
+	&middot;
         <a href="http://github.com/tacker/ugrm-data/">Eintrag bearbeiten</a>
     </nav>
 </header>
