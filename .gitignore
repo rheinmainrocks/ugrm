@@ -3,3 +3,4 @@
 htdocs/data
 htdocs/assets/.listen_test
 vendor
+composer.phar
