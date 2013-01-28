@@ -190,7 +190,7 @@ $m = function ($str) use ($markdownParser) {
                     <?php endif; ?>
 
                     <?php if ($group->group): ?>
-                    <dt>Gruppenfoto</dt>
+                    <dt class="showsingle">Gruppenfoto</dt>
                     <dd class="showsingle">
                         <img src="/data/usergroup/<?php echo $group->group; ?>" class="group" alt="<?php $e($group->name); ?>" itemprop="image">
                         <?php if ($group->group_credit): ?>
