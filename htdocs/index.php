@@ -103,7 +103,7 @@ $m = function ($str) use ($markdownParser) {
                             <a href="<?php echo $meeting->url; ?>" itemprop="url"><?php $l($meeting->url); ?></a>
                         </p>
                         <?php endif; ?>
-                        <span class="hidden" itemprop="name">Treffen der <?php $e($group->nickname); ?>
+                        <span class="hidden" itemprop="name">Treffen der <abbr title="<?php $e($group->name); ?>"><?php $e($group->nickname); ?></abbr>
                             <time datetime="<?php echo $meeting->time->format(DATE_ATOM); ?>" itemprop="startDate"><?php echo strftime('am %A, %d. %B %Y um %H:%M Uhr', $meeting->time->format('U')); ?></time>
                     </span>
                         <?php if ($meeting->location): ?>
@@ -131,7 +131,7 @@ $m = function ($str) use ($markdownParser) {
                 <div class="showsingle">
                     <h3><i class="icon-heart"></i> Sponsoren</h3>
 
-                    <p>Die <?php $e($group->nickname); ?> dankt ihren Sponsoren:</p>
+                    <p>Die <abbr title="<?php $e($group->name); ?>"><?php $e($group->nickname); ?></abbr> dankt ihren Sponsoren:</p>
                     <ul>
                         <?php foreach ($group->sponsors as $sponsor): ?>
                         <li>
