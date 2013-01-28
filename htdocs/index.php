@@ -83,18 +83,18 @@ $m = function ($str) use ($markdownParser) {
     $groups = $data->listGroups($q);
     $single = count($groups) === 1;
     foreach ($groups as $group): ?>
-        <article class="usergroup <?php if ($single): ?>single<?php endif; ?>">
+        <article class="usergroup <?php if ($single): ?>single<?php endif; ?>" itemscope itemtype="http://schema.org/Organization">
             <div class="description">
-                <h2><a href="/usergroup/<?php $e($group->id); ?>"><?php $e($group->name); ?></a>
+                <h2><a href="/usergroup/<?php $e($group->id); ?>" itemprop="name"><?php $e($group->name); ?></a>
                     <small>(<?php $e($group->nickname); ?>)</small>
                 </h2>
 
-                <p><?php $e($group->description); ?></p>
+                <p itemprop="description"><?php $e($group->description); ?></p>
 
                 <?php
                 $meeting = $group->getFutureMeeting();
                 if ($meeting): ?>
-                    <div itemscope itemtype="http://schema.org/Event" class="event">
+                    <div itemscope itemtype="http://schema.org/Event" class="event" itemprop="event">
                         <h3><i class="icon-calendar"></i> Nächster
                             Termin:<br><span itemprop="description"><?php $e($meeting->description); ?></span> <?php echo strftime('am %A, %d. %B %Y um %H:%M Uhr', $meeting->time->format('U')); ?>
                         </h3>
@@ -131,7 +131,8 @@ $m = function ($str) use ($markdownParser) {
                 <div class="showsingle">
                     <h3><i class="icon-heart"></i> Sponsoren</h3>
 
-                    <p>Die <abbr title="<?php $e($group->name); ?>"><?php $e($group->nickname); ?></abbr> dankt ihren Sponsoren:</p>
+                    <p>Die <abbr title="<?php $e($group->name); ?>"><?php $e($group->nickname); ?></abbr> dankt ihren
+                        Sponsoren:</p>
                     <ul>
                         <?php foreach ($group->sponsors as $sponsor): ?>
                         <li>
@@ -147,7 +148,7 @@ $m = function ($str) use ($markdownParser) {
                     <?php if ($group->logo): ?>
                     <dt class="hidden">Logo</dt>
                     <dd>
-                        <a href="<?php echo $group->url; ?>"><img src="/data/usergroup/<?php echo $group->logo; ?>" class="logo" alt="<?php $e($group->name); ?>"></a>
+                        <a href="<?php echo $group->url; ?>"><img src="/data/usergroup/<?php echo $group->logo; ?>" class="logo" alt="<?php $e($group->name); ?>" itemprop="logo"></a>
                         <?php if ($group->logo_credit): ?>
                         <br>
                         <small><?php $m($group->logo_credit); ?></small>
@@ -156,7 +157,7 @@ $m = function ($str) use ($markdownParser) {
                     <?php endif; ?>
 
                     <dt><i class="icon-link"></i> Homepage</dt>
-                    <dd><a href="<?php echo $group->url; ?>"><?php echo $group->url; ?></a></dd>
+                    <dd><a href="<?php echo $group->url; ?>" itemprop="url"><?php echo $group->url; ?></a></dd>
 
                     <?php if (count($group->mailinglists) > 0): ?>
                     <dt>
@@ -191,7 +192,7 @@ $m = function ($str) use ($markdownParser) {
                     <?php if ($group->group): ?>
                     <dt>Gruppenfoto</dt>
                     <dd class="showsingle">
-                        <img src="/data/usergroup/<?php echo $group->group; ?>" class="group" alt="<?php $e($group->name); ?>">
+                        <img src="/data/usergroup/<?php echo $group->group; ?>" class="group" alt="<?php $e($group->name); ?>" itemprop="image">
                         <?php if ($group->group_credit): ?>
                         <br>
                         <small><?php $m($group->group_credit); ?></small>
@@ -203,5 +204,11 @@ $m = function ($str) use ($markdownParser) {
         </article>
         <?php endforeach; ?>
 </div>
+<footer>
+    <p><a href="/" rel="index">Usergroups RheinMain</a> ist ein Projekt von <a href="http://tckr.cc" rel="author">Markus
+        Tacker</a>.</p>
+
+    <p>Der Quellcode für dieses Projekt <a href="http://github.com/tacker/ugrm">findet sich auf GitHub</a>.</p>
+</footer>
 </body>
 </html>

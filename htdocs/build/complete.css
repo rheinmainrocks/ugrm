@@ -1235,6 +1235,18 @@ article.usergroup {
 article.usergroup.single .showsingle {
   display: block; }
 
+footer {
+  font-size: 0.875em;
+  color: rgba(76, 42, 50, 0.5);
+  font-size: 0.875em;
+  text-align: center;
+  margin-bottom: 1em; }
+  footer a {
+    color: rgba(76, 42, 50, 0.5);
+    text-decoration: underline; }
+  footer p {
+    margin: 0; }
+
 /** Responsive Styles **/
 @media screen and (min-width: 480px) {
   header {
