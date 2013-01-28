@@ -25,14 +25,14 @@ article.usergroup:after {
 /** Colors **/
 html {
   background-color: #fafafa;
-  color: rgba(76, 42, 50, 0.85); }
+  color: rgba(76, 42, 50, 0.85);
+  font-size: 0.8125em; }
 
 a {
   color: #4b967e;
   text-decoration: none; }
 
 nav {
-  font-size: 0.8125em;
   text-transform: uppercase; }
   nav a {
     color: rgba(76, 42, 50, 0.5); }
@@ -43,7 +43,6 @@ header {
   position: relative;
   border-bottom: 1px solid rgba(76, 42, 50, 0.2); }
   header h1 {
-    font-size: 0.8125em;
     margin: 4em 0 2em 2em; }
   header nav {
     position: absolute;
@@ -61,7 +60,6 @@ header {
     margin-bottom: 2em; }
   #left ul {
     color: rgba(76, 42, 50, 0.5);
-    font-size: 0.75em;
     padding: 0; }
     #left ul li {
       list-style: none;
@@ -73,8 +71,10 @@ header {
   width: 75%;
   padding: 2em; }
 
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1em; }
+
 h2 {
-  font-size: 0.8125em;
   margin-top: 0;
   text-transform: uppercase; }
   h2 small {
@@ -83,14 +83,10 @@ h2 {
     color: rgba(76, 42, 50, 0.5); }
 
 h3 {
-  font-size: 0.8125em;
   margin-bottom: 0; }
 
 h3 + p {
   margin-top: 0; }
-
-p, dl {
-  font-size: 0.8125em; }
 
 article.usergroup {
   margin-bottom: 2em; }

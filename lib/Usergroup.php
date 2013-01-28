@@ -38,6 +38,11 @@ class Usergroup
     public $mailinglists = array();
 
     /**
+     * @var Sponsor[]
+     */
+    public $sponsors = array();
+
+    /**
      * @var Meeting[]
      */
     public $meetings = array();

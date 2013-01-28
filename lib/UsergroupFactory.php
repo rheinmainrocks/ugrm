@@ -25,6 +25,14 @@ class UsergroupFactory
                 $usergroup->mailinglists[] = $mailinglist;
             }
         }
+        // Sponsors
+        if (property_exists($xml, 'sponsors')) {
+            foreach ($xml->sponsors->sponsor as $s) {
+                $sponsor = new Sponsor();
+                static::setProps(array('url', 'name'), $s, $sponsor);
+                $usergroup->sponsors[] = $sponsor;
+            }
+        }
 
         foreach (new IteratorIterator(new GlobIterator(dirname($xmlfile->getPathname()) . DIRECTORY_SEPARATOR . str_replace('.xml', '.*', $xmlfile->getFilename()))) as $infofile) {
             if (preg_match('/\.(logo|group)\.(gif|jpg|png)$/', $infofile->getFilename(), $match)) {

@@ -6,6 +6,7 @@
 html {
   background-color: $bg;
   color: rgba($text, 0.85);
+  font-size: 0.8125em;
 }
 
 a {
@@ -14,7 +15,6 @@ a {
 }
 
 nav {
-  font-size: 0.8125em;
   text-transform: uppercase;
   a {
     color: rgba($text, 0.5);
@@ -27,7 +27,6 @@ nav {
 header {
   position: relative;
   h1 {
-    font-size: 0.8125em;
     margin: 4em 0 2em 2em;
   }
   nav {
@@ -53,7 +52,6 @@ header {
   }
   ul {
     color: rgba($text, 0.5);
-    font-size: 0.75em;
     padding: 0;
     li {
       list-style: none;
@@ -71,8 +69,11 @@ header {
   padding: 2em;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1em;
+}
+
 h2 {
-  font-size: 0.8125em;
   margin-top: 0;
   text-transform: uppercase;
   small {
@@ -83,16 +84,11 @@ h2 {
 }
 
 h3 {
-  font-size: 0.8125em;
   margin-bottom: 0;
 }
 
 h3 + p {
   margin-top: 0;
-}
-
-p, dl {
-  font-size: 0.8125em;
 }
 
 article.usergroup {

@@ -113,6 +113,17 @@ $l = function ($str) {
                         <?php endif; // $meeting->location ?>
                     </div>
                     <?php endif; ?>
+                <?php if (count($group->sponsors) > 0): ?>
+                <h3><i class="icon-heart"></i> Sponsoren</h3>
+                <p>Die <?php $e($group->nickname); ?> dankt ihren Sponsoren:</p>
+                <ul>
+                    <?php foreach ($group->sponsors as $sponsor): ?>
+                    <li>
+                        <a href="<?php $e($sponsor->url); ?>"><?php $e($sponsor->name); ?></a>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+                <?php endif; ?>
             </div>
             <aside>
                 <dl>
