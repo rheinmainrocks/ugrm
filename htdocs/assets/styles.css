@@ -1145,7 +1145,7 @@ article.usergroup:after {
 .alignright {
   float: right; }
 
-.alignleft, #left, #right, article.usergroup div.description, article.usergroup aside {
+.alignleft {
   float: left; }
 
 .hidden, article.usergroup .showsingle, article.usergroup.single .hidesingle {
@@ -1172,15 +1172,13 @@ header {
   position: relative;
   border-bottom: 1px solid rgba(76, 42, 50, 0.2); }
   header h1 {
-    margin: 4em 0 2em 2em; }
+    margin: 2em 0 1em 1em; }
   header nav {
     position: absolute;
-    right: 4em;
-    bottom: 2em; }
+    display: none; }
 
 #left {
-  width: 25%;
-  padding: 2em; }
+  padding: 1em; }
   #left a {
     color: rgba(76, 42, 50, 0.5); }
   #left a:hover {
@@ -1197,8 +1195,7 @@ header {
       text-transform: uppercase; }
 
 #right {
-  width: 75%;
-  padding: 2em; }
+  padding: 1em; }
 
 h1, h2, h3, h4, h5, h6 {
   font-size: 1em; }
@@ -1221,11 +1218,6 @@ article.usergroup {
   margin-bottom: 2em; }
   article.usergroup h2 a {
     color: #4c2a32; }
-  article.usergroup div.description {
-    width: 75%;
-    padding-right: 4em; }
-  article.usergroup aside {
-    width: 25%; }
   article.usergroup dl dt {
     font-weight: bold; }
   article.usergroup dl dd {
@@ -1242,9 +1234,37 @@ article.usergroup {
 
 article.usergroup.single .showsingle {
   display: block; }
-article.usergroup.single div.description {
-  width: 60%; }
-article.usergroup.single aside {
-  width: 40%; }
 
 /** Responsive Styles **/
+@media screen and (min-width: 480px) {
+  header {
+    border-bottom: 1px solid rgba(76, 42, 50, 0.2); }
+    header h1 {
+      margin: 4em 0 2em 2em; }
+    header nav {
+      right: 4em;
+      bottom: 2em;
+      display: block; }
+
+  #right {
+    float: left;
+    width: 75%;
+    padding: 2em; }
+
+  #left {
+    float: left;
+    width: 25%;
+    padding: 2em; } }
+@media screen and (min-width: 768px) {
+  article.usergroup div.description {
+    float: left;
+    width: 75%;
+    padding-right: 4em; }
+  article.usergroup aside {
+    float: left;
+    width: 25%; }
+
+  article.usergroup.single div.description {
+    width: 60%; }
+  article.usergroup.single aside {
+    width: 40%; } }

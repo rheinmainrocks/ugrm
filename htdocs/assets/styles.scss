@@ -27,20 +27,17 @@ nav {
 header {
   position: relative;
   h1 {
-    margin: 4em 0 2em 2em;
+    margin: 2em 0 1em 1em;
   }
   nav {
     position: absolute;
-    right: 4em;
-    bottom: 2em;
+    display: none;
   }
   border-bottom: 1px solid rgba($text, 0.2);
 }
 
 #left {
-  @extend .alignleft;
-  width: 25%;
-  padding: 2em;
+  padding: 1em;
   a {
     color: rgba($text, 0.5);
   }
@@ -64,9 +61,7 @@ header {
 }
 
 #right {
-  @extend .alignleft;
-  width: 75%;
-  padding: 2em;
+  padding: 1em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -99,15 +94,6 @@ article.usergroup {
       color: $text;
     }
   }
-  div.description {
-    @extend .alignleft;
-    width: 75%;
-    padding-right: 4em;
-  }
-  aside {
-    @extend .alignleft;
-    width: 25%;
-  }
   dl {
     dt {
       font-weight: bold;
@@ -132,18 +118,13 @@ article.usergroup {
     @extend .hidden;
   }
 }
+
 article.usergroup.single {
   .showsingle {
     display: block;
   }
   .hidesingle {
     @extend .hidden;
-  }
-  div.description {
-    width: 60%;
-  }
-  aside {
-    width: 40%;
   }
 }
 
