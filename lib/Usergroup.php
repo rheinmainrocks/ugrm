@@ -33,6 +33,16 @@ class Usergroup
     public $group = false;
 
     /**
+     * @var string
+     */
+    public $logo_credit;
+
+    /**
+     * @var string
+     */
+    public $group_credit;
+
+    /**
      * @var Mailinglist[]
      */
     public $mailinglists = array();

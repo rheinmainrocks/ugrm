@@ -19,7 +19,7 @@ article.usergroup:after {
 .alignleft, #left, #right, article.usergroup div.description, article.usergroup aside {
   float: left; }
 
-.hidden {
+.hidden, article.usergroup .showsingle, article.usergroup.single .hidesingle {
   display: none; }
 
 /** Colors **/
@@ -90,6 +90,8 @@ h3 + p {
 
 article.usergroup {
   margin-bottom: 2em; }
+  article.usergroup h2 a {
+    color: #4c2a32; }
   article.usergroup div.description {
     width: 75%;
     padding-right: 4em; }
@@ -100,7 +102,7 @@ article.usergroup {
   article.usergroup dl dd {
     margin-left: 0;
     margin-bottom: 0.5em; }
-    article.usergroup dl dd img.logo {
+    article.usergroup dl dd img.logo, article.usergroup dl dd img.group {
       width: 100%; }
     article.usergroup dl dd ul, article.usergroup dl dd ol {
       list-style: none;
@@ -108,5 +110,12 @@ article.usergroup {
       padding: 0; }
       article.usergroup dl dd ul li, article.usergroup dl dd ol li {
         padding: 0; }
+
+article.usergroup.single .showsingle {
+  display: block; }
+article.usergroup.single div.description {
+  width: 60%; }
+article.usergroup.single aside {
+  width: 40%; }
 
 /** Responsive Styles **/

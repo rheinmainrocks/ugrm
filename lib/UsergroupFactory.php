@@ -34,11 +34,16 @@ class UsergroupFactory
             }
         }
 
+        // Photos
         foreach (new IteratorIterator(new GlobIterator(dirname($xmlfile->getPathname()) . DIRECTORY_SEPARATOR . str_replace('.xml', '.*', $xmlfile->getFilename()))) as $infofile) {
             if (preg_match('/\.(logo|group)\.(gif|jpg|png)$/', $infofile->getFilename(), $match)) {
                 if ($match[1] == 'logo') $usergroup->logo = $infofile->getFilename();
                 if ($match[1] == 'group') $usergroup->group = $infofile->getFilename();
             }
+        }
+        if (property_exists($xml, 'photocredits')) {
+            if (property_exists($xml->photocredits, 'logo')) $usergroup->logo_credit = $xml->photocredits->logo;
+            if (property_exists($xml->photocredits, 'group')) $usergroup->group_credit = $xml->photocredits->group;
         }
 
         // Meetings

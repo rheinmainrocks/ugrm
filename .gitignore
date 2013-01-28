@@ -2,3 +2,4 @@
 .sass-cache
 htdocs/data
 htdocs/assets/.listen_test
+vendor

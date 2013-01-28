@@ -1,18 +1,21 @@
 <?php
 
+use dflydev\markdown\MarkdownParser;
+
 setlocale(LC_ALL, $_SERVER['LOCALE']);
 
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', '1');
 
+require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 spl_autoload_register(function ($classname) {
-    require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . $classname . '.php';
+    require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . $classname . '.php';
 });
 
 $req = substr(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), 1);
 $parts = explode('/', $req);
 
-$data = new UGRMData(new \SplFileInfo(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'usergroup'));
+$data = new UGRMData(new \SplFileInfo(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'usergroup'));
 
 $e = function ($str) {
     echo htmlspecialchars($str);
@@ -20,8 +23,12 @@ $e = function ($str) {
 
 $l = function ($str) {
     echo parse_url($str, PHP_URL_HOST);
-}
+};
 
+$markdownParser = new MarkdownParser();
+$m = function ($str) use ($markdownParser) {
+    echo $markdownParser->transformMarkdown($str);
+};
 
 ?><!doctype html>
 <html lang="de-de">
@@ -73,13 +80,17 @@ $l = function ($str) {
     $q = array();
     if ($parts[0] == 'tag' && isset($parts[1]) && !empty($parts[1])) $q['tag'] = $parts[1];
     if ($parts[0] == 'usergroup' && isset($parts[1]) && !empty($parts[1])) $q['usergroup'] = $parts[1];
-    foreach ($data->listGroups($q) as $group): ?>
-        <article class="usergroup">
+    $groups = $data->listGroups($q);
+    $single = count($groups) === 1;
+    foreach ($groups as $group): ?>
+        <article class="usergroup <?php if ($single): ?>single<?php endif; ?>">
             <div class="description">
-                <h2><?php $e($group->name); ?>
+                <h2><a href="/usergroup/<?php $e($group->id); ?>"><?php $e($group->name); ?></a>
                     <small>(<?php $e($group->nickname); ?>)</small>
                 </h2>
+
                 <p><?php $e($group->description); ?></p>
+
                 <?php
                 $meeting = $group->getFutureMeeting();
                 if ($meeting): ?>
@@ -113,16 +124,22 @@ $l = function ($str) {
                         <?php endif; // $meeting->location ?>
                     </div>
                     <?php endif; ?>
+
+                <p class="hidesingle"><a href="/usergroup/<?php $e($group->id); ?>">Details …</a></p>
+
                 <?php if (count($group->sponsors) > 0): ?>
-                <h3><i class="icon-heart"></i> Sponsoren</h3>
-                <p>Die <?php $e($group->nickname); ?> dankt ihren Sponsoren:</p>
-                <ul>
-                    <?php foreach ($group->sponsors as $sponsor): ?>
-                    <li>
-                        <a href="<?php $e($sponsor->url); ?>"><?php $e($sponsor->name); ?></a>
-                    </li>
-                    <?php endforeach; ?>
-                </ul>
+                <div class="showsingle">
+                    <h3><i class="icon-heart"></i> Sponsoren</h3>
+
+                    <p>Die <?php $e($group->nickname); ?> dankt ihren Sponsoren:</p>
+                    <ul>
+                        <?php foreach ($group->sponsors as $sponsor): ?>
+                        <li>
+                            <a href="<?php $e($sponsor->url); ?>"><?php $e($sponsor->name); ?></a>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
                 <?php endif; ?>
             </div>
             <aside>
@@ -131,8 +148,24 @@ $l = function ($str) {
                     <dt class="hidden">Logo</dt>
                     <dd>
                         <a href="<?php echo $group->url; ?>"><img src="/data/usergroup/<?php echo $group->logo; ?>" class="logo" alt="<?php $e($group->name); ?>"></a>
+                        <?php if ($group->logo_credit): ?>
+                        <br>
+                        <small><?php $m($group->logo_credit); ?></small>
+                        <?php endif; ?>
                     </dd>
                     <?php endif; ?>
+
+                    <?php if ($group->group): ?>
+                    <dt class="hidden">Gruppenfoto</dt>
+                    <dd class="showsingle">
+                        <img src="/data/usergroup/<?php echo $group->group; ?>" class="group" alt="<?php $e($group->name); ?>">
+                        <?php if ($group->group_credit): ?>
+                        <br>
+                        <small><?php $m($group->group_credit); ?></small>
+                        <?php endif; ?>
+                    </dd>
+                    <?php endif; ?>
+
                     <dt><i class="icon-link"></i> Homepage</dt>
                     <dd><a href="<?php echo $group->url; ?>"><?php echo $group->url; ?></a></dd>
 

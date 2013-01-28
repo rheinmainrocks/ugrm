@@ -94,6 +94,11 @@ h3 + p {
 article.usergroup {
   @extend .clearfix;
   margin-bottom: 2em;
+  h2 {
+    a {
+      color: $text;
+    }
+  }
   div.description {
     @extend .alignleft;
     width: 75%;
@@ -110,7 +115,7 @@ article.usergroup {
     dd {
       margin-left: 0;
       margin-bottom: 0.5em;
-      img.logo {
+      img.logo, img.group {
         width: 100%;
       }
       ul, ol {
@@ -122,6 +127,23 @@ article.usergroup {
         }
       }
     }
+  }
+  .showsingle {
+    @extend .hidden;
+  }
+}
+article.usergroup.single {
+  .showsingle {
+    display: block;
+  }
+  .hidesingle {
+    @extend .hidden;
+  }
+  div.description {
+    width: 60%;
+  }
+  aside {
+    width: 40%;
   }
 }
 
