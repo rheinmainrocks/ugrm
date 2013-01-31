@@ -110,7 +110,17 @@ article.usergroup {
     dd {
       margin-left: 0;
       margin-bottom: 0.5em;
-      img.logo, img.group {
+      img.logo.landscape {
+        width: 100%;
+        max-height: 250px;
+      }
+      img.logo.portrait{
+        width: 50%;
+        max-width: 350px;
+        float: right;
+        margin-left: 1em;
+      }
+      img.group {
         width: 100%;
       }
       img.group {

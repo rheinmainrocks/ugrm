@@ -167,7 +167,7 @@ $nick = function (Usergroup $group) use ($e) {
                     <?php if ($group->logo): ?>
                     <dt class="hidden">Logo</dt>
                     <dd>
-                        <a href="<?php echo $group->url; ?>"><img src="/data/usergroup/<?php echo $group->logo; ?>" class="logo" alt="<?php $e($group->name); ?>" itemprop="logo"></a>
+                        <a href="<?php echo $group->url; ?>"><img src="/data/usergroup/<?php echo $group->logo; ?>" class="logo <?php echo $group->logo_size[0] > $group->logo_size[1] ? 'landscape' : 'portrait'; ?>" alt="<?php $e($group->name); ?>" itemprop="logo"></a>
                     </dd>
                     <?php endif; ?>
 

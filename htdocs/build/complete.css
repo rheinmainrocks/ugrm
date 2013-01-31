@@ -1228,7 +1228,15 @@ article.usergroup {
   article.usergroup dl dd {
     margin-left: 0;
     margin-bottom: 0.5em; }
-    article.usergroup dl dd img.logo, article.usergroup dl dd img.group {
+    article.usergroup dl dd img.logo.landscape {
+      width: 100%;
+      max-height: 250px; }
+    article.usergroup dl dd img.logo.portrait {
+      width: 50%;
+      max-width: 350px;
+      float: right;
+      margin-left: 1em; }
+    article.usergroup dl dd img.group {
       width: 100%; }
     article.usergroup dl dd img.group {
       margin-top: 1em; }
