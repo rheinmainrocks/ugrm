@@ -10,9 +10,9 @@ class UsergroupFactory
         $usergroup = new Usergroup();
         $usergroup->id = str_replace('.xml', '', $xmlfile->getFilename());
         $usergroup->name = strval($xml->name);
-        $usergroup->nickname = strval($xml->nickname);
         $usergroup->url = strval($xml->url);
         $usergroup->description = strval($xml->description);
+        static::setProps(array('nickname'), $xml, $usergroup, true);
         // Tags
         foreach ($xml->tags->tag as $tag) $usergroup->tags[] = strval($tag);
         // Contact

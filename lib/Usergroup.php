@@ -15,7 +15,7 @@ class Usergroup
     /**
      * @var string
      */
-    public $nickname;
+    public $nickname = false;
 
     /**
      * @var string[]

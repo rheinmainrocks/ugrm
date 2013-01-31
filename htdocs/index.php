@@ -30,6 +30,14 @@ $m = function ($str) use ($markdownParser) {
     echo $markdownParser->transformMarkdown($str);
 };
 
+$nick = function (Usergroup $group) use ($e) {
+    if ($group->nickname): ?>
+    <abbr title="<?php $e($group->name); ?>"><?php $e($group->nickname); ?></abbr>
+    <?php else:
+        $e($group->name);
+    endif;
+};
+
 ?><!doctype html>
 <html lang="de-de">
 <head>
@@ -69,8 +77,9 @@ $m = function ($str) use ($markdownParser) {
             <li>
                 <a href="/usergroup/<?php $e($meeting->usergroup->id); ?>">
                     <time datetime="<?php echo $meeting->time->format(DATE_ATOM); ?>"><?php echo strftime('%a, %d. %B %Y, %H:%M Uhr', $meeting->time->format('U')); ?></time>
-                </a><br>Treffen der
-                <a href="/usergroup/<?php $e($meeting->usergroup->id); ?>"><abbr title="<?php $e($meeting->usergroup->name); ?>"><?php $e($meeting->usergroup->nickname); ?></abbr></a>
+                </a><br>Treffen der <a href="/usergroup/<?php $e($meeting->usergroup->id); ?>">
+                <?php $nick($meeting->usergroup); ?>
+            </a>
             </li>
             <?php endforeach; ?>
         </ul>
@@ -79,7 +88,9 @@ $m = function ($str) use ($markdownParser) {
     <ul class="compact">
         <?php foreach ($data->listGroups() as $group): ?>
         <li>
-            <a href="/usergroup/<?php $e($group->id); ?>"><abbr title="<?php $e($group->name); ?>"><?php $e($group->nickname); ?></abbr></a>
+            <a href="/usergroup/<?php $e($group->id); ?>">
+                <?php $nick($group); ?>
+            </a>
         </li>
         <?php endforeach; ?>
     </ul>
@@ -95,7 +106,7 @@ $m = function ($str) use ($markdownParser) {
         <article class="usergroup <?php if ($single): ?>single<?php endif; ?>" itemscope itemtype="http://schema.org/Organization">
             <div class="description">
                 <h2><a href="/usergroup/<?php $e($group->id); ?>" itemprop="name"><?php $e($group->name); ?></a>
-                    <small>(<?php $e($group->nickname); ?>)</small>
+                    <?php if ($group->nickname): ?><small>(<?php $e($group->nickname); ?>)</small><?php endif; ?>
                 </h2>
 
                 <p itemprop="description"><?php $e($group->description); ?></p>
@@ -112,7 +123,7 @@ $m = function ($str) use ($markdownParser) {
                             <a href="<?php echo $meeting->url; ?>" itemprop="url"><?php $l($meeting->url); ?></a>
                         </p>
                         <?php endif; ?>
-                        <span class="hidden" itemprop="name">Treffen der <abbr title="<?php $e($group->name); ?>"><?php $e($group->nickname); ?></abbr>
+                        <span class="hidden" itemprop="name">Treffen der <?php $nick($group); ?>
                             <time datetime="<?php echo $meeting->time->format(DATE_ATOM); ?>" itemprop="startDate"><?php echo strftime('am %A, %d. %B %Y um %H:%M Uhr', $meeting->time->format('U')); ?></time>
                     </span>
                         <?php if ($meeting->location): ?>
@@ -140,7 +151,7 @@ $m = function ($str) use ($markdownParser) {
                 <div class="showsingle">
                     <h3><i class="icon-heart"></i> Sponsoren</h3>
 
-                    <p>Die <abbr title="<?php $e($group->name); ?>"><?php $e($group->nickname); ?></abbr> dankt ihren
+                    <p>Die <?php $nick($group); ?> dankt ihren
                         Sponsoren:</p>
                     <ul>
                         <?php foreach ($group->sponsors as $sponsor): ?>
