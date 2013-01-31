@@ -16,7 +16,7 @@ class UsergroupFactory
         // Tags
         foreach ($xml->tags->tag as $tag) $usergroup->tags[] = strval($tag);
         // Contact
-        static::setProps(array('twitter', 'hashtag'), $xml->contact, $usergroup, true);
+        static::setProps(array('twitter', 'hashtag', 'facebook', 'googleplus'), $xml->contact, $usergroup, true);
         if (property_exists($xml->contact, 'mailinglist')) {
             foreach ($xml->contact->mailinglist as $m) {
                 $mailinglist = new Mailinglist();

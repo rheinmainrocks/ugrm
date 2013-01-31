@@ -33,7 +33,7 @@ $m = function ($str) use ($markdownParser) {
 $nick = function (Usergroup $group) use ($e) {
     if ($group->nickname): ?>
     <abbr title="<?php $e($group->name); ?>"><?php $e($group->nickname); ?></abbr>
-    <?php else:
+        <?php else:
         $e($group->name);
     endif;
 };
@@ -151,8 +151,7 @@ $nick = function (Usergroup $group) use ($e) {
                 <div class="showsingle">
                     <h3><i class="icon-heart"></i> Sponsoren</h3>
 
-                    <p>Die <?php $nick($group); ?> dankt ihren
-                        Sponsoren:</p>
+                    <p>Die <?php $nick($group); ?> dankt ihren Sponsoren:</p>
                     <ul>
                         <?php foreach ($group->sponsors as $sponsor): ?>
                         <li>
@@ -172,9 +171,6 @@ $nick = function (Usergroup $group) use ($e) {
                     </dd>
                     <?php endif; ?>
 
-                    <dt><i class="icon-link"></i> Homepage</dt>
-                    <dd><a href="<?php echo $group->url; ?>" itemprop="url"><?php echo $group->url; ?></a></dd>
-
                     <?php if (count($group->mailinglists) > 0): ?>
                     <dt>
                         <i class="icon-envelope"></i> <?php echo count($group->mailinglists) > 1 ? 'Mailinglisten' : 'Mailingliste'; ?>
@@ -191,19 +187,31 @@ $nick = function (Usergroup $group) use ($e) {
                     </dd>
                     <?php endif; ?>
 
-                    <?php if ($group->twitter || $group->hashtag): ?>
-                    <dt><i class="icon-twitter"></i> Twitter</dt>
+                    <dt>Links</dt>
                     <dd>
-                        <?php if ($group->twitter): ?>
-                        <a href="http://twitter.com/<?php echo substr($group->twitter, 1); ?>"><?php echo $group->twitter; ?>
-                        </a>
-                        <?php endif; ?>
-                        <?php if ($group->twitter && $group->hashtag): ?><br><?php endif; ?>
-                        <?php if ($group->hashtag): ?>
-                        <a href="https://twitter.com/search?q=%23<?php echo urlencode(substr($group->hashtag, 1)); ?>"># <?php echo substr($group->hashtag, 1); ?></a>
-                        <?php endif; ?>
+                        <ul>
+                            <li><i class="icon-home"></i>
+                                <a href="<?php echo $group->url; ?>" itemprop="url"><?php echo $group->url; ?></a></li>
+                            <?php if ($group->twitter || $group->hashtag): ?>
+                            <li><i class="icon-twitter"></i>
+                                <?php if ($group->twitter): ?>
+                                    <a href="http://twitter.com/<?php echo substr($group->twitter, 1); ?>"><?php echo $group->twitter; ?>
+                                    </a>
+                                    <?php endif; ?>
+                                <?php if ($group->hashtag): ?>
+                                    <a href="https://twitter.com/search?q=%23<?php echo urlencode(substr($group->hashtag, 1)); ?>"># <?php echo substr($group->hashtag, 1); ?></a>
+                                    <?php endif; ?>
+                            </li>
+                            <?php endif; ?>
+                            <?php if ($group->facebook): ?>
+                            <li><i class="icon-facebook"></i> <a href="<?php $e($group->facebook); ?>">Facebook</a></li>
+                            <?php endif; ?>
+                            <?php if ($group->googleplus): ?>
+                            <li><i class="icon-google-plus"></i> <a href="<?php $e($group->googleplus); ?>">Google+</a>
+                            </li>
+                            <?php endif; ?>
+                        </ul>
                     </dd>
-                    <?php endif; ?>
 
                     <?php if ($group->group): ?>
                     <dt class="showsingle">Gruppenfoto</dt>

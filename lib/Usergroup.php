@@ -45,6 +45,16 @@ class Usergroup
     /**
      * @var string
      */
+    public $facebook = false;
+
+    /**
+     * @var string
+     */
+    public $googleplus = false;
+
+    /**
+     * @var string
+     */
     public $logo_credit;
 
     /**
