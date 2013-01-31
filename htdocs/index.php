@@ -22,7 +22,7 @@ $e = function ($str) {
 };
 
 $l = function ($str) {
-    echo parse_url($str, PHP_URL_HOST);
+    echo preg_replace('/^www\./', '', parse_url($str, PHP_URL_HOST));
 };
 
 $markdownParser = new MarkdownParser();
@@ -63,12 +63,6 @@ $nick = function (Usergroup $group) use ($e) {
     </nav>
 </header>
 <aside id="left">
-    <h2>Tags</h2>
-    <nav class="tags">
-        <?php foreach ($data->getTags() as $tag): ?>
-        <a href="/tag/<?php echo urlencode($tag['name']); ?>" data-count="<?php echo $tag['count']; ?>"><?php $e($tag['name']); ?></a>
-        <?php endforeach; ?>
-    </nav>
     <?php $meetings = $data->getMeetings();
     if ($meetings): ?>
         <h2>Termine</h2>
@@ -89,16 +83,22 @@ $nick = function (Usergroup $group) use ($e) {
         <?php foreach ($data->listGroups() as $group): ?>
         <li>
             <a href="/usergroup/<?php $e($group->id); ?>">
-                <?php $nick($group); ?>
+                <?php $e($group->name); ?>
             </a>
         </li>
         <?php endforeach; ?>
     </ul>
+    <h2>Tags</h2>
+    <nav class="tags">
+        <?php foreach ($data->getTags() as $tag): ?>
+        <a href="/tag/<?php echo urlencode($tag['name']); ?>" data-count="<?php echo $tag['count']; ?>"><?php $e($tag['name']); ?></a>
+        <?php endforeach; ?>
+    </nav>
 </aside>
 <div id="right">
     <?php
     $q = array();
-    if ($parts[0] == 'tag' && isset($parts[1]) && !empty($parts[1])) $q['tag'] = $parts[1];
+    if ($parts[0] == 'tag' && isset($parts[1]) && !empty($parts[1])) $q['tag'] = urldecode($parts[1]);
     if ($parts[0] == 'usergroup' && isset($parts[1]) && !empty($parts[1])) $q['usergroup'] = $parts[1];
     $groups = $data->listGroups($q);
     $single = count($groups) === 1;
@@ -167,7 +167,7 @@ $nick = function (Usergroup $group) use ($e) {
                     <?php if ($group->logo): ?>
                     <dt class="hidden">Logo</dt>
                     <dd>
-                        <a href="<?php echo $group->url; ?>"><img src="/data/usergroup/<?php echo $group->logo; ?>" class="logo <?php echo $group->logo_size[0] > $group->logo_size[1] ? 'landscape' : 'portrait'; ?>" alt="<?php $e($group->name); ?>" itemprop="logo"></a>
+                        <a href="<?php echo $group->url; ?>"><img src="/data/usergroup/<?php echo $group->logo; ?>" class="logo" alt="<?php $e($group->name); ?>" itemprop="logo"></a>
                     </dd>
                     <?php endif; ?>
 
@@ -191,7 +191,7 @@ $nick = function (Usergroup $group) use ($e) {
                     <dd>
                         <ul>
                             <li><i class="icon-home"></i>
-                                <a href="<?php echo $group->url; ?>" itemprop="url"><?php echo $group->url; ?></a></li>
+                                <a href="<?php echo $group->url; ?>" itemprop="url"><?php $l($group->url); ?></a></li>
                             <?php if ($group->twitter || $group->hashtag): ?>
                             <li><i class="icon-twitter"></i>
                                 <?php if ($group->twitter): ?>

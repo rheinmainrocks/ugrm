@@ -42,12 +42,15 @@ class UGRMData
             }
         }
         $tags = array();
+        $sort = array();
         foreach ($tagCount as $tag => $count) {
             $tags[] = array(
                 'name' => $tag,
                 'count' => $count
             );
+            $sort[] = preg_replace('/[^A-Z0-9]/', '', strtoupper($tag));
         }
+        array_multisort($sort, SORT_ASC, $tags);
         return $tags;
     }
 
@@ -67,5 +70,4 @@ class UGRMData
         array_multisort($sort, SORT_ASC, $meetings);
         return $meetings;
     }
-
 }

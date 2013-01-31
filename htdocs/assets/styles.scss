@@ -98,6 +98,7 @@ h3 + p {
 article.usergroup {
   @extend .clearfix;
   margin-bottom: 2em;
+  border-bottom: 1px dotted rgba($text, 0.2);
   h2 {
     a {
       color: $text;
@@ -110,11 +111,7 @@ article.usergroup {
     dd {
       margin-left: 0;
       margin-bottom: 0.5em;
-      img.logo.landscape {
-        width: 100%;
-        max-height: 250px;
-      }
-      img.logo.portrait{
+      img.logo{
         width: 50%;
         max-width: 350px;
         float: right;
@@ -139,6 +136,10 @@ article.usergroup {
   .showsingle {
     @extend .hidden;
   }
+}
+
+article.usergroup:last-child {
+  border-bottom: none;
 }
 
 article.usergroup.single {

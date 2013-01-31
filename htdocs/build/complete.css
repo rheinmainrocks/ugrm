@@ -1220,7 +1220,8 @@ h3 + p {
   margin-top: 0; }
 
 article.usergroup {
-  margin-bottom: 2em; }
+  margin-bottom: 2em;
+  border-bottom: 1px dotted rgba(76, 42, 50, 0.2); }
   article.usergroup h2 a {
     color: #4c2a32; }
   article.usergroup dl dt {
@@ -1228,10 +1229,7 @@ article.usergroup {
   article.usergroup dl dd {
     margin-left: 0;
     margin-bottom: 0.5em; }
-    article.usergroup dl dd img.logo.landscape {
-      width: 100%;
-      max-height: 250px; }
-    article.usergroup dl dd img.logo.portrait {
+    article.usergroup dl dd img.logo {
       width: 50%;
       max-width: 350px;
       float: right;
@@ -1246,6 +1244,9 @@ article.usergroup {
       padding: 0; }
       article.usergroup dl dd ul li, article.usergroup dl dd ol li {
         padding: 0; }
+
+article.usergroup:last-child {
+  border-bottom: none; }
 
 article.usergroup.single .showsingle {
   display: block; }
