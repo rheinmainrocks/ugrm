@@ -47,30 +47,32 @@ class UsergroupFactory
         }
 
         // Meetings
-        $now = new \DateTime();
-        if ($xml->schedule->ical) {
-            // FIXME: Implementieren
-        } else {
-            $sort = array();
-            foreach ($xml->schedule->meeting as $m) {
-                $meeting = new Meeting();
-                $meeting->usergroup = $usergroup;
-                $meeting->time = new \DateTime(strval($m->time));
-                $meeting->isPast = $now->diff($meeting->time)->invert === 1;
-                $meeting->description = strval($m->description);
-                if (property_exists($m, 'url')) $meeting->url = strval($m->url);
+        if (property_exists($xml, 'schedule')) {
+            $now = new \DateTime();
+            if ($xml->schedule->ical) {
+                // FIXME: Implementieren
+            } else {
+                $sort = array();
+                foreach ($xml->schedule->meeting as $m) {
+                    $meeting = new Meeting();
+                    $meeting->usergroup = $usergroup;
+                    $meeting->time = new \DateTime(strval($m->time));
+                    $meeting->isPast = $now->diff($meeting->time)->invert === 1;
+                    $meeting->description = strval($m->description);
+                    if (property_exists($m, 'url')) $meeting->url = strval($m->url);
 
-                // Location
-                if (property_exists($m, 'location')) {
-                    $meeting->location = new Location();
-                    static::setProps(array('name', 'street', 'zip', 'city'), $m->location, $meeting->location);
-                    static::setProps(array('url', 'publictransport', 'region', 'country'), $m->location, $meeting->location, true);
+                    // Location
+                    if (property_exists($m, 'location')) {
+                        $meeting->location = new Location();
+                        static::setProps(array('name', 'street', 'zip', 'city'), $m->location, $meeting->location);
+                        static::setProps(array('url', 'publictransport', 'region', 'country'), $m->location, $meeting->location, true);
+                    }
+
+                    $usergroup->meetings[] = $meeting;
+                    $sort[] = strval($m->time);
                 }
-
-                $usergroup->meetings[] = $meeting;
-                $sort[] = strval($m->time);
+                array_multisort($sort, SORT_ASC, $usergroup->meetings);
             }
-            array_multisort($sort, SORT_ASC, $usergroup->meetings);
         }
 
         return $usergroup;
