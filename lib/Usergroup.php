@@ -35,6 +35,16 @@ class Usergroup
     /**
      * @var string
      */
+    public $twitter = false;
+
+    /**
+     * @var string
+     */
+    public $hashtag = false;
+
+    /**
+     * @var string
+     */
     public $logo_credit;
 
     /**

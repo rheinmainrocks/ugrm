@@ -1193,6 +1193,8 @@ header {
       margin-bottom: 0.5em; }
     #left ul time {
       text-transform: uppercase; }
+  #left ul.compact li {
+    margin-bottom: 0; }
 
 #right {
   padding: 1em; }

@@ -50,8 +50,7 @@ $m = function ($str) use ($markdownParser) {
         <a href="/" rel="index"><img src="/build/logo.png" alt="UGRM &ndash; Usergroups RheinMain"></a>
     </h1>
     <nav>
-	<a href="http://coderbyheart.de/blog/usergroups-rheinmain">Was ist das?</a>
-	&middot;
+        <a href="http://coderbyheart.de/blog/usergroups-rheinmain">Was ist das?</a> &middot;
         <a href="http://github.com/tacker/ugrm-data/">Eintrag bearbeiten</a>
     </nav>
 </header>
@@ -76,6 +75,14 @@ $m = function ($str) use ($markdownParser) {
             <?php endforeach; ?>
         </ul>
         <?php endif; ?>
+    <h2>Usergroups</h2>
+    <ul class="compact">
+        <?php foreach ($data->listGroups() as $group): ?>
+        <li>
+            <a href="/usergroup/<?php $e($group->id); ?>"><abbr title="<?php $e($group->name); ?>"><?php $e($group->nickname); ?></abbr></a>
+        </li>
+        <?php endforeach; ?>
+    </ul>
 </aside>
 <div id="right">
     <?php
@@ -194,14 +201,14 @@ $m = function ($str) use ($markdownParser) {
                     </dd>
                     <?php endif; ?>
                 </dl>
-                <?php if($group->logo_credit || $group->group_credit): ?>
+                <?php if ($group->logo_credit || $group->group_credit): ?>
                 <?php if ($group->logo_credit): ?>
-                <div class="small showsingle"><?php $m($group->logo_credit); ?></div>
-                <?php endif; ?>
+                    <div class="small showsingle"><?php $m($group->logo_credit); ?></div>
+                    <?php endif; ?>
                 <?php if ($group->group_credit): ?>
-	        <div class="small showsingle"><?php $m($group->group_credit); ?></div>
-	        <?php endif; ?>
-	        <?php endif; ?>
+                    <div class="small showsingle"><?php $m($group->group_credit); ?></div>
+                    <?php endif; ?>
+                <?php endif; ?>
             </aside>
         </article>
         <?php endforeach; ?>

@@ -58,6 +58,11 @@ header {
       text-transform: uppercase;
     }
   }
+  ul.compact {
+    li {
+      margin-bottom: 0;
+    }
+  }
 }
 
 #right {
