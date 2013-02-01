@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* normalize.css 2012-07-07T09:50 UTC - http://github.com/necolas/normalize.css */
 /* ==========================================================================
    HTML5 display definitions
@@ -1133,13 +1134,14 @@ li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
 * {
   box-sizing: border-box; }
 
-.clearfix:before, article.usergroup:before,
+.clearfix:before, article.usergroup:before, #main:before,
 .clearfix:after,
-article.usergroup:after {
+article.usergroup:after,
+#main:after {
   content: "";
   display: table; }
 
-.clearfix:after, article.usergroup:after {
+.clearfix:after, article.usergroup:after, #main:after {
   clear: both; }
 
 .alignright {
@@ -1174,8 +1176,13 @@ header {
   header h1 {
     margin: 2em 0 1em 1em; }
   header nav {
-    position: absolute;
-    display: none; }
+    margin: 2em 1em 1em 1em; }
+    header nav a:after {
+      content: " ·"; }
+    header nav a:last-child:after {
+      content: ""; }
+    header nav a.desktop {
+      display: none; }
 
 #left {
   padding: 1em; }
@@ -1270,9 +1277,14 @@ footer {
     header h1 {
       margin: 4em 0 2em 2em; }
     header nav {
-      right: 4em;
-      bottom: 2em;
+      position: absolute;
+      right: 1em;
+      bottom: 1em;
       display: block; }
+      header nav a.mobile {
+        display: none; }
+      header nav a.desktop {
+        display: inline; }
 
   #right {
     float: left;

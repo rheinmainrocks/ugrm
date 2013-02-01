@@ -7,9 +7,16 @@
       margin: 4em 0 2em 2em;
     }
     nav {
-      right: 4em;
-      bottom: 2em;
+      position: absolute;
+      right: 1em;
+      bottom: 1em;
       display: block;
+      a.mobile {
+        display: none;
+      }
+      a.desktop {
+        display: inline;
+      }
     }
     border-bottom: 1px solid rgba($text, 0.2);
   }

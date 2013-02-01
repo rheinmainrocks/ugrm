@@ -30,8 +30,16 @@ header {
     margin: 2em 0 1em 1em;
   }
   nav {
-    position: absolute;
-    display: none;
+    margin: 2em 1em 1em 1em;
+    a:after {
+      content: " ·";
+    }
+    a:last-child:after {
+      content: "";
+    }
+    a.desktop {
+      display: none;
+    }
   }
   border-bottom: 1px solid rgba($text, 0.2);
 }
@@ -164,6 +172,10 @@ footer {
   p {
     margin: 0;
   }
+}
+
+#main {
+  @extend .clearfix;
 }
 
 @import "responsive";
