@@ -58,11 +58,9 @@ $nick = function (Usergroup $group) use ($e) {
         <a href="/" rel="index"><img src="/build/logo.png" alt="UGRM &ndash; Usergroups RheinMain"></a>
     </h1>
     <nav>
-        <a href="#termine" class="mobile">Termine</a>
-        <a href="#usergroups" class="mobile">Usergroups</a>
-        <a href="#tags" class="mobile">Tags</a>
-        <a href="http://coderbyheart.de/blog/usergroups-rheinmain">Was ist das?</a>
-        <a href="http://github.com/tacker/ugrm-data/" class="desktop">Eintrag bearbeiten</a>
+        <a href="#termine" class="mobile">Termine</a> <a href="#usergroups" class="mobile">Usergroups</a>
+        <a href="#tags" class="mobile">Tags</a> <a href="http://coderbyheart.de/blog/usergroups-rheinmain">Was ist
+        das?</a> <a href="http://github.com/tacker/ugrm-data/" class="desktop">Eintrag bearbeiten</a>
     </nav>
 </header>
 <div id="main">
@@ -193,6 +191,12 @@ $nick = function (Usergroup $group) use ($e) {
                             <img src="/data/usergroup/<?php echo $group->group; ?>" class="group" alt="<?php $e($group->name); ?>" itemprop="image">
                         </dd>
                         <?php endif; ?>
+
+                        <dt class="showsingle">Eintrag bearbeiten</dt>
+                        <dd class="showsingle">
+                            <i class="icon-github"></i>
+                            <a href="https://github.com/tacker/ugrm-data/tree/master/usergroup/<?php $e($group->id); ?>.xml"><?php $e($group->id); ?>.xml</a> auf GitHub
+                        </dd>
                     </dl>
                     <?php if ($group->logo_credit || $group->group_credit): ?>
                     <?php if ($group->logo_credit): ?>
