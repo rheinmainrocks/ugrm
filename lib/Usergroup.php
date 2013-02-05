@@ -55,6 +55,11 @@ class Usergroup
     /**
      * @var string
      */
+    public $xing = false;
+
+    /**
+     * @var string
+     */
     public $logo_credit;
 
     /**

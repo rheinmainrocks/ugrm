@@ -182,6 +182,11 @@ $nick = function (Usergroup $group) use ($e) {
                                     <a href="<?php $e($group->googleplus); ?>">Google+</a>
                                 </li>
                                 <?php endif; ?>
+                                <?php if ($group->xing): ?>
+                                <li><i class="icon-sign-blank"></i>
+                                    <a href="<?php $e($group->xing); ?>">XING</a>
+                                </li>
+                                <?php endif; ?>
                             </ul>
                         </dd>
 
