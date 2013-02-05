@@ -146,22 +146,6 @@ $nick = function (Usergroup $group) use ($e) {
                         </dd>
                         <?php endif; ?>
 
-                        <?php if (count($group->mailinglists) > 0): ?>
-                        <dt>
-                            <i class="icon-envelope"></i> <?php echo count($group->mailinglists) > 1 ? 'Mailinglisten' : 'Mailingliste'; ?>
-                        </dt>
-                        <dd>
-                            <ol>
-                                <?php foreach ($group->mailinglists as $mailinglist): ?>
-                                <li>
-                                    <a href="<?php $e($mailinglist->url); ?>"><?php $e($mailinglist->label); ?></a>
-                                    <?php if ($mailinglist->description): ?><br><small><?php $e($mailinglist->description); ?></small><?php endif; ?>
-                                </li>
-                                <?php endforeach; ?>
-                            </ol>
-                        </dd>
-                        <?php endif; ?>
-
                         <dt>Links</dt>
                         <dd>
                             <ul>
@@ -194,6 +178,22 @@ $nick = function (Usergroup $group) use ($e) {
                                 <?php endif; ?>
                             </ul>
                         </dd>
+
+                        <?php if (count($group->mailinglists) > 0): ?>
+                        <dt>
+                            <i class="icon-envelope"></i> <?php echo count($group->mailinglists) > 1 ? 'Mailinglisten' : 'Mailingliste'; ?>
+                        </dt>
+                        <dd>
+                            <ol>
+                                <?php foreach ($group->mailinglists as $mailinglist): ?>
+                                <li>
+                                    <a href="<?php $e($mailinglist->url); ?>"><?php $e($mailinglist->label); ?></a>
+                                    <?php if ($mailinglist->description): ?><br><small><?php $e($mailinglist->description); ?></small><?php endif; ?>
+                                </li>
+                                <?php endforeach; ?>
+                            </ol>
+                        </dd>
+                        <?php endif; ?>
                     </dl>
                     <dl>
                         <?php if ($group->group): ?>
@@ -238,9 +238,10 @@ $nick = function (Usergroup $group) use ($e) {
                 <?php endforeach; ?>
             </ul>
             <?php endif; ?>
-        <h2 id="usergroups">Usergroups</h2>
+        <?php $groups = $data->listGroups(); ?>
+        <h2 id="usergroups">Usergroups <small>(<?php $e(count($groups)); ?>)</small></h2>
         <ul class="compact">
-            <?php foreach ($data->listGroups() as $group): ?>
+            <?php foreach ($groups as $group): ?>
             <li>
                 <a href="/usergroup/<?php $e($group->id); ?>">
                     <?php $e($group->name); ?>
