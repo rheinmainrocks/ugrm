@@ -70,7 +70,7 @@ $nick = function (Usergroup $group) use ($e) {
                         <?php if ($group->nickname): ?><small>(<?php $e($group->nickname); ?>)</small><?php endif; ?>
                     </h2>
 
-                    <p itemprop="description"><?php $group->description; ?></p>
+                    <p itemprop="description"><?php $e($group->description); ?></p>
 
                     <?php if (count($group->sponsors) > 0): ?>
                     <div class="showsingle">
