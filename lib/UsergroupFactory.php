@@ -65,7 +65,7 @@ class UsergroupFactory
                     if (property_exists($m, 'location')) {
                         $meeting->location = new Location();
                         static::setProps(array('name', 'street', 'zip', 'city'), $m->location, $meeting->location);
-                        static::setProps(array('url', 'publictransport', 'region', 'country'), $m->location, $meeting->location, true);
+                        static::setProps(array('url', 'twitter', 'publictransport', 'region', 'country'), $m->location, $meeting->location, true);
                     }
 
                     $usergroup->meetings[] = $meeting;

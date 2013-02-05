@@ -14,6 +14,12 @@ class Location
      * @var string
      */
     public $url;
+
+    /**
+     * @var string
+     */
+    public $twitter = false;
+
     /**
      * @var string
      */

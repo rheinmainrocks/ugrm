@@ -98,10 +98,7 @@ $nick = function (Usergroup $group) use ($e) {
                             <?php if ($meeting->location): ?>
                             <h3><i class="icon-map-marker"></i> Ort</h3>
                             <p itemprop="location" itemscope itemtype="http://schema.org/PostalAddress">
-                                <?php if ($meeting->location->url): ?><a href="<?php echo $meeting->location->url; ?>" itemprop="url"><?php endif; ?>
-                            <span itemprop="name"><?php $e($meeting->location->name); ?></span>
-                                <?php if ($meeting->location->url): ?></a><?php endif; ?>
-                                <br>
+                                <span itemprop="name"><?php $e($meeting->location->name); ?></span> <br>
                                 <a href="https://maps.google.com/maps?q=<?php echo urlencode(sprintf("%s, %d %s, %s, %s (%s)", $meeting->location->street, $meeting->location->zip, $meeting->location->city, $meeting->location->region, $meeting->location->country, $meeting->location->name)); ?>">
                                     <span itemprop="streetAddress"><?php $e($meeting->location->street); ?></span>,
                                     <span itemprop="postalCode"><?php $e($meeting->location->zip); ?></span>
@@ -109,6 +106,14 @@ $nick = function (Usergroup $group) use ($e) {
                                     <span itemprop="addressRegion" class="hidden"><?php $e($meeting->location->region); ?></span>
                                     <span itemprop="addressCountry" class="hidden"><?php $e($meeting->location->country); ?></span>
                                 </a>
+                                <?php if ($meeting->location->url): ?><br><i class="icon-home"></i>
+                                <a href="<?php echo $meeting->location->url; ?>" itemprop="url"><?php $l($meeting->location->url); ?></a><?php endif; ?>
+                                <?php if ($meeting->location->twitter): ?>
+                                <br>
+                                <i class="icon-twitter"></i>
+                                <a href="http://twitter.com/<?php echo substr($meeting->location->twitter, 1); ?>"><?php echo $meeting->location->twitter; ?>
+                                </a>
+                                <?php endif; ?>
                             </p>
                             <?php endif; // $meeting->location ?>
                         </div>
@@ -132,7 +137,7 @@ $nick = function (Usergroup $group) use ($e) {
                     <?php endif; ?>
                 </div>
                 <aside>
-                    <dl>
+                    <dl class="clearfix">
                         <?php if ($group->logo): ?>
                         <dt class="hidden">Logo</dt>
                         <dd>
@@ -183,13 +188,13 @@ $nick = function (Usergroup $group) use ($e) {
                                 </li>
                                 <?php endif; ?>
                                 <?php if ($group->xing): ?>
-                                <li><i class="icon-sign-blank"></i>
-                                    <a href="<?php $e($group->xing); ?>">XING</a>
+                                <li><i class="icon-sign-blank"></i> <a href="<?php $e($group->xing); ?>">XING</a>
                                 </li>
                                 <?php endif; ?>
                             </ul>
                         </dd>
-
+                    </dl>
+                    <dl>
                         <?php if ($group->group): ?>
                         <dt class="showsingle">Gruppenfoto</dt>
                         <dd class="showsingle">
@@ -200,7 +205,8 @@ $nick = function (Usergroup $group) use ($e) {
                         <dt class="showsingle">Eintrag bearbeiten</dt>
                         <dd class="showsingle">
                             <i class="icon-github"></i>
-                            <a href="https://github.com/tacker/ugrm-data/tree/master/usergroup/<?php $e($group->id); ?>.xml"><?php $e($group->id); ?>.xml</a> auf GitHub
+                            <a href="https://github.com/tacker/ugrm-data/tree/master/usergroup/<?php $e($group->id); ?>.xml"><?php $e($group->id); ?>
+                                .xml</a> auf GitHub
                         </dd>
                     </dl>
                     <?php if ($group->logo_credit || $group->group_credit): ?>
