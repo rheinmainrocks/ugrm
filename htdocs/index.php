@@ -205,8 +205,8 @@ $nick = function (Usergroup $group) use ($e) {
                         <dt class="showsingle">Eintrag bearbeiten</dt>
                         <dd class="showsingle">
                             <i class="icon-github"></i>
-                            <a href="https://github.com/tacker/ugrm-data/tree/master/usergroup/<?php $e($group->id); ?>.xml"><?php $e($group->id); ?>
-                                .xml</a> auf GitHub
+                            <a href="https://github.com/tacker/ugrm-data/tree/master/usergroup/<?php $e($group->id); ?>.xml"><?php $e(sprintf("%s.xml", $group->id)); ?></a>
+                            auf GitHub
                         </dd>
                     </dl>
                     <?php if ($group->logo_credit || $group->group_credit): ?>
