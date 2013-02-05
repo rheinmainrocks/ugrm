@@ -25,6 +25,11 @@ class Meeting
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $url;
 
     /**

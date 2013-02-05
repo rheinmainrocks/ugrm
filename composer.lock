@@ -1,5 +1,5 @@
 {
-    "hash": "6b9cb72624f19176dbab0e759ad41104",
+    "hash": "47b7a80e4a2732e52bcea95df9fc7e9f",
     "packages": [
         {
             "name": "dflydev/markdown",
@@ -59,6 +59,47 @@
             "keywords": [
                 "markdown"
             ]
+        },
+        {
+            "name": "tacker/icalparser",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tacker/icalparser",
+                "reference": "6c792851abf0262b996392e23bcc288903762f68"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tacker/icalparser/zipball/6c792851abf0262b996392e23bcc288903762f68",
+                "reference": "6c792851abf0262b996392e23bcc288903762f68",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "time": "2013-02-05 15:03:08",
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "CalendarParser.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Markus Tacker",
+                    "homepage": "http://coderbyheart.de/"
+                }
+            ],
+            "description": "Simple parser for ical files.",
+            "homepage": "https://github.com/tacker/icalparser",
+            "keywords": [
+                "calendar",
+                "ical"
+            ]
         }
     ],
     "packages-dev": null,
@@ -67,6 +108,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "dflydev/markdown": 20
+        "dflydev/markdown": 20,
+        "tacker/icalparser": 20
     }
 }

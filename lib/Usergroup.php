@@ -83,6 +83,11 @@ class Usergroup
     public $meetings = array();
 
     /**
+     * @var string
+     */
+    public $ical = array();
+
+    /**
      * Gibt das nächste Meeting zurück
      *
      * @return Meeting|null

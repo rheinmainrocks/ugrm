@@ -1,5 +1,6 @@
 {
     "require":{
-        "dflydev/markdown":"1.0.*@dev"
+        "dflydev/markdown":"1.0.*@dev",
+        "tacker/icalparser":"dev-master"
     }
 }

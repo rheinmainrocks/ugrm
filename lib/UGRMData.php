@@ -20,6 +20,7 @@ class UGRMData
     {
         $usergroups = array();
         if ($filter === null) $filter = array();
+
         foreach (new IteratorIterator(new GlobIterator($this->dir->getPathname() . DIRECTORY_SEPARATOR . '*.xml')) as $file) {
             $ug = UsergroupFactory::fromXMLFile($file);
             if (isset($filter['tag']) && !in_array($filter['tag'], $ug->tags)) continue;

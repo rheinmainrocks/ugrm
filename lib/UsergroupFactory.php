@@ -1,6 +1,5 @@
 <?php
 
-
 class UsergroupFactory
 {
     public static function fromXMLFile(\SplFileInfo $xmlfile)
@@ -49,8 +48,12 @@ class UsergroupFactory
         // Meetings
         if (property_exists($xml, 'schedule')) {
             $now = new \DateTime();
-            if ($xml->schedule->ical) {
-                // FIXME: Implementieren
+            if (property_exists($xml->schedule, 'ical')) {
+                $usergroup->ical = strval($xml->schedule->ical);
+                $icalfile = dirname($xmlfile->getPathname()) . DIRECTORY_SEPARATOR . str_replace('.xml', '.ical', $xmlfile->getFilename());
+                if (file_exists($icalfile)) {
+                    MeetingReader::fetchMeetings($usergroup, new \SplFileInfo($icalfile));
+                }
             } else {
                 $sort = array();
                 foreach ($xml->schedule->meeting as $m) {
@@ -58,9 +61,8 @@ class UsergroupFactory
                     $meeting->usergroup = $usergroup;
                     $meeting->time = new \DateTime(strval($m->time));
                     $meeting->isPast = $now->diff($meeting->time)->invert === 1;
-                    $meeting->description = strval($m->description);
-                    if (property_exists($m, 'url')) $meeting->url = strval($m->url);
-
+                    $meeting->name = strval($m->name);
+                    static::setProps(array('description', 'url'), $m, $meeting, true);
                     // Location
                     if (property_exists($m, 'location')) {
                         $meeting->location = new Location();

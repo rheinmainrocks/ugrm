@@ -1,16 +1,6 @@
 <?php
 
-use dflydev\markdown\MarkdownParser;
-
-setlocale(LC_ALL, $_SERVER['LOCALE']);
-
-error_reporting(E_ALL | E_STRICT);
-ini_set('display_errors', '1');
-
-require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
-spl_autoload_register(function ($classname) {
-    require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . $classname . '.php';
-});
+require_once '..' . DIRECTORY_SEPARATOR . 'config.php';
 
 $req = substr(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), 1);
 $parts = explode('/', $req);
@@ -24,6 +14,8 @@ $e = function ($str) {
 $l = function ($str) {
     echo preg_replace('/^www\./', '', parse_url($str, PHP_URL_HOST));
 };
+
+use dflydev\markdown\MarkdownParser;
 
 $markdownParser = new MarkdownParser();
 $m = function ($str) use ($markdownParser) {
@@ -78,48 +70,7 @@ $nick = function (Usergroup $group) use ($e) {
                         <?php if ($group->nickname): ?><small>(<?php $e($group->nickname); ?>)</small><?php endif; ?>
                     </h2>
 
-                    <p itemprop="description"><?php $e($group->description); ?></p>
-
-                    <?php
-                    $meeting = $group->getFutureMeeting();
-                    if ($meeting): ?>
-                        <div itemscope itemtype="http://schema.org/Event" class="event" itemprop="event">
-                            <h3><i class="icon-calendar"></i> Nächster
-                                Termin:<br><span itemprop="description"><?php $e($meeting->description); ?></span> <?php echo strftime('am %A, %d. %B %Y um %H:%M Uhr', $meeting->time->format('U')); ?>
-                            </h3>
-                            <?php if ($meeting->url): ?>
-                            <p>Details unter
-                                <a href="<?php echo $meeting->url; ?>" itemprop="url"><?php $l($meeting->url); ?></a>
-                            </p>
-                            <?php endif; ?>
-                            <span class="hidden" itemprop="name">Treffen der <?php $nick($group); ?>
-                                <time datetime="<?php echo $meeting->time->format(DATE_ATOM); ?>" itemprop="startDate"><?php echo strftime('am %A, %d. %B %Y um %H:%M Uhr', $meeting->time->format('U')); ?></time>
-                    </span>
-                            <?php if ($meeting->location): ?>
-                            <h3><i class="icon-map-marker"></i> Ort</h3>
-                            <p itemprop="location" itemscope itemtype="http://schema.org/PostalAddress">
-                                <span itemprop="name"><?php $e($meeting->location->name); ?></span> <br>
-                                <a href="https://maps.google.com/maps?q=<?php echo urlencode(sprintf("%s, %d %s, %s, %s (%s)", $meeting->location->street, $meeting->location->zip, $meeting->location->city, $meeting->location->region, $meeting->location->country, $meeting->location->name)); ?>">
-                                    <span itemprop="streetAddress"><?php $e($meeting->location->street); ?></span>,
-                                    <span itemprop="postalCode"><?php $e($meeting->location->zip); ?></span>
-                                    <span itemprop="addressLocality"><?php $e($meeting->location->city); ?></span>
-                                    <span itemprop="addressRegion" class="hidden"><?php $e($meeting->location->region); ?></span>
-                                    <span itemprop="addressCountry" class="hidden"><?php $e($meeting->location->country); ?></span>
-                                </a>
-                                <?php if ($meeting->location->url): ?><br><i class="icon-home"></i>
-                                <a href="<?php echo $meeting->location->url; ?>" itemprop="url"><?php $l($meeting->location->url); ?></a><?php endif; ?>
-                                <?php if ($meeting->location->twitter): ?>
-                                <br>
-                                <i class="icon-twitter"></i>
-                                <a href="http://twitter.com/<?php echo substr($meeting->location->twitter, 1); ?>"><?php echo $meeting->location->twitter; ?>
-                                </a>
-                                <?php endif; ?>
-                            </p>
-                            <?php endif; // $meeting->location ?>
-                        </div>
-                        <?php endif; ?>
-
-                    <p class="hidesingle"><a href="/usergroup/<?php $e($group->id); ?>">Details …</a></p>
+                    <div itemprop="description"><?php $m($group->description); ?></div>
 
                     <?php if (count($group->sponsors) > 0): ?>
                     <div class="showsingle">
@@ -135,6 +86,56 @@ $nick = function (Usergroup $group) use ($e) {
                         </ul>
                     </div>
                     <?php endif; ?>
+
+                    <?php
+                    $meeting = $group->getFutureMeeting();
+                    if ($meeting): ?>
+                        <div itemscope itemtype="http://schema.org/Event" class="event" itemprop="event">
+                            <h3><i class="icon-calendar"></i> Nächster
+                                Termin:<br><span itemprop="description"><?php $e($meeting->name); ?></span> <?php echo strftime('am %A, %d. %B %Y um %H:%M Uhr', $meeting->time->format('U')); ?>
+                            </h3>
+                            <?php if ($meeting->description): ?>
+                            <div><?php $m($meeting->description); ?></div>
+                            <?php endif; ?>
+                            <?php if ($meeting->url): ?>
+                            <p>Details unter
+                                <a href="<?php echo $meeting->url; ?>" itemprop="url"><?php $l($meeting->url); ?></a>
+                            </p>
+                            <?php endif; ?>
+                            <span class="hidden" itemprop="name">Treffen der <?php $nick($group); ?>
+                                <time datetime="<?php echo $meeting->time->format(DATE_ATOM); ?>" itemprop="startDate"><?php echo strftime('am %A, %d. %B %Y um %H:%M Uhr', $meeting->time->format('U')); ?></time>
+                    </span>
+                            <?php if ($meeting->location): ?>
+                            <h4><i class="icon-map-marker"></i> Ort</h4>
+                            <?php if ($meeting->location instanceof Location): ?>
+                                <p itemprop="location" itemscope itemtype="http://schema.org/PostalAddress">
+                                    <span itemprop="name"><?php $e($meeting->location->name); ?></span><br>
+                                    <a href="https://maps.google.com/maps?q=<?php echo urlencode(sprintf("%s, %d %s, %s, %s (%s)", $meeting->location->street, $meeting->location->zip, $meeting->location->city, $meeting->location->region, $meeting->location->country, $meeting->location->name)); ?>">
+                                        <span itemprop="streetAddress"><?php $e($meeting->location->street); ?></span>,
+                                        <span itemprop="postalCode"><?php $e($meeting->location->zip); ?></span>
+                                        <span itemprop="addressLocality"><?php $e($meeting->location->city); ?></span>
+                                        <span itemprop="addressRegion" class="hidden"><?php $e($meeting->location->region); ?></span>
+                                        <span itemprop="addressCountry" class="hidden"><?php $e($meeting->location->country); ?></span>
+                                    </a>
+                                    <?php if ($meeting->location->url): ?><br><i class="icon-home"></i>
+                                    <a href="<?php echo $meeting->location->url; ?>" itemprop="url"><?php $l($meeting->location->url); ?></a><?php endif; ?>
+                                    <?php if ($meeting->location->twitter): ?>
+                                    <br>
+                                    <i class="icon-twitter"></i>
+                                    <a href="http://twitter.com/<?php echo substr($meeting->location->twitter, 1); ?>"><?php echo $meeting->location->twitter; ?>
+                                    </a>
+                                    <?php endif; ?>
+                                </p>
+                                <?php endif; // Location ?>
+                            <?php if ($meeting->location instanceof SimpleLocation): ?>
+                                <p itemprop="location"><?php $e($meeting->location->description); ?></p>
+                                <?php endif; // SimpleLocation ?>
+                            <?php endif; // $meeting->location ?>
+                        </div>
+                        <?php endif; ?>
+
+                    <p class="hidesingle"><a href="/usergroup/<?php $e($group->id); ?>">Details …</a></p>
+
                 </div>
                 <aside>
                     <dl class="clearfix">

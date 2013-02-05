@@ -1,15 +1,11 @@
 <?php
-class Location
+class Location extends SimpleLocation
 {
     /**
      * @var string
      */
     public $name;
 
-    /**
-     * @var string
-     */
-    public $description;
     /**
      * @var string
      */
