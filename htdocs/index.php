@@ -238,8 +238,14 @@ $nick = function (Usergroup $group) use ($e) {
                 <?php endforeach; ?>
             </ul>
             <?php endif; ?>
-        <?php $groups = $data->listGroups(); ?>
-        <h2 id="usergroups">Usergroups <small>(<?php $e(count($groups)); ?>)</small></h2>
+        <?php $groups = $data->listGroups();
+        usort($groups, function (Usergroup $a, Usergroup $b) {
+            return strcmp(preg_replace('/[^a-z0-9]/i', '', $a->name), preg_replace('/[^a-z0-9]/i', '', $b->name));
+        });
+        ?>
+        <h2 id="usergroups">Usergroups
+            <small>(<?php $e(count($groups)); ?>)</small>
+        </h2>
         <ul class="compact">
             <?php foreach ($groups as $group): ?>
             <li>
