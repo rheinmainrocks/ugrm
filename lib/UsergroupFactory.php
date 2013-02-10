@@ -13,7 +13,7 @@ class UsergroupFactory
         $usergroup->description = strval($xml->description);
         static::setProps(array('nickname'), $xml, $usergroup, true);
         // Tags
-        foreach ($xml->tags->tag as $tag) $usergroup->tags[] = strtolower(strval($tag));
+        foreach ($xml->tags->tag as $tag) $usergroup->tags[] = strval($tag);
         // Contact
         static::setProps(array('twitter', 'hashtag', 'facebook', 'googleplus', 'xing'), $xml->contact, $usergroup, true);
         if (property_exists($xml->contact, 'mailinglist')) {
