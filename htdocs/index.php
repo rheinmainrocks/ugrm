@@ -162,7 +162,7 @@ $nick = function (Usergroup $group) use ($e) {
                                         </a>
                                         <?php endif; ?>
                                     <?php if ($group->hashtag): ?>
-                                        <a href="https://twitter.com/search?q=%23<?php echo urlencode(substr($group->hashtag, 1)); ?>"># <?php echo substr($group->hashtag, 1); ?></a>
+                                        <a href="https://twitter.com/search?q=%23<?php echo urlencode(substr($group->hashtag, 1)); ?>"><?php echo sprintf('#%s', substr($group->hashtag, 1)); ?></a>
                                         <?php endif; ?>
                                 </li>
                                 <?php endif; ?>
