@@ -8,9 +8,7 @@ class UsergroupFactory
 
         $usergroup = new Usergroup();
         $usergroup->id = str_replace('.xml', '', $xmlfile->getFilename());
-        $usergroup->name = strval($xml->name);
-        $usergroup->url = strval($xml->url);
-        $usergroup->description = strval($xml->description);
+        static::setProps(array('name', 'url', 'description'), $xml, $usergroup);
         static::setProps(array('nickname'), $xml, $usergroup, true);
         // Tags
         foreach ($xml->tags->tag as $tag) $usergroup->tags[] = strval($tag);
@@ -85,7 +83,7 @@ class UsergroupFactory
         if ($optional === null) $optional = false;
         foreach ($props as $k) {
             if ($optional) if (!property_exists($node, $k)) continue;
-            $target->$k = strval($node->$k);
+            $target->$k = trim(strval($node->$k));
         }
     }
 }
