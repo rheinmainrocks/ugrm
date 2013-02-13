@@ -59,14 +59,17 @@ $nick = function (Usergroup $group) use ($e) {
     <div id="right">
         <?php
         $q = array();
-        if ($parts[0] == 'tag' && isset($parts[1]) && !empty($parts[1])) $q['tag'] = urldecode($parts[1]);
-        if ($parts[0] == 'usergroup' && isset($parts[1]) && !empty($parts[1])) $q['usergroup'] = $parts[1];
+        if ($parts[0] == 'tag' && isset($parts[1]) && !empty($parts[1])) {
+            $q['tag'] = urldecode($parts[1]);
+        } else if (substr($parts[0], 0, 1) == '~') {
+            $q['usergroup'] = substr($parts[0], 1);
+        }
         $groups = $data->listGroups($q);
         $single = count($groups) === 1;
         foreach ($groups as $group): ?>
             <article class="usergroup <?php if ($single): ?>single<?php endif; ?>" itemscope itemtype="http://schema.org/Organization">
                 <div class="description">
-                    <h2><a href="/usergroup/<?php $e($group->id); ?>" itemprop="name"><?php $e($group->name); ?></a>
+                    <h2><a href="/~<?php $e($group->id); ?>" itemprop="name"><?php $e($group->name); ?></a>
                         <?php if ($group->nickname): ?><small>(<?php $e($group->nickname); ?>)</small><?php endif; ?>
                     </h2>
 
@@ -134,7 +137,7 @@ $nick = function (Usergroup $group) use ($e) {
                         </div>
                         <?php endif; ?>
 
-                    <p class="hidesingle"><a href="/usergroup/<?php $e($group->id); ?>">Details …</a></p>
+                    <p class="hidesingle"><a href="/~<?php $e($group->id); ?>">Details …</a></p>
 
                 </div>
                 <aside>
@@ -229,9 +232,9 @@ $nick = function (Usergroup $group) use ($e) {
             <ul>
                 <?php foreach ($meetings as $meeting): ?>
                 <li>
-                    <a href="/usergroup/<?php $e($meeting->usergroup->id); ?>">
+                    <a href="/~<?php $e($meeting->usergroup->id); ?>">
                         <time datetime="<?php echo $meeting->time->format(DATE_ATOM); ?>"><?php echo strftime('%a, %d. %B %Y, %H:%M Uhr', $meeting->time->format('U')); ?></time>
-                    </a><br>Treffen der <a href="/usergroup/<?php $e($meeting->usergroup->id); ?>">
+                    </a><br>Treffen der <a href="/~<?php $e($meeting->usergroup->id); ?>">
                     <?php $nick($meeting->usergroup); ?>
                 </a>
                 </li>
@@ -249,7 +252,7 @@ $nick = function (Usergroup $group) use ($e) {
         <ul class="compact">
             <?php foreach ($groups as $group): ?>
             <li>
-                <a href="/usergroup/<?php $e($group->id); ?>">
+                <a href="/~<?php $e($group->id); ?>">
                     <?php $e($group->name); ?>
                 </a>
             </li>
