@@ -269,8 +269,8 @@ $nick = function (Usergroup $group) use ($e) {
 <footer>
     <p><a href="/" rel="index">Usergroups RheinMain</a> ist ein Projekt von <a href="http://tckr.cc" rel="author">Markus
         Tacker</a>.</p>
-
     <p>Der Quellcode für dieses Projekt <a href="http://github.com/tacker/ugrm">findet sich auf GitHub</a>.</p>
+    <p><a href="http://rheinmainrocks.de/" rel="friend met neighbor parent">#RheinMainRocks</a></p>
 </footer>
 </body>
 </html>
