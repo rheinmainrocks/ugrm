@@ -60,6 +60,11 @@ class Usergroup
     /**
      * @var string
      */
+    public $email = false;
+
+    /**
+     * @var string
+     */
     public $logo_credit;
 
     /**

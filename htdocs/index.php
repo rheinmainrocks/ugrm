@@ -149,12 +149,17 @@ $nick = function (Usergroup $group) use ($e) {
                         </dd>
                         <?php endif; ?>
 
-                        <dt>Links</dt>
+                        <dt>Links &amp; Kontakt</dt>
                         <dd>
                             <ul>
                                 <li><i class="icon-home"></i>
                                     <a href="<?php echo $group->url; ?>" itemprop="url"><?php $l($group->url); ?></a>
                                 </li>
+                                <?php if ($group->email): ?>
+                                <li><i class="icon-envelope-alt"></i>
+                                    <a href="mailto:<?php $e($group->email); ?>"><?php $e($group->email); ?></a>
+                                </li>
+                                <?php endif; ?>
                                 <?php if ($group->twitter || $group->hashtag): ?>
                                 <li><i class="icon-twitter"></i>
                                     <?php if ($group->twitter): ?>
@@ -269,7 +274,9 @@ $nick = function (Usergroup $group) use ($e) {
 <footer>
     <p><a href="/" rel="index">Usergroups RheinMain</a> ist ein Projekt von <a href="http://tckr.cc" rel="author">Markus
         Tacker</a>.</p>
+
     <p>Der Quellcode für dieses Projekt <a href="http://github.com/tacker/ugrm">findet sich auf GitHub</a>.</p>
+
     <p><a href="http://rheinmainrocks.de/" rel="friend met neighbor parent">#RheinMainRocks</a></p>
 </footer>
 </body>
