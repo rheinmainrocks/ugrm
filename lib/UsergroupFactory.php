@@ -46,18 +46,22 @@ class UsergroupFactory
         // Meetings
         if (property_exists($xml, 'schedule')) {
             $now = new \DateTime();
+
+            // Default location
+            $attrs = $xml->schedule->attributes();
+            $defaultLocation = null;
+            if (isset($attrs['usedefaultmeetinglocation']) && $attrs['usedefaultmeetinglocation'] && property_exists($xml, 'defaultmeetinglocation')) {
+                $defaultLocation = self::getLocation($xml, 'defaultmeetinglocation');
+            }
+
             if (property_exists($xml->schedule, 'ical')) {
                 $usergroup->ical = strval($xml->schedule->ical);
                 $icalfile = dirname($xmlfile->getPathname()) . DIRECTORY_SEPARATOR . str_replace('.xml', '.ical', $xmlfile->getFilename());
                 if (file_exists($icalfile)) {
                     MeetingReader::fetchMeetings($usergroup, new \SplFileInfo($icalfile));
                 }
-                $attrs = $xml->schedule->ical->attributes();
-                $defaultLocation = null;
-                if (isset($attrs['usedefaultmeetinglocation']) && $attrs['usedefaultmeetinglocation'] && property_exists($xml, 'defaultmeetinglocation')) {
-                    $defaultLocation = self::getLocation($xml, 'defaultmeetinglocation');
-                    foreach ($usergroup->meetings as $meeting) $meeting->location = $defaultLocation;
-                }
+                // Meeting location immer mit default location überschreiben
+                if ($defaultLocation) foreach ($usergroup->meetings as $meeting) $meeting->location = $defaultLocation;
             } else {
                 $sort = array();
                 foreach ($xml->schedule->meeting as $m) {
@@ -68,7 +72,8 @@ class UsergroupFactory
                     $meeting->name = strval($m->name);
                     static::setProps(array('description', 'url'), $m, $meeting, true);
                     $meeting->location = self::getLocation($m, 'location');
-
+                    // Meeting location nur mit default location überschreiben, falls nicht gesetzt
+                    if ($meeting->location === null) if ($defaultLocation) $meeting->location = $defaultLocation;
 
                     $usergroup->meetings[] = $meeting;
                     $sort[] = strval($m->time);
