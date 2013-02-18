@@ -52,6 +52,12 @@ class UsergroupFactory
                 if (file_exists($icalfile)) {
                     MeetingReader::fetchMeetings($usergroup, new \SplFileInfo($icalfile));
                 }
+                $attrs = $xml->schedule->ical->attributes();
+                $defaultLocation = null;
+                if (isset($attrs['usedefaultmeetinglocation']) && $attrs['usedefaultmeetinglocation'] && property_exists($xml, 'defaultmeetinglocation')) {
+                    $defaultLocation = self::getLocation($xml, 'defaultmeetinglocation');
+                    foreach ($usergroup->meetings as $meeting) $meeting->location = $defaultLocation;
+                }
             } else {
                 $sort = array();
                 foreach ($xml->schedule->meeting as $m) {
@@ -61,12 +67,8 @@ class UsergroupFactory
                     $meeting->isPast = $now->diff($meeting->time)->invert === 1;
                     $meeting->name = strval($m->name);
                     static::setProps(array('description', 'url'), $m, $meeting, true);
-                    // Location
-                    if (property_exists($m, 'location')) {
-                        $meeting->location = new Location();
-                        static::setProps(array('name', 'street', 'zip', 'city'), $m->location, $meeting->location);
-                        static::setProps(array('url', 'twitter', 'publictransport', 'region', 'country'), $m->location, $meeting->location, true);
-                    }
+                    $meeting->location = self::getLocation($m, 'location');
+
 
                     $usergroup->meetings[] = $meeting;
                     $sort[] = strval($m->time);
@@ -76,6 +78,20 @@ class UsergroupFactory
         }
 
         return $usergroup;
+    }
+
+    /**
+     * @param SimpleXMLElement $node
+     * @param $key
+     * @return Location|null
+     */
+    private static function getLocation(\SimpleXMLElement $node, $key)
+    {
+        if (!property_exists($node, $key)) return null;
+        $loc = new Location();
+        static::setProps(array('name', 'street', 'zip', 'city'), $node->$key, $loc);
+        static::setProps(array('url', 'twitter', 'publictransport', 'region', 'country'), $node->$key, $loc, true);
+        return $loc;
     }
 
     private static function setProps($props, \SimpleXMLElement $node, $target, $optional = null)
