@@ -1200,6 +1200,10 @@ header {
       margin-bottom: 0.5em; }
     #left ul time {
       text-transform: uppercase; }
+    #left ul a.reveal {
+      display: none; }
+    #left ul li:hover a.reveal {
+      display: inline; }
   #left ul.compact li {
     margin-bottom: 0; }
 

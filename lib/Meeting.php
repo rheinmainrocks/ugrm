@@ -3,7 +3,7 @@
 class Meeting
 {
     /**
-     * @var \DateTime
+     * @var \Carbon\Carbon
      */
     public $time;
 
@@ -31,11 +31,6 @@ class Meeting
      * @var string
      */
     public $url;
-
-    /**
-     * @var boolean
-     */
-    public $isPast;
 
     /**
      * @var Usergroup

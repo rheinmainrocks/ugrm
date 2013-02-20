@@ -11,6 +11,10 @@ $e = function ($str) {
     echo htmlspecialchars($str);
 };
 
+$u = function ($str) {
+    echo urlencode($str);
+};
+
 $l = function ($str) {
     echo preg_replace('/^www\./', '', parse_url($str, PHP_URL_HOST));
 };
@@ -234,14 +238,23 @@ $nick = function (Usergroup $group) use ($e) {
         <?php $meetings = $data->getMeetings();
         if ($meetings): ?>
             <h2 id="termine">Termine</h2>
-            <ul>
+            <ul class="termine">
                 <?php foreach ($meetings as $meeting): ?>
                 <li>
                     <a href="/~<?php $e($meeting->usergroup->id); ?>">
-                        <time datetime="<?php echo $meeting->time->format(DATE_ATOM); ?>"><?php echo strftime('%a, %d. %B %Y, %H:%M Uhr', $meeting->time->format('U')); ?></time>
-                    </a><br>Treffen der <a href="/~<?php $e($meeting->usergroup->id); ?>">
-                    <?php $nick($meeting->usergroup); ?>
-                </a>
+                        <time datetime="<?php echo $meeting->time->format(DATE_ATOM); ?>">
+                            <?php if ($meeting->time->isToday()): ?>
+                            Heute, <?php echo strftime('%d. %B %Y, %H:%M Uhr', $meeting->time->format('U')); ?>
+                            <?php elseif ($meeting->time->isTomorrow()): ?>
+                            Morgen, <?php echo strftime('%d. %B %Y, %H:%M Uhr', $meeting->time->format('U')); ?>
+                            <?php else:
+                            echo strftime('%a, %d. %B %Y, %H:%M Uhr', $meeting->time->format('U'));
+                        endif; ?>
+                        </time>
+                    </a><br>Treffen der
+                    <a href="/~<?php $e($meeting->usergroup->id); ?>"><?php $nick($meeting->usergroup); ?></a>
+                    <?php $mt = new MeetingTweet($meeting, $_SERVER['HTTP_HOST']); ?>
+                    <a href="<?php $e($mt->getLink()); ?>" title="Tweet this!" class="reveal"><i class="icon-twitter"></i></a>
                 </li>
                 <?php endforeach; ?>
             </ul>

@@ -1,5 +1,7 @@
 <?php
 
+use \Carbon\Carbon;
+
 class UsergroupFactory
 {
     public static function fromXMLFile(\SplFileInfo $xmlfile)
@@ -45,8 +47,6 @@ class UsergroupFactory
 
         // Meetings
         if (property_exists($xml, 'schedule')) {
-            $now = new \DateTime();
-
             // Default location
             $attrs = $xml->schedule->attributes();
             $defaultLocation = null;
@@ -67,8 +67,7 @@ class UsergroupFactory
                 foreach ($xml->schedule->meeting as $m) {
                     $meeting = new Meeting();
                     $meeting->usergroup = $usergroup;
-                    $meeting->time = new \DateTime(strval($m->time));
-                    $meeting->isPast = $now->diff($meeting->time)->invert === 1;
+                    $meeting->time = new Carbon(strval($m->time));
                     $meeting->name = strval($m->name);
                     static::setProps(array('description', 'url'), $m, $meeting, true);
                     $meeting->location = self::getLocation($m, 'location');

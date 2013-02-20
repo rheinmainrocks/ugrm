@@ -65,6 +65,14 @@ header {
     time {
       text-transform: uppercase;
     }
+    a.reveal {
+      display: none;
+    }
+    li:hover {
+      a.reveal {
+        display: inline;
+      }
+    }
   }
   ul.compact {
     li {

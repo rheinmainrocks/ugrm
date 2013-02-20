@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 class MeetingReader
 {
     public static function fetchMeetings(Usergroup $usergroup, \SplFileInfo $cacheFile)
@@ -11,9 +13,7 @@ class MeetingReader
             $meeting->usergroup = $usergroup;
             $meeting->name = $event->SUMMARY;
             $meeting->description = $event->DESCRIPTION;
-            $start = new \DateTime($event->DTSTART);
-            $meeting->time = $start;
-            $meeting->isPast = $now->diff($start)->invert === 1;
+            $meeting->time = new Carbon($event->DTSTART);
             $meeting->location = new SimpleLocation();
             $meeting->location->description = $event->LOCATION;
             $usergroup->meetings[] = $meeting;

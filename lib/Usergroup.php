@@ -100,7 +100,7 @@ class Usergroup
     public function getFutureMeeting()
     {
         $futureMeetings = array_filter($this->meetings, function (Meeting $m) {
-            return !$m->isPast;
+            return $m->time->isFuture();
         });
         return count($futureMeetings) > 0 ? array_shift($futureMeetings) : null;
     }

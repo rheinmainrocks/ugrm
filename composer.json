@@ -1,6 +1,7 @@
 {
     "require":{
         "dflydev/markdown":"1.0.*@dev",
-        "tacker/icalparser":"dev-master"
+        "tacker/icalparser":"dev-master",
+        "nesbot/carbon": "dev-master"
     }
 }
