@@ -93,6 +93,12 @@ class Usergroup
     public $ical = array();
 
     /**
+     * Typischerweise ist es DIE Usergruppe, aber es gibt Ausnahmen: DER Webmontag
+     * @var boolean
+     */
+    public $female = true;
+
+    /**
      * Gibt das nächste Meeting zurück
      *
      * @return Meeting|null

@@ -109,7 +109,7 @@ $nick = function (Usergroup $group) use ($e) {
                                 <a href="<?php echo $meeting->url; ?>" itemprop="url"><?php $l($meeting->url); ?></a>
                             </p>
                             <?php endif; ?>
-                            <span class="hidden" itemprop="name">Treffen der <?php $nick($group); ?>
+                            <span class="hidden" itemprop="name">Treffen <?php $e($group->female ? 'der' : 'des'); ?> <?php $nick($group); ?>
                                 <time datetime="<?php echo $meeting->time->format(DATE_ATOM); ?>" itemprop="startDate"><?php echo strftime('am %A, %d. %B %Y um %H:%M Uhr', $meeting->time->format('U')); ?></time>
                     </span>
                             <?php if ($meeting->location): ?>
@@ -251,7 +251,7 @@ $nick = function (Usergroup $group) use ($e) {
                             echo strftime('%a, %d. %B %Y, %H:%M Uhr', $meeting->time->format('U'));
                         endif; ?>
                         </time>
-                    </a><br>Treffen der
+                    </a><br>Treffen <?php $e($meeting->usergroup->female ? 'der' : 'des'); ?>
                     <a href="/~<?php $e($meeting->usergroup->id); ?>"><?php $nick($meeting->usergroup); ?></a>
                     <?php $mt = new MeetingTweet($meeting, $_SERVER['HTTP_HOST']); ?>
                     <a href="<?php $e($mt->getLink()); ?>" title="Tweet this!" class="reveal"><i class="icon-twitter"></i></a>

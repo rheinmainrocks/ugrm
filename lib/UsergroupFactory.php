@@ -12,6 +12,8 @@ class UsergroupFactory
         $usergroup->id = str_replace('.xml', '', $xmlfile->getFilename());
         static::setProps(array('name', 'url', 'description'), $xml, $usergroup);
         static::setProps(array('nickname'), $xml, $usergroup, true);
+        $attrs = $xml->attributes();
+        if (isset($attrs['female'])) $usergroup->female = strval($attrs['female']) === "false" ? false : true;
         // Tags
         foreach ($xml->tags->tag as $tag) $usergroup->tags[] = strval($tag);
         // Contact
@@ -50,7 +52,7 @@ class UsergroupFactory
             // Default location
             $attrs = $xml->schedule->attributes();
             $defaultLocation = null;
-            if (isset($attrs['usedefaultmeetinglocation']) && $attrs['usedefaultmeetinglocation'] && property_exists($xml, 'defaultmeetinglocation')) {
+            if (isset($attrs['usedefaultmeetinglocation']) && strval($attrs['usedefaultmeetinglocation']) === "true" && property_exists($xml, 'defaultmeetinglocation')) {
                 $defaultLocation = self::getLocation($xml, 'defaultmeetinglocation');
             }
 

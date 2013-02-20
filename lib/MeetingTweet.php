@@ -39,7 +39,7 @@ class MeetingTweet
         } else {
             $this->addToTweet('Am ' . strftime('%a, %d.%m', $this->meeting->time->format('U')));
         }
-        $this->addToTweet(' trifft sich die ' . ($this->meeting->usergroup->twitter ? $this->meeting->usergroup->twitter : ($this->meeting->usergroup->nickname ? $this->meeting->usergroup->nickname : $this->meeting->usergroup->name)));
+        $this->addToTweet(' trifft sich ' . ($this->meeting->usergroup->female ? 'die' : 'der') . ' ' . ($this->meeting->usergroup->twitter ? $this->meeting->usergroup->twitter : ($this->meeting->usergroup->nickname ? $this->meeting->usergroup->nickname : $this->meeting->usergroup->name)));
         $this->addToTweet(' um ' . strftime('%H:%M Uhr', $this->meeting->time->format('U')));
         if ($this->meeting->location && $this->meeting->location instanceof Location) {
             $this->addToTweet(' in ' . $this->meeting->location->city);
