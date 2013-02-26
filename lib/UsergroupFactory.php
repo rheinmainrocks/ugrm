@@ -96,7 +96,7 @@ class UsergroupFactory
         if (!property_exists($node, $key)) return null;
         $loc = new Location();
         static::setProps(array('name', 'street', 'zip', 'city'), $node->$key, $loc);
-        static::setProps(array('url', 'twitter', 'publictransport', 'region', 'country'), $node->$key, $loc, true);
+        static::setProps(array('url', 'twitter', 'description', 'publictransport', 'region', 'country'), $node->$key, $loc, true);
         return $loc;
     }
 

@@ -117,6 +117,7 @@ $nick = function (Usergroup $group) use ($e) {
                             <?php if ($meeting->location instanceof Location): ?>
                                 <p itemprop="location" itemscope itemtype="http://schema.org/PostalAddress">
                                     <span itemprop="name"><?php $e($meeting->location->name); ?></span><br>
+                                    <?php if($meeting->location->description): ?><?php $e($meeting->location->description); ?><br><?php endif; ?>
                                     <a href="https://maps.google.com/maps?q=<?php echo urlencode(sprintf("%s, %d %s, %s, %s (%s)", $meeting->location->street, $meeting->location->zip, $meeting->location->city, $meeting->location->region, $meeting->location->country, $meeting->location->name)); ?>">
                                         <span itemprop="streetAddress"><?php $e($meeting->location->street); ?></span>,
                                         <span itemprop="postalCode"><?php $e($meeting->location->zip); ?></span>
@@ -133,8 +134,7 @@ $nick = function (Usergroup $group) use ($e) {
                                     </a>
                                     <?php endif; ?>
                                 </p>
-                                <?php endif; // Location ?>
-                            <?php if ($meeting->location instanceof SimpleLocation): ?>
+                            <?php elseif ($meeting->location instanceof SimpleLocation): ?>
                                 <p itemprop="location"><?php $e($meeting->location->description); ?></p>
                                 <?php endif; // SimpleLocation ?>
                             <?php endif; // $meeting->location ?>
