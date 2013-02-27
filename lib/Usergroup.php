@@ -99,6 +99,11 @@ class Usergroup
     public $female = true;
 
     /**
+     * @var boolean
+     */
+    public $plural = false;
+
+    /**
      * Gibt das nächste Meeting zurück
      *
      * @return Meeting|null
