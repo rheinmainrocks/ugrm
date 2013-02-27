@@ -138,6 +138,11 @@ $nick = function (Usergroup $group) use ($e) {
                                 <p itemprop="location"><?php $e($meeting->location->description); ?></p>
                                 <?php endif; // SimpleLocation ?>
                             <?php endif; // $meeting->location ?>
+                            <h4>Teilen</h4>
+                            <p>
+                                <?php $mt = new MeetingTweet($meeting, $_SERVER['HTTP_HOST']); ?>
+                                <a href="<?php $e($mt->getLink()); ?>" ><i class="icon-twitter"></i> Tweet!</a>
+                            </p>
                         </div>
                         <?php endif; ?>
 
@@ -254,7 +259,7 @@ $nick = function (Usergroup $group) use ($e) {
                     </a><br>Treffen <?php $e($meeting->usergroup->female ? 'der' : 'des'); ?>
                     <a href="/~<?php $e($meeting->usergroup->id); ?>"><?php $nick($meeting->usergroup); ?></a>
                     <?php $mt = new MeetingTweet($meeting, $_SERVER['HTTP_HOST']); ?>
-                    <a href="<?php $e($mt->getLink()); ?>" title="Tweet this!" class="reveal"><i class="icon-twitter"></i></a>
+                    <a href="<?php $e($mt->getLink()); ?>" title="Tweet!" class="reveal"><i class="icon-twitter"></i></a>
                 </li>
                 <?php endforeach; ?>
             </ul>
