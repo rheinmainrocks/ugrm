@@ -19,6 +19,7 @@ class UGRMData
     public function listGroups($filter = null)
     {
         $usergroups = array();
+        $sort = array();
         if ($filter === null) $filter = array();
 
         foreach (new IteratorIterator(new GlobIterator($this->dir->getPathname() . DIRECTORY_SEPARATOR . '*.xml')) as $file) {
@@ -26,7 +27,9 @@ class UGRMData
             if (isset($filter['tag']) && !in_array(strtolower($filter['tag']), array_map('strtolower', $ug->tags))) continue;
             if (isset($filter['usergroup']) && $filter['usergroup'] != $ug->id) continue;
             $usergroups[] = $ug;
+            $sort[] = filemtime($file->getPathname());
         }
+        array_multisort($sort, SORT_DESC, $usergroups);
         return $usergroups;
     }
 
