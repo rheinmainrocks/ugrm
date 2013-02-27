@@ -48,6 +48,8 @@ class MeetingTweet
             if ($this->meeting->location->twitter) $this->addToTweet(' ' . $this->meeting->location->twitter);
         }
         $this->addToTweet(' ' . sprintf('http://%s/~%s', $this->host, $this->meeting->usergroup->id), 22);
+        $ht = $this->meeting->usergroup->hashtag;
+        if ($ht && $ht != $n) $this->addToTweet(' ' . $ht);
         $this->addToTweet(' #ugrm');
         return $this->tweet;
     }
