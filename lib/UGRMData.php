@@ -20,6 +20,7 @@ class UGRMData
     {
         $usergroups = array();
         $sort = array();
+        $sort2 = array();
         if ($filter === null) $filter = array();
 
         foreach (new IteratorIterator(new GlobIterator($this->dir->getPathname() . DIRECTORY_SEPARATOR . '*.xml')) as $file) {
@@ -27,9 +28,10 @@ class UGRMData
             if (isset($filter['tag']) && !in_array(strtolower($filter['tag']), array_map('strtolower', $ug->tags))) continue;
             if (isset($filter['usergroup']) && $filter['usergroup'] != $ug->id) continue;
             $usergroups[] = $ug;
-            $sort[] = filemtime($file->getPathname());
+            $sort[] = ($nm = $ug->getFutureMeeting()) ? $nm->time->getTimestamp() : 99999999999;
+            $sort2[] = $ug->name;
         }
-        array_multisort($sort, SORT_DESC, $usergroups);
+        array_multisort($sort, SORT_ASC, $sort2, SORT_ASC, $usergroups);
         return $usergroups;
     }
 
