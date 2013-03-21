@@ -50,6 +50,9 @@ class MeetingTweet
         $this->addToTweet(' ' . sprintf('http://%s/~%s', $this->host, $this->meeting->usergroup->id), 22);
         $ht = $this->meeting->usergroup->hashtag;
         if ($ht && $ht != $n && substr($ht, 1) != substr($n, 1)) $this->addToTweet(' ' . $ht);
+        foreach($this->meeting->usergroup->tags as $tag) {
+            $this->addToTweet(' #' . preg_replace('[^a-zA-Z0-9]', '', $tag));
+        }
         $this->addToTweet(' #ugrm');
         return $this->tweet;
     }
