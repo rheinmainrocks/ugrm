@@ -112,10 +112,10 @@ $ugsort = function (Usergroup $a, Usergroup $b) {
                                 Termin:<br><span itemprop="description"><?php $e($meeting->name); ?></span> <?php echo strftime('am %A, %d. %B %Y um %H:%M Uhr', $meeting->time->format('U')); ?>
                             </h3>
                             <?php if ($meeting->description): ?>
-                                <div><?php $m($meeting->description); ?></div>
+                                <div class="showsingle"><?php $m($meeting->description); ?></div>
                             <?php endif; ?>
                             <?php if ($meeting->url): ?>
-                                <p>Details unter
+                                <p class="showsingle">Details unter
                                     <a href="<?php echo $meeting->url; ?>" itemprop="url"><?php $l($meeting->url); ?></a>
                                 </p>
                             <?php endif; ?>
