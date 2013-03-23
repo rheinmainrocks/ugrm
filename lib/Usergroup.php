@@ -83,6 +83,11 @@ class Usergroup
     public $sponsors = array();
 
     /**
+     * @var Person[]
+     */
+    public $team = array();
+
+    /**
      * @var Meeting[]
      */
     public $meetings = array();

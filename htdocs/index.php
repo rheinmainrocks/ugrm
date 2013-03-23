@@ -83,10 +83,10 @@ $ugsort = function (Usergroup $a, Usergroup $b) {
                             </small><?php endif; ?>
                     </h2>
 
-                    <?php if($group->incubator): ?><p><em>Dieser Usergroup befindet sich noch in Gründung und sucht
-                        dafür weitere Interessierte.</em></p><?php endif; ?>
-
                     <p itemprop="description"><?php $e($group->description); ?></p>
+
+                    <?php if($group->incubator): ?><p><em>Dieser Usergroup befindet sich noch in Gründung und sucht
+                        dafür weitere Interessierte. Bitte wende dich an einen der Ansprechpartner.</em></p><?php endif; ?>
 
                     <?php if (count($group->sponsors) > 0): ?>
                         <div class="showsingle">
@@ -216,6 +216,29 @@ $ugsort = function (Usergroup $a, Usergroup $b) {
                                             <a href="<?php $e($mailinglist->url); ?>"><?php $e($mailinglist->label); ?></a> <?php if ($mailinglist->description): ?>
                                                 <br>
                                                 <small><?php $e($mailinglist->description); ?></small><?php endif; ?>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ol>
+                            </dd>
+                        <?php endif; ?>
+
+                        <?php if (count($group->team) > 0): ?>
+                            <dt>
+                                <?php if (count($group->team) > 1): ?>
+                                    <i class="icon-group"></i>
+                                <?php else: ?>
+                                    <i class="icon-user"></i>
+                                <?php endif; ?>
+                                Ansprechpartner
+                            </dt>
+                            <dd>
+                                <ol>
+                                    <?php foreach ($group->team as $person): ?>
+                                        <li>
+                                            <?php if($person->url): ?><a href="<?php $e($person->url); ?>"><?php endif; ?>
+                                            <?php $e($person->name); ?>
+                                            <?php if($person->url): ?></a><?php endif; ?>
+                                            <?php if($person->email): ?><br><i class="icon-envelope"></i> <a href="mailto:<?php $e($person->email); ?>"><?php $e($person->email); ?></a><?php endif; ?>
                                         </li>
                                     <?php endforeach; ?>
                                 </ol>

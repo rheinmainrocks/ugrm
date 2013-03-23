@@ -28,6 +28,14 @@ class UsergroupFactory
                 $usergroup->mailinglists[] = $mailinglist;
             }
         }
+        if (property_exists($xml->contact, 'team')) {
+            foreach ($xml->contact->team->person as $p) {
+                $person = new Person();
+                static::setProps(array('name'), $p, $person);
+                static::setProps(array('url', 'email'), $p, $person, true);
+                $usergroup->team[] = $person;
+            }
+        }
         // Sponsors
         if (property_exists($xml, 'sponsors')) {
             foreach ($xml->sponsors->sponsor as $s) {
