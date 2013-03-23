@@ -86,7 +86,8 @@ $ugsort = function (Usergroup $a, Usergroup $b) {
                     <p itemprop="description"><?php $e($group->description); ?></p>
 
                     <?php if($group->incubator): ?><p><em>Dieser Usergroup befindet sich noch in Gründung und sucht
-                        dafür weitere Interessierte. Bitte wende dich an einen der Ansprechpartner.</em></p><?php endif; ?>
+                        dafür weitere Interessierte. Bitte wende dich an einen der Ansprechpartner.</em>
+                    </p><?php endif; ?>
 
                     <?php if (count($group->sponsors) > 0): ?>
                         <div class="showsingle">
@@ -121,37 +122,42 @@ $ugsort = function (Usergroup $a, Usergroup $b) {
                             <span class="hidden" itemprop="name">Treffen <?php $e($group->female ? 'der' : 'des'); ?> <?php $nick($group); ?>
                                 <time datetime="<?php echo $meeting->time->format(DATE_ATOM); ?>" itemprop="startDate"><?php echo strftime('am %A, %d. %B %Y um %H:%M Uhr', $meeting->time->format('U')); ?></time>
                     </span>
-                            <?php if ($meeting->location): ?>
-                                <h4><i class="icon-map-marker"></i> Ort</h4>
-                                <?php if ($meeting->location instanceof Location): ?>
-                                    <p itemprop="location" itemscope itemtype="http://schema.org/PostalAddress">
-                                        <span itemprop="name"><?php $e($meeting->location->name); ?></span><br> <?php if ($meeting->location->description): ?><?php $e($meeting->location->description); ?>
-                                            <br><?php endif; ?>
-                                        <a href="https://maps.google.com/maps?q=<?php echo urlencode(sprintf("%s, %d %s, %s, %s (%s)", $meeting->location->street, $meeting->location->zip, $meeting->location->city, $meeting->location->region, $meeting->location->country, $meeting->location->name)); ?>">
-                                            <span itemprop="streetAddress"><?php $e($meeting->location->street); ?></span>,
-                                            <span itemprop="postalCode"><?php $e($meeting->location->zip); ?></span>
-                                            <span itemprop="addressLocality"><?php $e($meeting->location->city); ?></span>
-                                            <span itemprop="addressRegion" class="hidden"><?php $e($meeting->location->region); ?></span>
-                                            <span itemprop="addressCountry" class="hidden"><?php $e($meeting->location->country); ?></span>
-                                        </a> <?php if ($meeting->location->url): ?><br><i class="icon-home"></i>
-                                    <a href="<?php echo $meeting->location->url; ?>" itemprop="url"><?php $l($meeting->location->url); ?></a><?php endif; ?>
-                                        <?php if ($meeting->location->twitter): ?>
-                                            <br>
-                                            <i class="icon-twitter"></i>
-                                            <a href="http://twitter.com/<?php echo substr($meeting->location->twitter, 1); ?>"><?php echo $meeting->location->twitter; ?>
-                                            </a>
-                                        <?php endif; ?>
-                                    </p>
-                                <?php elseif ($meeting->location instanceof SimpleLocation): ?>
-                                    <p itemprop="location"><?php $e($meeting->location->description); ?></p>
-                                <?php endif; // SimpleLocation ?>
-                            <?php endif; // $meeting->location ?>
-                            <h4>Teilen</h4>
 
-                            <p>
-                                <?php $mt = new MeetingTweet($meeting, $_SERVER['HTTP_HOST']); ?>
-                                <a href="<?php $e($mt->getLink()); ?>"><i class="icon-twitter"></i> Tweet!</a>
-                            </p>
+                            <?php if ($meeting->location): ?>
+                                <div class="showsingle">
+                                    <h4><i class="icon-map-marker"></i> Ort</h4>
+                                    <?php if ($meeting->location instanceof Location): ?>
+                                        <p itemprop="location" itemscope itemtype="http://schema.org/PostalAddress">
+                                            <span itemprop="name"><?php $e($meeting->location->name); ?></span><br> <?php if ($meeting->location->description): ?><?php $e($meeting->location->description); ?>
+                                                <br><?php endif; ?>
+                                            <a href="https://maps.google.com/maps?q=<?php echo urlencode(sprintf("%s, %d %s, %s, %s (%s)", $meeting->location->street, $meeting->location->zip, $meeting->location->city, $meeting->location->region, $meeting->location->country, $meeting->location->name)); ?>">
+                                                <span itemprop="streetAddress"><?php $e($meeting->location->street); ?></span>,
+                                                <span itemprop="postalCode"><?php $e($meeting->location->zip); ?></span>
+                                                <span itemprop="addressLocality"><?php $e($meeting->location->city); ?></span>
+                                                <span itemprop="addressRegion" class="hidden"><?php $e($meeting->location->region); ?></span>
+                                                <span itemprop="addressCountry" class="hidden"><?php $e($meeting->location->country); ?></span>
+                                            </a> <?php if ($meeting->location->url): ?><br><i class="icon-home"></i>
+                                        <a href="<?php echo $meeting->location->url; ?>" itemprop="url"><?php $l($meeting->location->url); ?></a><?php endif; ?>
+                                            <?php if ($meeting->location->twitter): ?>
+                                                <br>
+                                                <i class="icon-twitter"></i>
+                                                <a href="http://twitter.com/<?php echo substr($meeting->location->twitter, 1); ?>"><?php echo $meeting->location->twitter; ?>
+                                                </a>
+                                            <?php endif; ?>
+                                        </p>
+                                    <?php elseif ($meeting->location instanceof SimpleLocation): ?>
+                                        <p itemprop="location"><?php $e($meeting->location->description); ?></p>
+                                    <?php endif; // SimpleLocation ?>
+                                </div>
+                            <?php endif; // $meeting->location ?>
+                            <div class="showsingle">
+                                <h4>Teilen</h4>
+
+                                <p>
+                                    <?php $mt = new MeetingTweet($meeting, $_SERVER['HTTP_HOST']); ?>
+                                    <a href="<?php $e($mt->getLink()); ?>"><i class="icon-twitter"></i> Tweet!</a>
+                                </p>
+                            </div>
                         </div>
                     <?php endif; ?>
 
@@ -208,8 +214,10 @@ $ugsort = function (Usergroup $a, Usergroup $b) {
                         <dt class="showsingle">Tags</dt>
                         <dd class="showsingle">
                             <ul>
-                                <?php foreach($group->tags as $tag): ?>
-                                <li><a href="/tag/<?php echo urlencode(strtolower($tag)); ?>"><?php $e(strtoupper($tag)); ?></a></li>
+                                <?php foreach ($group->tags as $tag): ?>
+                                    <li>
+                                        <a href="/tag/<?php echo urlencode(strtolower($tag)); ?>"><?php $e(strtoupper($tag)); ?></a>
+                                    </li>
                                 <?php endforeach; ?>
                             </ul>
                         </dd>
@@ -244,10 +252,12 @@ $ugsort = function (Usergroup $a, Usergroup $b) {
                                 <ol>
                                     <?php foreach ($group->team as $person): ?>
                                         <li>
-                                            <?php if($person->url): ?><a href="<?php $e($person->url); ?>"><?php endif; ?>
-                                            <?php $e($person->name); ?>
-                                            <?php if($person->url): ?></a><?php endif; ?>
-                                            <?php if($person->email): ?><br><i class="icon-envelope"></i> <a href="mailto:<?php $e($person->email); ?>"><?php $e($person->email); ?></a><?php endif; ?>
+                                            <?php if($person->url): ?>
+                                            <a href="<?php $e($person->url); ?>"><?php endif; ?>
+                                                <?php $e($person->name); ?>
+                                                <?php if($person->url): ?></a><?php endif; ?>
+                                            <?php if($person->email): ?><br><i class="icon-envelope"></i>
+                                        <a href="mailto:<?php $e($person->email); ?>"><?php $e($person->email); ?></a><?php endif; ?>
                                         </li>
                                     <?php endforeach; ?>
                                 </ol>
