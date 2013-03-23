@@ -104,6 +104,14 @@ class Usergroup
     public $plural = false;
 
     /**
+     * Gibt an, ob sich die Usergruppe noch in der Gründungsphase befindet und weitere
+     * Interessenten gesucht werden.
+     *
+     * @var boolean
+     */
+    public $incubator = false;
+
+    /**
      * Gibt das nächste Meeting zurück
      *
      * @return Meeting|null

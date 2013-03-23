@@ -27,6 +27,7 @@ class UGRMData
             $ug = UsergroupFactory::fromXMLFile($file);
             if (isset($filter['tag']) && !in_array(strtolower($filter['tag']), array_map('strtolower', $ug->tags))) continue;
             if (isset($filter['usergroup']) && $filter['usergroup'] != $ug->id) continue;
+            if (isset($filter['incubator']) && $filter['incubator'] != $ug->incubator) continue;
             $usergroups[] = $ug;
             $sort[] = ($nm = $ug->getFutureMeeting()) ? $nm->time->getTimestamp() : 99999999999;
             $sort2[] = $ug->name;

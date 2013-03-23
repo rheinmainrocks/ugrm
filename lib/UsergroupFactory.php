@@ -15,6 +15,7 @@ class UsergroupFactory
         $attrs = $xml->attributes();
         if (isset($attrs['female'])) $usergroup->female = strval($attrs['female']) === "false" ? false : true;
         if (isset($attrs['plural'])) $usergroup->plural = strval($attrs['plural']) === "true" ? true : false;
+        if (isset($attrs['incubator'])) $usergroup->incubator = strval($attrs['incubator']) === "true" ? true : false;
         // Tags
         foreach ($xml->tags->tag as $tag) $usergroup->tags[] = strval($tag);
         // Contact
