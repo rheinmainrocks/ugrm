@@ -205,6 +205,15 @@ $ugsort = function (Usergroup $a, Usergroup $b) {
                             </ul>
                         </dd>
 
+                        <dt class="showsingle">Tags</dt>
+                        <dd class="showsingle">
+                            <ul>
+                                <?php foreach($group->tags as $tag): ?>
+                                <li><a href="/tag/<?php echo urlencode(strtolower($tag)); ?>"><?php $e(strtoupper($tag)); ?></a></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </dd>
+
                         <?php if (count($group->mailinglists) > 0): ?>
                             <dt>
                                 <i class="icon-envelope"></i> <?php echo count($group->mailinglists) > 1 ? 'Mailinglisten' : 'Mailingliste'; ?>
