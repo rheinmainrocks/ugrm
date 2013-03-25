@@ -14,6 +14,8 @@ class MeetingTweet
 
     private $tweet = '';
 
+    private $tweetlen = 0;
+
     public function __construct(Meeting $meeting, $host)
     {
         $this->meeting = $meeting;
@@ -22,8 +24,16 @@ class MeetingTweet
 
     function addToTweet($str, $strlen = null)
     {
-        if (strlen($this->tweet) + ($strlen ? $strlen : strlen($str)) > 140) return;
+        $thelen = $this->tweetlen + ($strlen ? $strlen : strlen($str));
+        if ($thelen > 140) return;
         $this->tweet .= $str;
+        $this->tweetlen = $thelen;
+    }
+
+    protected function reset()
+    {
+        $this->tweet = '';
+        $this->tweetlen = 0;
     }
 
     /**
@@ -31,7 +41,7 @@ class MeetingTweet
      */
     public function getTweet()
     {
-        $this->tweet = '';
+        $this->reset();
         if ($this->meeting->time->isToday()) {
             $this->addToTweet('Heute');
         } elseif ($this->meeting->time->isTomorrow()) {
@@ -50,8 +60,8 @@ class MeetingTweet
         $this->addToTweet(' ' . sprintf('http://%s/~%s', $this->host, $this->meeting->usergroup->id), 22);
         $ht = $this->meeting->usergroup->hashtag;
         if ($ht && $ht != $n && substr($ht, 1) != substr($n, 1)) $this->addToTweet(' ' . $ht);
-        foreach($this->meeting->usergroup->tags as $tag) {
-            $this->addToTweet(' #' . preg_replace('[^a-zA-Z0-9]', '', $tag));
+        foreach ($this->meeting->usergroup->tags as $tag) {
+            $this->addToTweet(' #' . preg_replace('/[^a-zA-Z0-9]/', '', $tag));
         }
         $this->addToTweet(' #ugrm');
         return $this->tweet;
