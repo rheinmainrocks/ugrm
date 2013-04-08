@@ -16,4 +16,9 @@ class Person
      * @var string
      */
     public $email;
+
+    /**
+     * @var string
+     */
+    public $twitter;
 }

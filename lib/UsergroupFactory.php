@@ -32,7 +32,7 @@ class UsergroupFactory
             foreach ($xml->team->person as $p) {
                 $person = new Person();
                 static::setProps(array('name'), $p, $person);
-                static::setProps(array('url', 'email'), $p, $person, true);
+                static::setProps(array('url', 'email', 'twitter'), $p, $person, true);
                 $usergroup->team[] = $person;
             }
         }

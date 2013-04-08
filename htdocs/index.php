@@ -240,7 +240,7 @@ $ugsort = function (Usergroup $a, Usergroup $b) {
                         <?php endif; ?>
 
                         <?php if (count($group->team) > 0): ?>
-                            <dt>
+                            <dt class="showsingle">
                                 <?php if (count($group->team) > 1): ?>
                                     <i class="icon-group"></i>
                                 <?php else: ?>
@@ -248,7 +248,7 @@ $ugsort = function (Usergroup $a, Usergroup $b) {
                                 <?php endif; ?>
                                 Ansprechpartner
                             </dt>
-                            <dd>
+                            <dd class="showsingle">
                                 <ol>
                                     <?php foreach ($group->team as $person): ?>
                                         <li>
@@ -256,6 +256,9 @@ $ugsort = function (Usergroup $a, Usergroup $b) {
                                             <a href="<?php $e($person->url); ?>"><?php endif; ?>
                                                 <?php $e($person->name); ?>
                                                 <?php if($person->url): ?></a><?php endif; ?>
+                                            <?php if($person->twitter): ?><br><i class="icon-twitter"></i>
+                                        <a href="http://twitter.com/<?php echo substr($person->twitter, 1); ?>"><?php echo $person->twitter; ?>
+                                        </a><?php endif; ?>
                                             <?php if($person->email): ?><br><i class="icon-envelope"></i>
                                         <a href="mailto:<?php $e($person->email); ?>"><?php $e($person->email); ?></a><?php endif; ?>
                                         </li>
