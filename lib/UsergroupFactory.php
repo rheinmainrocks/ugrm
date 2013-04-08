@@ -28,8 +28,8 @@ class UsergroupFactory
                 $usergroup->mailinglists[] = $mailinglist;
             }
         }
-        if (property_exists($xml->contact, 'team')) {
-            foreach ($xml->contact->team->person as $p) {
+        if (property_exists($xml, 'team')) {
+            foreach ($xml->team->person as $p) {
                 $person = new Person();
                 static::setProps(array('name'), $p, $person);
                 static::setProps(array('url', 'email'), $p, $person, true);
