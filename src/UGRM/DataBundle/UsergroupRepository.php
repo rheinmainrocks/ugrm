@@ -4,6 +4,7 @@ namespace UGRM\DataBundle;
 
 use UGRM\DataBundle\Model\Usergroup;
 use UGRM\DataBundle\XML\UsergroupFactory;
+use UGRM\DataBundle\Model\Meeting;
 
 class UsergroupRepository
 {
@@ -85,10 +86,10 @@ class UsergroupRepository
 
     /**
      * @param Usergroup $group
-     * @return SplFileInfo
+     * @return \SplFileInfo
      */
     public function getXmlFile(Usergroup $group)
     {
-        return new SplFileInfo($this->dir->getPathname() . DIRECTORY_SEPARATOR . $group->id . '.xml');
+        return new \SplFileInfo($this->dir->getPathname() . DIRECTORY_SEPARATOR . $group->id . '.xml');
     }
 }
