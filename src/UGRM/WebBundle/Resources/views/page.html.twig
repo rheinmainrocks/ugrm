@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="de-de">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ meta_title|striptags|trim }}</title>
+    <meta name="description" content="{{ meta_description|striptags|trim }}">
+    <meta name="author" content="Markus Tacker | http://tckr.cc/">
+    <!-- See /humans.txt for more infos -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta property="og:type" content="non_profit">
+    <meta property="og:title" content="{{ meta_title|striptags|trim }}">
+    <meta property="og:url" content="{% if app.request.isSecure() %}https://{% else %}http://{% endif %}{{ app.request.host }}{{ app.request.pathInfo }}">
+    <meta property="og:image" content="{% if app.request.isSecure() %}https://{% else %}http://{% endif %}{{ app.request.host }}{{ meta_image|striptags|trim }}">
+    <meta property="og:site_name" content="UGRM &ndash; Usergroups RheinMain">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ugsrock">
+    <meta name="twitter:creator" content="@coderbyheart">
+    <meta name="twitter:url" content="{% if app.request.isSecure() %}https://{% else %}http://{% endif %}{{ app.request.host }}{{ app.request.pathInfo }}">
+    <meta name="twitter:title" content="{{ meta_title|striptags|trim }}">
+    <meta name="twitter:description" content="{{ meta_description|striptags|trim }}">
+    <meta name="twitter:image" content="{% if app.request.isSecure() %}https://{% else %}http://{% endif %}{{ app.request.host }}{{ meta_image|striptags|trim }}">
+    {% stylesheets "bundles/ugrmweb/css/styles.scss" filter="cssrewrite,sass" %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
+    {% endstylesheets %}
+</head>
+<body>
+<header>
+    <h1>
+        <a href="{{ path('ugrm_web_default_index') }}" rel="index"><img src="{{ asset('bundles/ugrmweb/img/logo.png') }}" alt="UGRM &ndash; Usergroups RheinMain"></a>
+    </h1>
+</header>
+<nav class="main">
+    <ul>
+        <li><a href="{{ path('ugrm_web_default_list') }}" class="mobile">Usergroups</a></li>
+        <li><a href="{{ path('ugrm_web_default_termine') }}" class="mobile">Termine</a></li>
+        <li><a href="{{ path('ugrm_web_default_tags') }}" class="mobile">Tags</a></li>
+        <li><a href="{{ path('ugrm_web_default_incubator') }}" class="mobile"><abbr title="Usergroups">UG</abbr> in Gründung</a></li>
+        <li><a href="http://coderbyheart.de/blog/usergroups-rheinmain">Was ist das?</a></li>
+        <li class="desktop"><a href="http://github.com/tacker/ugrm-data/">Eintrag bearbeiten</a></li>
+    </ul>
+</nav>
+<div id="main">
+    {% block content %}{% endblock %}
+</div>
+<footer>
+    <p><a href="/" rel="index">Usergroups RheinMain</a> ist ein Projekt von <a href="http://tckr.cc" rel="author">Markus
+            Tacker</a>.</p>
+
+    <p>Der Quellcode für dieses Projekt <a href="http://github.com/tacker/ugrm">findet sich auf GitHub</a>.</p>
+
+    <p><a href="http://rheinmainrocks.de/" rel="friend met neighbor parent">#RheinMainRocks</a></p>
+</footer>
+</body>
+</html>

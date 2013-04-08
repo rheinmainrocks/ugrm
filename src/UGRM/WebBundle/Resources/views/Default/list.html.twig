@@ -1,0 +1,25 @@
+{% extends "UGRMWebBundle::page.html.twig" %}
+{% set meta_title %}Liste | UGRM – Usergroups RheinMain{% endset %}
+{% set meta_image %}{{ asset('bundles/ugrmweb/img/logo.png') }}{% endset %}
+{% set meta_description %}Liste der Technologie-Usergroups im Rhein-Main-Gebiet{% endset %}
+
+{% block content %}
+    <article>
+        <h2>{{ meta_description }}
+        <small>({{ groups|length }})</small></h2>
+
+        {% for group in groups %}
+            {% if loop.first %}
+                <ul class="compact">
+            {% endif %}
+            <li>
+                <a href="{{ path('ugrm_web_default_usergroup', {'ug': group.id}) }}">
+                    {{ group.name }}
+                </a>
+            </li>
+            {% if loop.last %}
+                </ul>
+            {% endif %}
+        {% endfor %}
+    </article>
+{% endblock %}

@@ -1,0 +1,224 @@
+{% import "UGRMWebBundle::partials/macros.html.twig" as macros %}
+
+<article class="usergroup {{ single }}" itemscope itemtype="http://schema.org/Organization">
+    <div class="description">
+        <h2>
+            <a href="{{ path('ugrm_web_default_usergroup', {'ug': group.id}) }}" itemprop="name">{{ group.name }}</a>
+            {% if group.nickname %}
+                <small>({{ group.nickname }})</small>
+            {% endif %}
+        </h2>
+
+        <p itemprop="description">{{ group.description }}</p>
+
+        {% if group.incubator %}<p class="showsingle"><em>Dieser Usergroup befindet sich noch in Gründung und sucht dafür weitere
+            Interessierte. Bitte wende dich an einen der Ansprechpartner.</em>
+        </p>{% endif %}
+
+
+        {% for sponsor in group.sponsors %}
+            {% if loop.first %}
+                <div class="showsingle">
+                <h3><i class="icon-heart"></i> Sponsoren</h3>
+                <p>Die {{ macros.nickname(group) }} dankt ihren Sponsoren:</p>
+                <ul>
+            {% endif %}
+            <li>
+                <a href="{{ sponsor.url }}">{{ sponsor.name }}</a>
+            </li>
+            {% if loop.last %}</ul></div>{% endif %}
+        {% endfor %}
+
+        {% set meeting = group.futureMeeting %}
+        {% if meeting %}
+            <div itemscope itemtype="http://schema.org/Event" class="event" itemprop="event">
+                <h3><i class="icon-calendar"></i> Nächster
+                    Termin:<br><span itemprop="description">{{ meeting.name }}</span> {{ meeting.time|longdate }}
+                </h3>
+
+                {% if meeting.description %}
+                    <div class="showsingle">{{ meeting.description|md }}</div>
+                {% endif %}
+
+                {% if meeting.url %}
+                    <p class="showsingle">Details unter
+                        <a href="{{ meeting.url }}" itemprop="url">{{ meeting.url|nicelink }}</a>
+                    </p>
+                {% endif %}
+
+                <span class="hidden" itemprop="name">Treffen {{ group.female ? 'der' : 'des' }} {{ macros.nickname(group) }}
+                    <time datetime="{{ meeting.time|atomdate }}" itemprop="startDate">{{ meeting.time|longdate }}</time>
+                    </span>
+
+                {% if meeting.location %}
+                    <div class="showsingle">
+                        <h4><i class="icon-map-marker"></i> Ort</h4>
+                        {% if "name" in meeting.location %}
+                            <p itemprop="location" itemscope itemtype="http://schema.org/PostalAddress">
+                                <span itemprop="name">{{ meeting.location.name }}</span><br> {% if meeting.location.description %}{{ meeting.location.description }}
+                                    <br>{% endif %}
+
+                                {% set maps_query %}meeting.location.street, meeting.location.zip
+                                meeting.location.city, meeting.location.region, meeting.location.country
+                                (meeting.location.name){% endset %}
+                                <a href="https://maps.google.com/maps?q={{ maps_query|url_encode }}">
+                                    <span itemprop="streetAddress">{{ meeting.location.street }}</span>,
+                                    <span itemprop="postalCode">{{ meeting.location.zip }}</span>
+                                    <span itemprop="addressLocality">{{ meeting.location.city }}</span>
+                                    <span itemprop="addressRegion" class="hidden">{{ meeting.location.region }}</span>
+                                    <span itemprop="addressCountry" class="hidden">{{ meeting.location.country }}</span></a>
+
+                                {% if meeting.location.url %}<br><i class="icon-home"></i>
+                                    <a href="{{ meeting.location.url }}" itemprop="url">{{ meeting.location.url|nicelink }}</a>{% endif %}
+
+                                {% if meeting.location.twitter %}<br><i class="icon-twitter"></i>
+                                <a href="http://twitter.com/{{ meeting.location.twitter|slice(1) }}">
+                                    /{{ meeting.location.twitter }}</a>{% endif %}
+                            </p>
+                        {% else %}
+                            <p itemprop="location">{{ meeting.location.description }}</p>
+                        {% endif %}
+                    </div>
+                {% endif %}
+
+                <div class="showsingle">
+                    <h4>Teilen</h4>
+
+                    <p>
+                        <a href="{{ meeting.tweet }}"><i class="icon-twitter"></i> Tweet!</a>
+                    </p>
+                </div>
+            </div>
+        {% endif %}
+
+        <p class="hidesingle"><a href="{{ path('ugrm_web_default_usergroup', {'ug': group.id}) }}">Details …</a></p>
+
+    </div>
+    <aside>
+        <dl class="clearfix">
+            {% if group.logo %}
+                <dt class="hidden">Logo</dt>
+                <dd>
+                    <a href="{{ group.url }}"><img src="/data/usergroup/{{ group.logo }}" class="logo" alt="{{ group.name }}" itemprop="logo"></a>
+                </dd>
+            {% endif %}
+
+            <dt>Links &amp; Kontakt</dt>
+            <dd>
+                <ul>
+                    <li><i class="icon-home"></i>
+                        <a href="{{ group.url }}" itemprop="url">{{ group.url|nicelink }}</a>
+                    </li>
+                    {% if group.email %}
+                        <li><i class="icon-envelope-alt"></i>
+                            <a href="mailto:{{ group.email }}">{{ group.email }}</a>
+                        </li>
+                    {% endif %}
+
+                    {% if group.twitter or group.hashtag %}
+                        <li><i class="icon-twitter"></i> {% if group.twitter %}
+                                <a href="http://twitter.com/{{ group.twitter|slice(1) }}">{{ group.twitter }}</a>{% endif %}
+                            {% if group.hashtag %}
+                                <a href="https://twitter.com/search?q=%23{{ group.hashtag|slice(1)|url_encode }}">{{ group.hashtag }}</a>{% endif %}
+                        </li>
+                    {% endif %}
+
+                    {% if group.facebook %}
+                        <li><i class="icon-facebook"></i> <a href="{{ group.facebook }}">Facebook</a>
+                        </li>
+                    {% endif %}
+                    {% if group.googleplus %}
+                        <li><i class="icon-google-plus"></i> <a href="{{ group.googleplus }}">Google+</a>
+                        </li>
+                    {% endif %}
+
+                    {% if group.xing %}
+                        <li><i class="icon-sign-blank"></i> <a href="{{ group.xing }}">XING</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </dd>
+
+            {% for tag in group.tags %}
+                {% if loop.first %}
+                    <dt class="showsingle">Tags</dt>
+                    <dd class="showsingle">
+                    <ul>
+                {% endif %}
+                <li>
+                    <a href="/tag/{{ tag|lower|url_encode }}">{{ tag|upper }}</a>
+                </li>
+                {% if loop.last %}
+                    </ul>
+                    </dd>
+                {% endif %}
+            {% endfor %}
+
+            {% for mailinglist in group.mailinglists %}
+                {% if loop.first %}
+
+                    <dt>
+                        <i class="icon-envelope"></i> {% if group.mailinglists|length > 1 %}Mailinglisten{% else %}Mailingliste{% endif %}
+                    </dt>
+                    <dd>
+                    <ol>
+                {% endif %}
+                <li>
+                    <a href="{{ mailinglist.url }}">{{ mailinglist.label }}</a> {% if mailinglist.description %}
+                        <br>
+                        <small>{{ mailinglist.description }}</small>{% endif %}
+                </li>
+                {% if loop.last %}
+                    </ol>
+                    </dd>
+                {% endif %}
+            {% endfor %}
+
+            {% for person in group.team %}
+                {% if loop.first %}
+                    <dt class="showsingle">
+                        {% if group.team|length > 1 %}<i class="icon-group"></i>{% else %}
+                        <i class="icon-user"></i>{% endif %}Ansprechpartner
+                    </dt>
+                    <dd class="showsingle">
+                    <ol>
+                {% endif %}
+                <li>
+                    {% if person.url %}<a href="{{ person.url }}">{% endif %}
+                    {{ person.name }}
+                    {% if person.url %}</a>{% endif %}
+
+                    {% if person.twitter %}<br><i class="icon-twitter"></i>
+                        <a href="http://twitter.com/{{ person.twitter|slice(1) }}">{{ person.twitter }}</a>{% endif %}
+                    {% if person.email %}<br><i class="icon-envelope"></i>
+                        <a href="mailto:{{ person.email }}">{{ person.email }}</a>{% endif %}
+                </li>
+                {% if loop.last %}
+                    </ol>
+                    </dd>
+                {% endif %}
+            {% endfor %}
+        </dl>
+        <dl>
+            {% if group.group %}
+                <dt class="showsingle">Gruppenfoto</dt>
+                <dd class="showsingle">
+                    <img src="/data/usergroup/{{ group.group }}" class="group" alt="{{ group.name }}" itemprop="image">
+                </dd>
+            {% endif %}
+
+            <dt class="showsingle">Eintrag bearbeiten</dt>
+            <dd class="showsingle">
+                <i class="icon-github"></i>
+                <a href="https://github.com/tacker/ugrm-data/tree/master/usergroup/{{ group.id }}.xml">{{ [group.id, ".xml"]|join }}</a>
+                auf GitHub
+            </dd>
+        </dl>
+        {% if group.logo_credit or group.group_credit %}
+            {% if group.logo_credit %}
+                <div class="small showsingle">{{ group.logo_credit|md }}</div>{% endif %}
+            {% if group.group_credit %}
+                <div class="small showsingle">{{ group.group_credit|md }}</div>{% endif %}
+        {% endif %}
+    </aside>
+</article>

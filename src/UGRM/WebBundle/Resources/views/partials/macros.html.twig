@@ -1,0 +1,7 @@
+{% macro nickname(group) %}
+    {% if group.nickname %}
+        <abbr title="{{ group.name }}">{{ group.nickname }}</abbr>
+    {% else %}
+        {{ group.name }}
+    {% endif %}
+{% endmacro %}

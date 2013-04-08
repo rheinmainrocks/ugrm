@@ -1,0 +1,4 @@
+ugrm_web:
+    resource: "@UGRMWebBundle/Controller/"
+    type:     annotation
+    prefix:   /

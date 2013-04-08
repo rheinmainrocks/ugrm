@@ -1,0 +1,13 @@
+{% extends "UGRMWebBundle::page.html.twig" %}
+{% set meta_title %}Usergroup gesucht | UGRM – Usergroups RheinMain{% endset %}
+{% set meta_image %}{{ asset('bundles/ugrmweb/img/logo.png') }}{% endset %}
+{% set meta_description %}Diese Usergroups befindet sich noch in Gründung und suchen dafür weitere Interessierte.{% endset %}
+
+{% block content %}
+    <div class="info"><p>{{ meta_description }}</p></div>
+    {% for group in groups %}
+        {% include "UGRMWebBundle::partials/group.html.twig" with {"single": "" } %}
+    {% endfor %}
+
+{% endblock %}
+

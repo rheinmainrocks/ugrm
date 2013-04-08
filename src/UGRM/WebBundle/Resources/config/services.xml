@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="ugrm.web.controller.default" class="UGRM\WebBundle\Controller\DefaultController" scope="request">
+            <argument type="service" id="request"/>
+            <argument type="service" id="ugrm.data.repo.usergroups"/>
+        </service>
+        <service id="ugrm.web.twig.extension.date" class="UGRM\WebBundle\Twig\Extension\Date" public="false">
+            <tag name="twig.extension"/>
+        </service>
+        <service id="ugrm.web.twig.extension.markdown" class="UGRM\WebBundle\Twig\Extension\Markdown"
+                 public="false">
+            <tag name="twig.extension"/>
+        </service>
+        <service id="ugrm.web.twig.extension.nicelink" class="UGRM\WebBundle\Twig\Extension\Nicelink"
+                 public="false">
+            <tag name="twig.extension"/>
+        </service>
+    </services>
+</container>

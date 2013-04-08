@@ -1,0 +1,35 @@
+{% extends "UGRMWebBundle::page.html.twig" %}
+{% set meta_title %}Termine | UGRM – Usergroups RheinMain{% endset %}
+{% set meta_image %}{{ asset('bundles/ugrmweb/img/logo.png') }}{% endset %}
+{% set meta_description %}Termine der Technologie-Usergroups im Rhein-Main-Gebiet{% endset %}
+
+{% import "UGRMWebBundle::partials/macros.html.twig" as macros %}
+{% block content %}
+    <article>
+        <h2>{{ meta_description }}</h2>
+
+        {% for meeting in meetings %}
+            {% if loop.first %}
+                <ul class="termine">
+            {% endif %}
+            <li>
+                <a href="{{ path('ugrm_web_default_usergroup', {'ug': meeting.usergroup.id}) }}">
+                    <time datetime="{{ meeting.time|atomdate }}">
+                        {% if meeting.time.isToday() %}
+                            Heute, {{ meeting.time|shortdate }}
+                        {% elseif meeting.time.isTomorrow() %}
+                            Morgen, {{ meeting.time|shortdate }}
+                        {% else %}
+                            {{ meeting.time|longdate }}
+                        {% endif %}
+                    </time>
+                </a><br>Treffen {% if meeting.usergroup.female %}der{% else %}des{% endif %}
+                <a href="{{ path('ugrm_web_default_usergroup', {'ug': meeting.usergroup.id}) }}">{{ macros.nickname(meeting.usergroup) }}</a>
+                <a href="{{ meeting.tweet }}" title="Tweet!" class="reveal"><i class="icon-twitter"></i></a>
+            </li>
+            {% if loop.last %}
+                </ul>
+            {% endif %}
+        {% endfor %}
+    </article>
+{% endblock %}

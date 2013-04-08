@@ -1,0 +1,8 @@
+{% extends "UGRMWebBundle::page.html.twig" %}
+{% set meta_title %}{{ group.name }} | UGRM – Usergroups RheinMain{% endset %}
+{% set meta_image %}{% if group.logo %}/data/usergroup/{{ group.logo }}{% endif %}{% endset %}
+{% set meta_description %}{{ group.description }}{% endset %}
+{% block content %}
+    {% include "UGRMWebBundle::partials/group.html.twig" with { "single": "single"} %}
+{% endblock %}
+

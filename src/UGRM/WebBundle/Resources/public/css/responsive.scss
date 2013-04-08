@@ -1,0 +1,44 @@
+/** Responsive Styles **/
+
+@media screen and (min-width: 768px) {
+  article.usergroup {
+    div.description {
+      float: left;
+      width: 75%;
+      padding-right: 4em;
+    }
+    aside {
+      float: left;
+      width: 25%;
+    }
+  }
+  article.usergroup.single {
+    div.description {
+      width: 60%;
+    }
+    aside {
+      width: 40%;
+    }
+  }
+  #main {
+    @extend .clearfix;
+    float: left;
+    width: 85%;
+    border-left: 1px solid rgba($text, 0.2);
+    border-bottom: 1px solid rgba($text, 0.2);
+    border-top: 1px solid rgba($text, 0.2);
+  }
+
+  nav.main {
+    width: 15%;
+    float: left;
+    ul {
+      li {
+        text-align: right;
+        display: block;
+        border-bottom: 1px solid rgba($text, 0.2);
+        padding: 1em;
+      }
+    }
+  }
+}
