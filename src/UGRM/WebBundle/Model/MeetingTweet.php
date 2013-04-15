@@ -2,6 +2,8 @@
 
 namespace UGRM\WebBundle\Model;
 
+use UGRM\DataBundle\Model\Location;
+
 class MeetingTweet
 {
     /**
