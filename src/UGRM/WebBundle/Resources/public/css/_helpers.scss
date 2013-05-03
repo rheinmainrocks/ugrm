@@ -1,7 +1,9 @@
 /** Helpers **/
 
+@import "mixin_box-sizing";
+
 * {
-  box-sizing: border-box;
+  @include box-sizing(border-box);
 }
 
 // http://nicolasgallagher.com/micro-clearfix-hack/
