@@ -9,7 +9,12 @@
             {% endif %}
         </h2>
 
-        <p itemprop="description">{{ group.description }}</p>
+        {% if group.descriptionIsMarkdown %}
+            <article itemprop="description">{{ group.description|md }}</article>
+        {% else %}
+            <p itemprop="description">{{ group.description }}</p>
+        {% endif %}
+
 
         {% if group.incubator %}<p class="showsingle"><em>Dieser Usergroup befindet sich noch in Gründung und sucht dafür weitere
             Interessierte. Bitte wende dich an einen der Ansprechpartner.</em>
@@ -37,7 +42,7 @@
                 </h3>
 
                 {% if meeting.description %}
-                    <div class="showsingle">{{ meeting.description|md }}</div>
+                    <article class="showsingle">{{ meeting.description|md }}</article>
                 {% endif %}
 
                 {% if meeting.url %}

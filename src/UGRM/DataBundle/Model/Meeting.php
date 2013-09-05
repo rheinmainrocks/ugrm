@@ -25,6 +25,11 @@ class Meeting
     public $description;
 
     /**
+     * @var boolean
+     */
+    public $descriptionIsMarkdown = true;
+
+    /**
      * @var string
      */
     public $name;

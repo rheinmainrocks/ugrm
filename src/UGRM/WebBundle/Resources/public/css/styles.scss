@@ -121,6 +121,9 @@ h3 + p, h4 + p {
 article {
   @extend .clearfix;
   margin: 2em;
+  article {
+    margin: 0;
+  }
   h2 {
     a {
       color: $text;

@@ -17,6 +17,16 @@ class Usergroup
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var boolean
+     */
+    public $descriptionIsMarkdown = false;
+
+    /**
+     * @var string
+     */
     public $nickname = false;
 
     /**

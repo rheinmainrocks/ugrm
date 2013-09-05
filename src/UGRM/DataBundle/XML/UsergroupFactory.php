@@ -20,6 +20,13 @@ class UsergroupFactory
         $usergroup = new Usergroup();
         $usergroup->id = str_replace('.xml', '', $xmlfile->getFilename());
         static::setProps(array('name', 'url', 'description'), $xml, $usergroup);
+        $descriptionAttrs = $xml->description->attributes();
+        if (isset($descriptionAttrs['markdown']) && $descriptionAttrs['markdown']) {
+            $usergroup->descriptionIsMarkdown = true;
+            if ($usergroup->descriptionIsMarkdown) {
+                $usergroup->description = static::filterXmlContentForMarkown($usergroup->description);
+            }
+        }
         static::setProps(array('nickname'), $xml, $usergroup, true);
         $attrs = $xml->attributes();
         if (isset($attrs['female'])) $usergroup->female = strval($attrs['female']) === "false" ? false : true;
@@ -91,6 +98,7 @@ class UsergroupFactory
                     $meeting->time = new Carbon(strval($m->time));
                     $meeting->name = strval($m->name);
                     static::setProps(array('description', 'url'), $m, $meeting, true);
+                    $meeting->description = static::filterXmlContentForMarkown($meeting->description);
                     $meeting->location = self::getLocation($m, 'location');
                     // Meeting location nur mit default location überschreiben, falls nicht gesetzt
                     if ($meeting->location === null) if ($defaultLocation) $meeting->location = $defaultLocation;
@@ -102,7 +110,21 @@ class UsergroupFactory
             }
         }
 
+
         return $usergroup;
+    }
+
+    /**
+     * Removes indentation from XML data.
+     *
+     * @param $content
+     *
+     * @return string
+     */
+    protected static function filterXmlContentForMarkown($content)
+    {
+        $content = preg_replace('/\n[ \t]+/m', "\n", $content);
+        return $content;
     }
 
     /**
