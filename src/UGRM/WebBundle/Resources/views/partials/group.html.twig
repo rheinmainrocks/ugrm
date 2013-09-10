@@ -63,7 +63,7 @@
                                 <span itemprop="name">{{ meeting.location.name }}</span><br> {% if meeting.location.description %}{{ meeting.location.description }}
                                     <br>{% endif %}
 
-                                {% set maps_query %}{{ meeting.location.name }}, {{ meeting.location.street }}, {{ meeting.location.zip }} {{ meeting.location.city }}, {{ meeting.location.region }},  {{ meeting.location.country }}{% endset %}
+                                {% set maps_query %}{{ meeting.location.street }}, {{ meeting.location.zip }} {{ meeting.location.city }}, {{ meeting.location.region }},  {{ meeting.location.country }}{% endset %}
                                 <a href="https://maps.google.com/maps?q={{ maps_query|url_encode }}">
                                     <span itemprop="streetAddress">{{ meeting.location.street }}</span>,
                                     <span itemprop="postalCode">{{ meeting.location.zip }}</span>
