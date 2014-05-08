@@ -83,7 +83,7 @@ class UsergroupFactory
             }
 
             if (property_exists($xml->schedule, 'ical')) {
-                $usergroup->ical = strval($xml->schedule->ical);
+                $usergroup->ical = trim(strval($xml->schedule->ical));
                 $icalfile = dirname($xmlfile->getPathname()) . DIRECTORY_SEPARATOR . str_replace('.xml', '.ical', $xmlfile->getFilename());
                 if (file_exists($icalfile)) {
                     MeetingReader::fetchMeetings($usergroup, new \SplFileInfo($icalfile));
