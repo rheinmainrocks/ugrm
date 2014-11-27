@@ -1,4 +1,5 @@
 imports:
+    # See your parameters.sample.yml
     - { resource: parameters.yml }
     - { resource: security.yml }
 
