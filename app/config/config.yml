@@ -1,5 +1,5 @@
 imports:
-    # See your parameters.sample.yml
+    # Please see parameters.sample.yml if your ``composer install`` for all required parameters.
     - { resource: parameters.yml }
     - { resource: security.yml }
 
