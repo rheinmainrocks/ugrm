@@ -1,4 +1,5 @@
 imports:
+    # Please see parameters.yml.dist if your ``composer install`` for all required parameters.
     - { resource: parameters.yml }
     - { resource: security.yml }
 
