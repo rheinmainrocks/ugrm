@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new UGRM\WebBundle\UGRMWebBundle(),
             new UGRM\DataBundle\UGRMDataBundle(),
+            new Dothiv\Bundle\ParsedownBundle\DothivParsedownBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -10,7 +10,7 @@
         </h2>
 
         {% if group.descriptionIsMarkdown %}
-            <article itemprop="description">{{ group.description|md }}</article>
+            <div itemprop="description">{{ group.description|markdown }}</div>
         {% else %}
             <p itemprop="description">{{ group.description }}</p>
         {% endif %}
@@ -42,7 +42,7 @@
                 </h3>
 
                 {% if meeting.description %}
-                    <article class="showsingle">{{ meeting.description|md }}</article>
+                    <div class="showsingle">{{ meeting.description|markdown }}</div>
                 {% endif %}
 
                 {% if meeting.url %}
@@ -218,9 +218,9 @@
         </dl>
         {% if group.logo_credit or group.group_credit %}
             {% if group.logo_credit %}
-                <div class="small showsingle">{{ group.logo_credit|md }}</div>{% endif %}
+                <div class="small showsingle">{{ group.logo_credit|markdown }}</div>{% endif %}
             {% if group.group_credit %}
-                <div class="small showsingle">{{ group.group_credit|md }}</div>{% endif %}
+                <div class="small showsingle">{{ group.group_credit|markdown }}</div>{% endif %}
         {% endif %}
     </aside>
 </article>

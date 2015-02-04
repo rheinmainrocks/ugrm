@@ -2,7 +2,9 @@
     "name": "symfony/framework-standard-edition",
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
-        "psr-0": { "": "src/" }
+        "psr-0": {
+            "": "src/"
+        }
     },
     "require": {
         "php": ">=5.3.3",
@@ -18,7 +20,7 @@
         "sensio/generator-bundle": "2.2.*",
         "jms/security-extra-bundle": "1.4.*",
         "jms/di-extra-bundle": "1.3.*",
-        "dflydev/markdown": "1.0.*@dev",
+        "dothiv/dothiv-parsedown-bundle": "dev-master",
         "tacker/icalparser": "dev-master",
         "nesbot/carbon": "dev-master",
         "leafo/scssphp": "dev-master",
@@ -26,6 +28,16 @@
         "gedmo/doctrine-extensions": "dev-master",
         "doctrine/doctrine-migrations-bundle": "dev-master",
         "phpoption/phpoption": "dev-master"
+    },
+    "require-dev": {
+        "behat/behat": "*",
+        "behat/symfony2-extension": "*",
+        "behat/mink-extension": "*",
+        "behat/mink-browserkit-driver": "*",
+        "behat/mink-selenium-driver": "*",
+        "behat/mink-selenium2-driver": "*",
+        "behat/mink-goutte-driver": "*",
+        "behat/mink-sahi-driver": "*"
     },
     "scripts": {
         "post-install-cmd": [
