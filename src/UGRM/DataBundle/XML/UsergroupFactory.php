@@ -90,6 +90,11 @@ class UsergroupFactory
                 }
                 // Meeting location immer mit default location überschreiben
                 if ($defaultLocation) foreach ($usergroup->meetings as $meeting) $meeting->location = $defaultLocation;
+                // Fix texts
+                foreach ($usergroup->meetings as $meeting) {
+                    $meeting->description = str_replace('\n', "\n", $meeting->description);
+                    $meeting->description = preg_replace('%https?://[^ ]+%', "[$0]($0)", $meeting->description);
+                }
             } else {
                 $sort = array();
                 foreach ($xml->schedule->meeting as $m) {
