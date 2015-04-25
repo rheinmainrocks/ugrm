@@ -2,15 +2,10 @@
 
 namespace UGRM\WebBundle\Twig\Extension;
 
-use dflydev\markdown\MarkdownParser;
+use Michelf\Markdown as MichelfMarkdown;
 
 class Markdown extends \Twig_Extension
 {
-    public function __construct()
-    {
-        $this->markdownParser = new MarkdownParser();
-    }
-
     public function getFilters()
     {
         return array(
@@ -20,7 +15,7 @@ class Markdown extends \Twig_Extension
 
     public function markdown($str)
     {
-        return $this->markdownParser->transformMarkdown($str);
+        return MichelfMarkdown::defaultTransform($str);
     }
 
     public function getName()

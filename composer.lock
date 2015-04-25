@@ -1,30 +1,10 @@
 {
-<<<<<<< Updated upstream
-    "hash": "e707a4a0a1804f9e1c23e56d8147d8dc",
-    "packages": [
-        {
-            "name": "dflydev/markdown",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dflydev/dflydev-markdown.git",
-                "reference": "11f8faa2d17f717a038b4d372abd22a6ac4a15dc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dflydev/dflydev-markdown/zipball/11f8faa2d17f717a038b4d372abd22a6ac4a15dc",
-                "reference": "11f8faa2d17f717a038b4d372abd22a6ac4a15dc",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3"
-=======
     "_readme": [
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0a8826a2ac8d33f3d3e920c362b212dc",
+    "hash": "0a03b308ccfd0f108b0489036f0b1b61",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -42,7 +22,6 @@
             },
             "require": {
                 "php": ">=5.3.3"
->>>>>>> Stashed changes
             },
             "type": "library",
             "extra": {
@@ -52,58 +31,11 @@
             },
             "autoload": {
                 "psr-0": {
-<<<<<<< Updated upstream
-                    "dflydev\\markdown": "src"
-=======
                     "Behat\\Transliterator": "src/"
->>>>>>> Stashed changes
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-<<<<<<< Updated upstream
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Dragonfly Development Inc.",
-                    "email": "info@dflydev.com",
-                    "homepage": "http://dflydev.com"
-                },
-                {
-                    "name": "Beau Simensen",
-                    "email": "beau@dflydev.com",
-                    "homepage": "http://beausimensen.com"
-                },
-                {
-                    "name": "Michel Fortin",
-                    "homepage": "http://michelf.com"
-                },
-                {
-                    "name": "John Gruber",
-                    "homepage": "http://daringfireball.net"
-                }
-            ],
-            "description": "PHP Markdown & Extra",
-            "homepage": "http://github.com/dflydev/dflydev-markdown",
-            "keywords": [
-                "markdown"
-            ],
-            "time": "2012-07-15 16:31:27"
-        },
-        {
-            "name": "doctrine/annotations",
-            "version": "v1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/annotations.git",
-                "reference": "v1.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/v1.1",
-                "reference": "v1.1",
-=======
                 "Artistic-1.0"
             ],
             "description": "String transliterator",
@@ -126,7 +58,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/doctrine/annotations/zipball/b5202eb9e83f8db52e0e58867e0a46e63be8332e",
                 "reference": "b5202eb9e83f8db52e0e58867e0a46e63be8332e",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -134,11 +65,6 @@
                 "php": ">=5.3.2"
             },
             "require-dev": {
-<<<<<<< Updated upstream
-                "doctrine/cache": "1.*"
-            },
-            "type": "library",
-=======
                 "doctrine/cache": "1.*",
                 "phpunit/phpunit": "4.*"
             },
@@ -148,7 +74,6 @@
                     "dev-master": "1.3.x-dev"
                 }
             },
->>>>>>> Stashed changes
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Common\\Annotations\\": "lib/"
@@ -160,19 +85,6 @@
             ],
             "authors": [
                 {
-<<<<<<< Updated upstream
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
-=======
->>>>>>> Stashed changes
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
@@ -181,12 +93,6 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-<<<<<<< Updated upstream
-                    "name": "Johannes M. Schmitt",
-                    "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
-                    "role": "Developer of wrapped JMSSerializerBundle"
-=======
                     "name": "Guilherme Blanco",
                     "email": "guilhermeblanco@gmail.com"
                 },
@@ -197,7 +103,6 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com"
->>>>>>> Stashed changes
                 }
             ],
             "description": "Docblock Annotations Parser",
@@ -207,22 +112,6 @@
                 "docblock",
                 "parser"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-03-17 14:03:10"
-        },
-        {
-            "name": "doctrine/cache",
-            "version": "v1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/cache.git",
-                "reference": "v1.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/doctrine/cache/archive/v1.0.zip",
-                "reference": "v1.0",
-=======
             "time": "2014-12-23 22:40:37"
         },
         {
@@ -237,15 +126,11 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/doctrine/cache/zipball/c9eadeb743ac6199f7eec423cb9426bc518b7b03",
                 "reference": "c9eadeb743ac6199f7eec423cb9426bc518b7b03",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
-<<<<<<< Updated upstream
-            "type": "library",
-=======
             "conflict": {
                 "doctrine/common": ">2.2,<2.4"
             },
@@ -260,7 +145,6 @@
                     "dev-master": "1.5.x-dev"
                 }
             },
->>>>>>> Stashed changes
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Common\\Cache\\": "lib/"
@@ -272,19 +156,6 @@
             ],
             "authors": [
                 {
-<<<<<<< Updated upstream
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
-=======
->>>>>>> Stashed changes
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
@@ -293,12 +164,6 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-<<<<<<< Updated upstream
-                    "name": "Johannes M. Schmitt",
-                    "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
-                    "role": "Developer of wrapped JMSSerializerBundle"
-=======
                     "name": "Guilherme Blanco",
                     "email": "guilhermeblanco@gmail.com"
                 },
@@ -309,7 +174,6 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com"
->>>>>>> Stashed changes
                 }
             ],
             "description": "Caching library offering an object-oriented API for many cache backends",
@@ -318,22 +182,6 @@
                 "cache",
                 "caching"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-01-10 22:43:46"
-        },
-        {
-            "name": "doctrine/collections",
-            "version": "v1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/collections.git",
-                "reference": "v1.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/v1.1",
-                "reference": "v1.1",
-=======
             "time": "2015-04-15 00:11:59"
         },
         {
@@ -348,18 +196,11 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/doctrine/collections/zipball/6c1e4eef75f310ea1b3e30945e9f06e652128b8a",
                 "reference": "6c1e4eef75f310ea1b3e30945e9f06e652128b8a",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
-<<<<<<< Updated upstream
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1.x-dev"
-=======
             "require-dev": {
                 "phpunit/phpunit": "~4.0"
             },
@@ -367,7 +208,6 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.2.x-dev"
->>>>>>> Stashed changes
                 }
             },
             "autoload": {
@@ -381,19 +221,6 @@
             ],
             "authors": [
                 {
-<<<<<<< Updated upstream
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
-=======
->>>>>>> Stashed changes
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
@@ -402,12 +229,6 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-<<<<<<< Updated upstream
-                    "name": "Johannes M. Schmitt",
-                    "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
-                    "role": "Developer of wrapped JMSSerializerBundle"
-=======
                     "name": "Guilherme Blanco",
                     "email": "guilhermeblanco@gmail.com"
                 },
@@ -418,7 +239,6 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com"
->>>>>>> Stashed changes
                 }
             ],
             "description": "Collections Abstraction library",
@@ -428,22 +248,6 @@
                 "collections",
                 "iterator"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-03-07 12:15:54"
-        },
-        {
-            "name": "doctrine/common",
-            "version": "2.4.0-RC1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/common.git",
-                "reference": "2.4.0-RC1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/2.4.0-RC1",
-                "reference": "2.4.0-RC1",
-=======
             "time": "2015-04-14 22:21:58"
         },
         {
@@ -458,7 +262,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/doctrine/common/zipball/cd8daf2501e10c63dced7b8b9b905844316ae9d3",
                 "reference": "cd8daf2501e10c63dced7b8b9b905844316ae9d3",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -469,12 +272,6 @@
                 "doctrine/lexer": "1.*",
                 "php": ">=5.3.2"
             },
-<<<<<<< Updated upstream
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.4.x-dev"
-=======
             "require-dev": {
                 "phpunit/phpunit": "~3.7"
             },
@@ -482,7 +279,6 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.6.x-dev"
->>>>>>> Stashed changes
                 }
             },
             "autoload": {
@@ -496,19 +292,6 @@
             ],
             "authors": [
                 {
-<<<<<<< Updated upstream
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
-=======
->>>>>>> Stashed changes
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
@@ -517,12 +300,6 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-<<<<<<< Updated upstream
-                    "name": "Johannes M. Schmitt",
-                    "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
-                    "role": "Developer of wrapped JMSSerializerBundle"
-=======
                     "name": "Guilherme Blanco",
                     "email": "guilhermeblanco@gmail.com"
                 },
@@ -533,7 +310,6 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com"
->>>>>>> Stashed changes
                 }
             ],
             "description": "Common Library for Doctrine projects",
@@ -545,37 +321,6 @@
                 "persistence",
                 "spl"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-03-24 17:52:34"
-        },
-        {
-            "name": "doctrine/dbal",
-            "version": "2.3.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/dbal.git",
-                "reference": "2.3.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/2.3.3",
-                "reference": "2.3.3",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/common": ">=2.3.0,<2.5-dev",
-                "php": ">=5.3.2"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Doctrine\\DBAL": "lib/"
-=======
             "time": "2015-04-02 19:55:44"
         },
         {
@@ -607,7 +352,6 @@
             "autoload": {
                 "psr-0": {
                     "Doctrine\\DBAL\\": "lib/"
->>>>>>> Stashed changes
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -616,27 +360,12 @@
             ],
             "authors": [
                 {
-<<<<<<< Updated upstream
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
-=======
->>>>>>> Stashed changes
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
                 {
                     "name": "Benjamin Eberlei",
                     "email": "kontakt@beberlei.de"
-<<<<<<< Updated upstream
-=======
                 },
                 {
                     "name": "Guilherme Blanco",
@@ -645,7 +374,6 @@
                 {
                     "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com"
->>>>>>> Stashed changes
                 }
             ],
             "description": "Database Abstraction Layer",
@@ -656,23 +384,6 @@
                 "persistence",
                 "queryobject"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-03-24 19:16:29"
-        },
-        {
-            "name": "doctrine/doctrine-bundle",
-            "version": "v1.2.0-beta1",
-            "target-dir": "Doctrine/Bundle/DoctrineBundle",
-            "source": {
-                "type": "git",
-                "url": "git://github.com/doctrine/DoctrineBundle.git",
-                "reference": "v1.2.0-beta1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/v1.2.0-beta1",
-                "reference": "v1.2.0-beta1",
-=======
             "time": "2015-01-12 21:57:01"
         },
         {
@@ -688,22 +399,10 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/765b0d87fcc3e839c74817b7211258cbef3a4fb9",
                 "reference": "765b0d87fcc3e839c74817b7211258cbef3a4fb9",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": ">=2.2,<2.5-dev",
-<<<<<<< Updated upstream
-                "jdorn/sql-formatter": ">=1.1,<2.0",
-                "php": ">=5.3.2",
-                "symfony/doctrine-bridge": "2.2.*",
-                "symfony/framework-bundle": ">=2.2.0-beta2,<2.3-dev"
-            },
-            "require-dev": {
-                "doctrine/orm": ">=2.2,<2.5-dev",
-                "symfony/validator": "2.2.*",
-                "symfony/yaml": "2.2.*"
-=======
                 "jdorn/sql-formatter": "~1.1",
                 "php": ">=5.3.2",
                 "symfony/doctrine-bridge": "~2.2",
@@ -713,7 +412,6 @@
                 "doctrine/orm": ">=2.2,<2.5-dev",
                 "symfony/validator": "~2.2",
                 "symfony/yaml": "~2.2"
->>>>>>> Stashed changes
             },
             "suggest": {
                 "doctrine/orm": "The Doctrine ORM integration is optional in the bundle.",
@@ -756,11 +454,7 @@
                 "orm",
                 "persistence"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-01-12 14:41:19"
-=======
             "time": "2013-03-25 20:13:59"
->>>>>>> Stashed changes
         },
         {
             "name": "doctrine/doctrine-migrations-bundle",
@@ -769,23 +463,6 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineMigrationsBundle.git",
-<<<<<<< Updated upstream
-                "reference": "99c0192804134a8c1d0588777bd98bdbc2dbb554"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/99c0192804134a8c1d0588777bd98bdbc2dbb554",
-                "reference": "99c0192804134a8c1d0588777bd98bdbc2dbb554",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/doctrine-bundle": ">=1.0,<2.0",
-                "doctrine/migrations": "*",
-                "php": ">=5.3.2",
-                "symfony/framework-bundle": ">=2.1.0,<2.3-dev"
-            },
-            "type": "symfony-bundle",
-=======
                 "reference": "6a1bd731dbdd4ad952a3b246a8f38c9c12f52e62"
             },
             "dist": {
@@ -806,7 +483,6 @@
                     "dev-master": "2.1.x-dev"
                 }
             },
->>>>>>> Stashed changes
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Bundle\\MigrationsBundle": ""
@@ -818,26 +494,16 @@
             ],
             "authors": [
                 {
-<<<<<<< Updated upstream
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-=======
->>>>>>> Stashed changes
                     "name": "Symfony Community",
                     "homepage": "http://symfony.com/contributors"
                 },
                 {
                     "name": "Doctrine Project",
                     "homepage": "http://www.doctrine-project.org"
-<<<<<<< Updated upstream
-=======
                 },
                 {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
->>>>>>> Stashed changes
                 }
             ],
             "description": "Symfony DoctrineMigrationsBundle",
@@ -847,22 +513,6 @@
                 "migrations",
                 "schema"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-01-12 20:06:22"
-        },
-        {
-            "name": "doctrine/inflector",
-            "version": "v1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/inflector.git",
-                "reference": "v1.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/doctrine/inflector/archive/v1.0.zip",
-                "reference": "v1.0",
-=======
             "time": "2015-02-16 13:24:46"
         },
         {
@@ -877,15 +527,11 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/doctrine/inflector/zipball/0bcb2e79d8571787f18b7eb036ed3d004908e604",
                 "reference": "0bcb2e79d8571787f18b7eb036ed3d004908e604",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
-<<<<<<< Updated upstream
-            "type": "library",
-=======
             "require-dev": {
                 "phpunit/phpunit": "4.*"
             },
@@ -895,7 +541,6 @@
                     "dev-master": "1.0.x-dev"
                 }
             },
->>>>>>> Stashed changes
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Common\\Inflector\\": "lib/"
@@ -907,19 +552,6 @@
             ],
             "authors": [
                 {
-<<<<<<< Updated upstream
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
-=======
->>>>>>> Stashed changes
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
@@ -928,12 +560,6 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-<<<<<<< Updated upstream
-                    "name": "Johannes M. Schmitt",
-                    "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
-                    "role": "Developer of wrapped JMSSerializerBundle"
-=======
                     "name": "Guilherme Blanco",
                     "email": "guilhermeblanco@gmail.com"
                 },
@@ -944,33 +570,12 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com"
->>>>>>> Stashed changes
                 }
             ],
             "description": "Common String Manipulations with regard to casing and singular/plural rules.",
             "homepage": "http://www.doctrine-project.org",
             "keywords": [
                 "inflection",
-<<<<<<< Updated upstream
-                "pluarlize",
-                "singuarlize",
-                "string"
-            ],
-            "time": "2013-01-10 21:49:15"
-        },
-        {
-            "name": "doctrine/lexer",
-            "version": "v1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/lexer.git",
-                "reference": "v1.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/doctrine/lexer/archive/v1.0.zip",
-                "reference": "v1.0",
-=======
                 "pluralize",
                 "singularize",
                 "string"
@@ -989,21 +594,17 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/doctrine/lexer/zipball/83893c552fd2045dd78aef794c31e694c37c0b8c",
                 "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
             "type": "library",
-<<<<<<< Updated upstream
-=======
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.0.x-dev"
                 }
             },
->>>>>>> Stashed changes
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Common\\Lexer\\": "lib/"
@@ -1015,31 +616,16 @@
             ],
             "authors": [
                 {
-<<<<<<< Updated upstream
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
-=======
->>>>>>> Stashed changes
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
                 {
-<<<<<<< Updated upstream
-                    "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
-                    "role": "Developer of wrapped JMSSerializerBundle"
-=======
                     "name": "Guilherme Blanco",
                     "email": "guilhermeblanco@gmail.com"
                 },
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com"
->>>>>>> Stashed changes
                 }
             ],
             "description": "Base library for a lexer that can be used in Top-Down, Recursive Descent Parsers.",
@@ -1048,26 +634,6 @@
                 "lexer",
                 "parser"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-01-12 18:59:04"
-        },
-        {
-            "name": "doctrine/migrations",
-            "version": "v1.0-ALPHA1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/migrations",
-                "reference": "v1.0-ALPHA1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/doctrine/migrations/zipball/v1.0-ALPHA1",
-                "reference": "v1.0-ALPHA1",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/dbal": ">=2.0,<2.5.x-dev",
-=======
             "time": "2014-09-09 13:34:57"
         },
         {
@@ -1086,7 +652,6 @@
             },
             "require": {
                 "doctrine/dbal": "~2.0",
->>>>>>> Stashed changes
                 "php": ">=5.3.2"
             },
             "require-dev": {
@@ -1097,14 +662,11 @@
                 "symfony/console": "to run the migration from the console"
             },
             "type": "library",
-<<<<<<< Updated upstream
-=======
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.0.x-dev"
                 }
             },
->>>>>>> Stashed changes
             "autoload": {
                 "psr-0": {
                     "Doctrine\\DBAL\\Migrations": "lib"
@@ -1112,19 +674,6 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-<<<<<<< Updated upstream
-                "LGPL"
-            ],
-            "authors": [
-                {
-                    "name": "Jonathan H. Wage",
-                    "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/"
-                },
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de"
-=======
                 "LGPL-2.1"
             ],
             "authors": [
@@ -1135,7 +684,6 @@
                 {
                     "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com"
->>>>>>> Stashed changes
                 }
             ],
             "description": "Database Schema migrations using Doctrine DBAL",
@@ -1144,29 +692,6 @@
                 "database",
                 "migrations"
             ],
-<<<<<<< Updated upstream
-            "time": "2012-10-05 04:15:13"
-        },
-        {
-            "name": "doctrine/orm",
-            "version": "2.3.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "2.3.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/2.3.3",
-                "reference": "2.3.3",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/dbal": "2.3.*",
-                "ext-pdo": "*",
-                "php": ">=5.3.2",
-                "symfony/console": "2.*"
-=======
             "time": "2015-03-22 13:09:02"
         },
         {
@@ -1193,7 +718,6 @@
             "require-dev": {
                 "satooshi/php-coveralls": "dev-master",
                 "symfony/yaml": "~2.1"
->>>>>>> Stashed changes
             },
             "suggest": {
                 "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
@@ -1205,20 +729,12 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< Updated upstream
-                    "dev-master": "2.3.x-dev"
-=======
                     "dev-master": "2.4.x-dev"
->>>>>>> Stashed changes
                 }
             },
             "autoload": {
                 "psr-0": {
-<<<<<<< Updated upstream
-                    "Doctrine\\ORM": "lib/"
-=======
                     "Doctrine\\ORM\\": "lib/"
->>>>>>> Stashed changes
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1227,27 +743,12 @@
             ],
             "authors": [
                 {
-<<<<<<< Updated upstream
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
-=======
->>>>>>> Stashed changes
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
                 {
                     "name": "Benjamin Eberlei",
                     "email": "kontakt@beberlei.de"
-<<<<<<< Updated upstream
-=======
                 },
                 {
                     "name": "Guilherme Blanco",
@@ -1256,7 +757,6 @@
                 {
                     "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com"
->>>>>>> Stashed changes
                 }
             ],
             "description": "Object-Relational-Mapper for PHP",
@@ -1265,210 +765,7 @@
                 "database",
                 "orm"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-03-24 20:43:58"
-        },
-        {
-            "name": "gedmo/doctrine-extensions",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "db0585625f6944a755534688e971b86d1d33ec45"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/db0585625f6944a755534688e971b86d1d33ec45",
-                "reference": "db0585625f6944a755534688e971b86d1d33ec45",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/common": ">=2.2,<2.5-dev",
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "doctrine/dbal": ">=2.2",
-                "doctrine/mongodb": "1.0.1",
-                "doctrine/mongodb-odm": "1.0.0-BETA7",
-                "doctrine/orm": ">=2.2",
-                "symfony/yaml": "2.*"
-            },
-            "suggest": {
-                "doctrine/dbal": ">=2.3.2",
-                "doctrine/mongodb": ">=1.0.1",
-                "doctrine/mongodb-odm": ">=1.0.0-BETA7",
-                "doctrine/orm": ">=2.3.2"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Gedmo": "lib/"
-=======
             "time": "2014-12-16 13:45:01"
-        },
-        {
-            "name": "dothiv/dothiv-parsedown-bundle",
-            "version": "dev-master",
-            "target-dir": "Dothiv/Bundle/ParsedownBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dothiv/DothivParsedownBundle.git",
-                "reference": "d26bf361229007f6c52ba554098363bfae1a17ff"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dothiv/DothivParsedownBundle/zipball/d26bf361229007f6c52ba554098363bfae1a17ff",
-                "reference": "d26bf361229007f6c52ba554098363bfae1a17ff",
-                "shasum": ""
-            },
-            "require": {
-                "erusev/parsedown": "1.0.*",
-                "php": ">=5.3.9",
-                "symfony/framework-bundle": "~2.1"
-            },
-            "suggest": {
-                "symfony/twig-bundle": "to use the Twig markdown filter"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "Dothiv\\Bundle\\ParsedownBundle": ""
->>>>>>> Stashed changes
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-<<<<<<< Updated upstream
-                    "name": "David Buchmann",
-                    "email": "david@liip.ch"
-                },
-                {
-                    "name": "Gediminas Morkevicius",
-                    "email": "gediminas.morkevicius@gmail.com"
-                },
-                {
-                    "name": "Gustavo Falco",
-                    "email": "comfortablynumb84@gmail.com"
-                }
-            ],
-            "description": "Doctrine2 behavioral extensions",
-            "homepage": "http://gediminasm.org/",
-            "keywords": [
-                "Blameable",
-                "behaviors",
-                "doctrine2",
-                "extensions",
-                "gedmo",
-                "loggable",
-                "nestedset",
-                "sluggable",
-                "sortable",
-                "timestampable",
-                "translatable",
-                "tree",
-                "uploadable"
-            ],
-            "time": "2013-04-07 10:44:07"
-        },
-        {
-            "name": "jdorn/sql-formatter",
-            "version": "v1.2.0",
-            "source": {
-                "type": "git",
-                "url": "git://github.com/jdorn/sql-formatter.git",
-                "reference": "v1.2.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/jdorn/sql-formatter/archive/v1.2.0.zip",
-                "reference": "v1.2.0",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.4"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.3.x-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "lib"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL"
-            ],
-            "authors": [
-                {
-                    "name": "Jeremy Dorn",
-                    "email": "jeremy@jeremydorn.com",
-=======
-                    "name": "TLD dotHIV Registry GmbH",
-                    "homepage": "http://dothiv-registry.net"
-                }
-            ],
-            "description": "dotHIV parsedown bundle for Symfony2 install Parsedown and provides a twig filter",
-            "homepage": "http://github.com/dotHIV/DothivParsedownBundle",
-            "keywords": [
-                "Symfony2",
-                "bundle",
-                "markdown",
-                "parsedown",
-                "twig"
-            ],
-            "time": "2015-02-11 13:50:54"
-        },
-        {
-            "name": "erusev/parsedown",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/erusev/parsedown.git",
-                "reference": "d24439ada0704948deef0d3eda2ea20fd8db1747"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/d24439ada0704948deef0d3eda2ea20fd8db1747",
-                "reference": "d24439ada0704948deef0d3eda2ea20fd8db1747",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Parsedown": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Emanuil Rusev",
-                    "email": "hello@erusev.com",
-                    "homepage": "http://erusev.com"
-                }
-            ],
-            "description": "Parser for Markdown.",
-            "homepage": "http://parsedown.org",
-            "keywords": [
-                "markdown",
-                "parser"
-            ],
-            "time": "2014-05-21 20:20:46"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -1550,6 +847,101 @@
             "time": "2015-04-15 01:03:59"
         },
         {
+            "name": "guzzle/guzzle",
+            "version": "v3.9.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle3.git",
+                "reference": "0645b70d953bc1c067bbc8d5bc53194706b628d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/0645b70d953bc1c067bbc8d5bc53194706b628d9",
+                "reference": "0645b70d953bc1c067bbc8d5bc53194706b628d9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.3",
+                "symfony/event-dispatcher": "~2.1"
+            },
+            "replace": {
+                "guzzle/batch": "self.version",
+                "guzzle/cache": "self.version",
+                "guzzle/common": "self.version",
+                "guzzle/http": "self.version",
+                "guzzle/inflection": "self.version",
+                "guzzle/iterator": "self.version",
+                "guzzle/log": "self.version",
+                "guzzle/parser": "self.version",
+                "guzzle/plugin": "self.version",
+                "guzzle/plugin-async": "self.version",
+                "guzzle/plugin-backoff": "self.version",
+                "guzzle/plugin-cache": "self.version",
+                "guzzle/plugin-cookie": "self.version",
+                "guzzle/plugin-curlauth": "self.version",
+                "guzzle/plugin-error-response": "self.version",
+                "guzzle/plugin-history": "self.version",
+                "guzzle/plugin-log": "self.version",
+                "guzzle/plugin-md5": "self.version",
+                "guzzle/plugin-mock": "self.version",
+                "guzzle/plugin-oauth": "self.version",
+                "guzzle/service": "self.version",
+                "guzzle/stream": "self.version"
+            },
+            "require-dev": {
+                "doctrine/cache": "~1.3",
+                "monolog/monolog": "~1.0",
+                "phpunit/phpunit": "3.7.*",
+                "psr/log": "~1.0",
+                "symfony/class-loader": "~2.1",
+                "zendframework/zend-cache": "2.*,<2.3",
+                "zendframework/zend-log": "2.*,<2.3"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "Guzzle 5 has moved to a new package name. The package you have installed, Guzzle 3, is deprecated."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle": "src/",
+                    "Guzzle\\Tests": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Guzzle Community",
+                    "homepage": "https://github.com/guzzle/guzzle/contributors"
+                }
+            ],
+            "description": "PHP HTTP client. This library is deprecated in favor of https://packagist.org/packages/guzzlehttp/guzzle",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2015-03-18 18:23:50"
+        },
+        {
             "name": "jdorn/sql-formatter",
             "version": "v1.2.17",
             "source": {
@@ -1588,7 +980,6 @@
                 {
                     "name": "Jeremy Dorn",
                     "email": "jeremy@jeremydorn.com",
->>>>>>> Stashed changes
                     "homepage": "http://jeremydorn.com/"
                 }
             ],
@@ -1598,30 +989,6 @@
                 "highlight",
                 "sql"
             ],
-<<<<<<< Updated upstream
-            "time": "2012-12-22 21:46:50"
-        },
-        {
-            "name": "jms/aop-bundle",
-            "version": "1.0.0",
-            "target-dir": "JMS/AopBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/schmittjoh/JMSAopBundle",
-                "reference": "1.0.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/schmittjoh/JMSAopBundle/zipball/1.0.0",
-                "reference": "1.0.0",
-                "shasum": ""
-            },
-            "require": {
-                "jms/cg": "1.0.0",
-                "symfony/framework-bundle": "2.*"
-            },
-            "type": "symfony-bundle",
-=======
             "time": "2014-01-12 16:20:24"
         },
         {
@@ -1649,7 +1016,6 @@
                     "dev-master": "1.1.x-dev"
                 }
             },
->>>>>>> Stashed changes
             "autoload": {
                 "psr-0": {
                     "JMS\\AopBundle": ""
@@ -1661,11 +1027,7 @@
             ],
             "authors": [
                 {
-<<<<<<< Updated upstream
-                    "name": "Johannes M. Schmitt",
-=======
                     "name": "Johannes Schmitt",
->>>>>>> Stashed changes
                     "email": "schmittjoh@gmail.com",
                     "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -1676,11 +1038,7 @@
                 "annotations",
                 "aop"
             ],
-<<<<<<< Updated upstream
-            "time": "2012-01-02 12:50:26"
-=======
             "time": "2013-07-29 09:34:26"
->>>>>>> Stashed changes
         },
         {
             "name": "jms/cg",
@@ -1792,18 +1150,6 @@
         },
         {
             "name": "jms/metadata",
-<<<<<<< Updated upstream
-            "version": "1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/schmittjoh/metadata.git",
-                "reference": "1.3.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/metadata/zipball/1.3.0",
-                "reference": "1.3.0",
-=======
             "version": "1.5.1",
             "source": {
                 "type": "git",
@@ -1814,27 +1160,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/schmittjoh/metadata/zipball/22b72455559a25777cfd28c4ffda81ff7639f353",
                 "reference": "22b72455559a25777cfd28c4ffda81ff7639f353",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
             "require-dev": {
-<<<<<<< Updated upstream
-                "doctrine/common": ">=2.0,<2.4-dev"
-=======
                 "doctrine/cache": "~1.0"
->>>>>>> Stashed changes
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< Updated upstream
-                    "dev-master": "1.3.x-dev"
-=======
                     "dev-master": "1.5.x-dev"
->>>>>>> Stashed changes
                 }
             },
             "autoload": {
@@ -1848,11 +1185,7 @@
             ],
             "authors": [
                 {
-<<<<<<< Updated upstream
-                    "name": "Johannes M. Schmitt",
-=======
                     "name": "Johannes Schmitt",
->>>>>>> Stashed changes
                     "email": "schmittjoh@gmail.com",
                     "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -1865,11 +1198,7 @@
                 "xml",
                 "yaml"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-01-22 12:51:18"
-=======
             "time": "2014-07-12 07:13:19"
->>>>>>> Stashed changes
         },
         {
             "name": "jms/parser-lib",
@@ -1979,18 +1308,6 @@
         },
         {
             "name": "kriswallsmith/assetic",
-<<<<<<< Updated upstream
-            "version": "v1.1.0-alpha4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "v1.1.0-alpha4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/v1.1.0-alpha4",
-                "reference": "v1.1.0-alpha4",
-=======
             "version": "v1.1.3",
             "source": {
                 "type": "git",
@@ -2001,16 +1318,11 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/02105abcd35fb32933bc566e4c3bec84c612e9c1",
                 "reference": "02105abcd35fb32933bc566e4c3bec84c612e9c1",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.1",
-<<<<<<< Updated upstream
-                "symfony/process": ">=2.1.0,<2.3-dev"
-=======
                 "symfony/process": "~2.1"
->>>>>>> Stashed changes
             },
             "require-dev": {
                 "cssmin/cssmin": "*",
@@ -2020,15 +1332,9 @@
                 "leafo/scssphp": "*",
                 "leafo/scssphp-compass": "*",
                 "mrclay/minify": "*",
-<<<<<<< Updated upstream
-                "phpunit/phpunit": "3.7.*",
-                "ptachoire/cssembed": "*",
-                "twig/twig": ">=1.6.0,<2.0"
-=======
                 "phpunit/phpunit": "~3.7",
                 "ptachoire/cssembed": "*",
                 "twig/twig": "~1.6"
->>>>>>> Stashed changes
             },
             "suggest": {
                 "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
@@ -2069,11 +1375,7 @@
                 "compression",
                 "minification"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-02-24 17:22:20"
-=======
             "time": "2014-12-12 05:37:00"
->>>>>>> Stashed changes
         },
         {
             "name": "leafo/scssphp",
@@ -2081,28 +1383,6 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/leafo/scssphp.git",
-<<<<<<< Updated upstream
-                "reference": "3c8346d849ad7c669a71f0c9cbf8ec719178a10d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/leafo/scssphp/zipball/3c8346d849ad7c669a71f0c9cbf8ec719178a10d",
-                "reference": "3c8346d849ad7c669a71f0c9cbf8ec719178a10d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.0"
-            },
-            "require-dev": {
-                "php": ">=5.3.0",
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "scss.inc.php"
-                ]
-=======
                 "reference": "75db4524f22a19ca4ff36899c8d3be311d53f93d"
             },
             "dist": {
@@ -2128,7 +1408,6 @@
                 "psr-4": {
                     "Leafo\\ScssPhp\\": "src/"
                 }
->>>>>>> Stashed changes
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2144,22 +1423,6 @@
             ],
             "description": "scssphp is a compiler for SCSS written in PHP.",
             "homepage": "http://leafo.net/scssphp/",
-<<<<<<< Updated upstream
-            "time": "2013-04-05 22:33:03"
-        },
-        {
-            "name": "monolog/monolog",
-            "version": "1.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "1.4.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1.4.1",
-                "reference": "1.4.1",
-=======
             "keywords": [
                 "css",
                 "less",
@@ -2168,6 +1431,57 @@
                 "stylesheet"
             ],
             "time": "2015-04-15 18:02:44"
+        },
+        {
+            "name": "michelf/php-markdown",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/michelf/php-markdown.git",
+                "reference": "e1aabe18173231ebcefc90e615565742fc1c7fd9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/michelf/php-markdown/zipball/e1aabe18173231ebcefc90e615565742fc1c7fd9",
+                "reference": "e1aabe18173231ebcefc90e615565742fc1c7fd9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-lib": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Michelf": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "John Gruber",
+                    "homepage": "http://daringfireball.net/"
+                },
+                {
+                    "name": "Michel Fortin",
+                    "email": "michel.fortin@michelf.ca",
+                    "homepage": "https://michelf.ca/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP Markdown",
+            "homepage": "https://michelf.ca/projects/php-markdown/",
+            "keywords": [
+                "markdown"
+            ],
+            "time": "2015-03-01 12:03:08"
         },
         {
             "name": "monolog/monolog",
@@ -2181,26 +1495,10 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c31a2c4e8db5da8b46c74cf275d7f109c0f249ac",
                 "reference": "c31a2c4e8db5da8b46c74cf275d7f109c0f249ac",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0",
-<<<<<<< Updated upstream
-                "psr/log": ">=1.0,<2.0"
-            },
-            "require-dev": {
-                "doctrine/couchdb": "dev-master",
-                "mlehner/gelf-php": "1.0.*",
-                "raven/raven": "0.3.*"
-            },
-            "suggest": {
-                "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
-                "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
-                "ext-mongo": "Allow sending log messages to a MongoDB server",
-                "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
-                "raven/raven": "Allow sending log messages to a Sentry server"
-=======
                 "psr/log": "~1.0"
             },
             "provide": {
@@ -2226,26 +1524,16 @@
                 "rollbar/rollbar": "Allow sending log messages to Rollbar",
                 "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
                 "videlalvaro/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib"
->>>>>>> Stashed changes
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< Updated upstream
-                    "dev-master": "1.4.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Monolog": "src/"
-=======
                     "dev-master": "1.13.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
                     "Monolog\\": "src/Monolog"
->>>>>>> Stashed changes
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2256,12 +1544,7 @@
                 {
                     "name": "Jordi Boggiano",
                     "email": "j.boggiano@seld.be",
-<<<<<<< Updated upstream
-                    "homepage": "http://seld.be",
-                    "role": "Developer"
-=======
                     "homepage": "http://seld.be"
->>>>>>> Stashed changes
                 }
             ],
             "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
@@ -2271,22 +1554,6 @@
                 "logging",
                 "psr-3"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-04-01 10:04:58"
-        },
-        {
-            "name": "nesbot/carbon",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "1.2.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/1.2.0",
-                "reference": "1.2.0",
-=======
             "time": "2015-03-09 09:58:04"
         },
         {
@@ -2301,18 +1568,11 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/a1dd1ad9abfc8b3c4d8768068e6c71d293424e86",
                 "reference": "a1dd1ad9abfc8b3c4d8768068e6c71d293424e86",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
-<<<<<<< Updated upstream
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Carbon": "."
-=======
             "require-dev": {
                 "phpunit/phpunit": "~4.0"
             },
@@ -2320,7 +1580,6 @@
             "autoload": {
                 "psr-0": {
                     "Carbon": "src"
->>>>>>> Stashed changes
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2335,21 +1594,13 @@
                 }
             ],
             "description": "A simple API extension for DateTime.",
-<<<<<<< Updated upstream
-            "homepage": "https://github.com/briannesbitt/Carbon",
-=======
             "homepage": "http://carbon.nesbot.com",
->>>>>>> Stashed changes
             "keywords": [
                 "date",
                 "datetime",
                 "time"
             ],
-<<<<<<< Updated upstream
-            "time": "2012-10-15 00:41:18"
-=======
             "time": "2015-03-08 14:05:44"
->>>>>>> Stashed changes
         },
         {
             "name": "ornicar/gravatar-bundle",
@@ -2358,45 +1609,30 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ornicar/GravatarBundle.git",
-<<<<<<< Updated upstream
-                "reference": "82c27e766f2af13ffc4db449a1e7489361562fe1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ornicar/GravatarBundle/zipball/82c27e766f2af13ffc4db449a1e7489361562fe1",
-                "reference": "82c27e766f2af13ffc4db449a1e7489361562fe1",
-=======
                 "reference": "1a97823ad7ae24bcf4c85fa31d68c84ffc8c46fb"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/ornicar/GravatarBundle/zipball/1a97823ad7ae24bcf4c85fa31d68c84ffc8c46fb",
                 "reference": "1a97823ad7ae24bcf4c85fa31d68c84ffc8c46fb",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0",
                 "symfony/framework-bundle": ">=2.0"
             },
-<<<<<<< Updated upstream
-=======
             "require-dev": {
                 "twig/extensions": "1.0.*"
             },
->>>>>>> Stashed changes
             "suggest": {
                 "twig/twig": ">=1.3.0"
             },
             "type": "symfony-bundle",
-<<<<<<< Updated upstream
-=======
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.1-dev"
                 }
             },
->>>>>>> Stashed changes
             "autoload": {
                 "psr-0": {
                     "Ornicar\\GravatarBundle\\": ""
@@ -2413,11 +1649,7 @@
                     "homepage": "http://ornicar.github.com"
                 },
                 {
-<<<<<<< Updated upstream
-                    "name": "Henrik Bjørnskov",
-=======
                     "name": "Henrik Bjornskov",
->>>>>>> Stashed changes
                     "email": "henrik@bjrnskov.dk",
                     "homepage": "http://henrik.bjrnskov.dk"
                 }
@@ -2429,11 +1661,7 @@
                 "templating",
                 "twig"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-03-26 06:23:17"
-=======
             "time": "2014-05-30 08:11:27"
->>>>>>> Stashed changes
         },
         {
             "name": "phpoption/phpoption",
@@ -2441,21 +1669,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/php-option.git",
-<<<<<<< Updated upstream
-                "reference": "e686c0d55c87e042dec9c7fe3fa86b2b3b9d9ee3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/e686c0d55c87e042dec9c7fe3fa86b2b3b9d9ee3",
-                "reference": "e686c0d55c87e042dec9c7fe3fa86b2b3b9d9ee3",
-=======
                 "reference": "039b7dd61c3cafbde5e2f6dfaa171c382fcc19d1"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/039b7dd61c3cafbde5e2f6dfaa171c382fcc19d1",
                 "reference": "039b7dd61c3cafbde5e2f6dfaa171c382fcc19d1",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -2478,15 +1697,9 @@
             ],
             "authors": [
                 {
-<<<<<<< Updated upstream
-                    "name": "Johannes M. Schmitt",
-                    "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
-=======
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "https://github.com/schmittjoh",
->>>>>>> Stashed changes
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -2497,11 +1710,7 @@
                 "php",
                 "type"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-03-28 16:34:57"
-=======
             "time": "2014-04-03 08:44:21"
->>>>>>> Stashed changes
         },
         {
             "name": "psr/log",
@@ -2543,23 +1752,6 @@
         },
         {
             "name": "sensio/distribution-bundle",
-<<<<<<< Updated upstream
-            "version": "v2.2.1",
-            "target-dir": "Sensio/Bundle/DistributionBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sensio/SensioDistributionBundle.git",
-                "reference": "v2.2.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sensio/SensioDistributionBundle/zipball/v2.2.1",
-                "reference": "v2.2.1",
-                "shasum": ""
-            },
-            "require": {
-                "symfony/framework-bundle": ">=2.2,<3.0"
-=======
             "version": "v2.2.6",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
@@ -2575,7 +1767,6 @@
             },
             "require": {
                 "symfony/framework-bundle": "~2.2"
->>>>>>> Stashed changes
             },
             "type": "symfony-bundle",
             "extra": {
@@ -2595,13 +1786,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-<<<<<<< Updated upstream
-                    "email": "fabien@symfony.com"
-=======
                     "email": "fabien@symfony.com",
                     "homepage": "http://fabien.potencier.org",
                     "role": "Lead Developer"
->>>>>>> Stashed changes
                 }
             ],
             "description": "The base bundle for the Symfony Distributions",
@@ -2609,28 +1796,6 @@
                 "configuration",
                 "distribution"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-03-26 08:24:36"
-        },
-        {
-            "name": "sensio/framework-extra-bundle",
-            "version": "v2.2.1",
-            "target-dir": "Sensio/Bundle/FrameworkExtraBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sensio/SensioFrameworkExtraBundle.git",
-                "reference": "v2.2.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sensio/SensioFrameworkExtraBundle/zipball/v2.2.1",
-                "reference": "v2.2.1",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/common": ">=2.2,<3.0",
-                "symfony/framework-bundle": ">=2.2,<3.0"
-=======
             "time": "2013-08-22 05:04:48"
         },
         {
@@ -2651,7 +1816,6 @@
             "require": {
                 "doctrine/common": "~2.2",
                 "symfony/framework-bundle": "~2.2"
->>>>>>> Stashed changes
             },
             "type": "symfony-bundle",
             "extra": {
@@ -2671,13 +1835,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-<<<<<<< Updated upstream
-                    "email": "fabien@symfony.com"
-=======
                     "email": "fabien@symfony.com",
                     "homepage": "http://fabien.potencier.org",
                     "role": "Lead Developer"
->>>>>>> Stashed changes
                 }
             ],
             "description": "This bundle provides a way to configure your controllers with annotations",
@@ -2685,33 +1845,6 @@
                 "annotations",
                 "controllers"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-03-21 16:41:54"
-        },
-        {
-            "name": "sensio/generator-bundle",
-            "version": "v2.2.1",
-            "target-dir": "Sensio/Bundle/GeneratorBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sensio/SensioGeneratorBundle.git",
-                "reference": "v2.2.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sensio/SensioGeneratorBundle/zipball/v2.2.1",
-                "reference": "v2.2.1",
-                "shasum": ""
-            },
-            "require": {
-                "symfony/console": ">=2.0,<3.0",
-                "symfony/framework-bundle": ">=2.2,<3.0"
-            },
-            "require-dev": {
-                "doctrine/orm": ">=2.2,<3.0,>=2.2.3",
-                "symfony/doctrine-bridge": ">=2.2,<3.0",
-                "twig/twig": ">=1.11.0,<2.0"
-=======
             "time": "2013-07-20 06:48:52"
         },
         {
@@ -2737,7 +1870,6 @@
                 "doctrine/orm": "~2.2,>=2.2.3",
                 "symfony/doctrine-bridge": "~2.2",
                 "twig/twig": "~1.11"
->>>>>>> Stashed changes
             },
             "type": "symfony-bundle",
             "extra": {
@@ -2757,26 +1889,6 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-<<<<<<< Updated upstream
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "This bundle generates code for you",
-            "time": "2013-03-21 16:38:44"
-        },
-        {
-            "name": "swiftmailer/swiftmailer",
-            "version": "v4.3.0",
-            "source": {
-                "type": "git",
-                "url": "git://github.com/swiftmailer/swiftmailer.git",
-                "reference": "v4.3.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/swiftmailer/swiftmailer/archive/v4.3.0.zip",
-                "reference": "v4.3.0",
-=======
                     "email": "fabien@symfony.com",
                     "homepage": "http://fabien.potencier.org",
                     "role": "Lead Developer"
@@ -2797,7 +1909,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/32edc3b0de0fdc1b10f5c4912e8677b3f411a230",
                 "reference": "32edc3b0de0fdc1b10f5c4912e8677b3f411a230",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -2806,11 +1917,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< Updated upstream
-                    "dev-master": "4.3-dev"
-=======
                     "dev-master": "5.1-dev"
->>>>>>> Stashed changes
                 }
             },
             "autoload": {
@@ -2820,22 +1927,14 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-<<<<<<< Updated upstream
-                "LGPL"
-=======
                 "MIT"
->>>>>>> Stashed changes
             ],
             "authors": [
                 {
                     "name": "Fabien Potencier",
-<<<<<<< Updated upstream
-                    "email": "fabien@symfony.com"
-=======
                     "email": "fabien@symfony.com",
                     "homepage": "http://fabien.potencier.org",
                     "role": "Lead Developer"
->>>>>>> Stashed changes
                 },
                 {
                     "name": "Chris Corbyn"
@@ -2847,49 +1946,15 @@
                 "mail",
                 "mailer"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-01-08 15:50:34"
-        },
-        {
-            "name": "symfony/assetic-bundle",
-            "version": "v2.1.2",
-=======
             "time": "2013-12-03 13:33:24"
         },
         {
             "name": "symfony/assetic-bundle",
             "version": "v2.1.3",
->>>>>>> Stashed changes
             "target-dir": "Symfony/Bundle/AsseticBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/AsseticBundle.git",
-<<<<<<< Updated upstream
-                "reference": "v2.1.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/AsseticBundle/zipball/v2.1.2",
-                "reference": "v2.1.2",
-                "shasum": ""
-            },
-            "require": {
-                "kriswallsmith/assetic": "1.1.*",
-                "php": ">=5.3.0",
-                "symfony/framework-bundle": ">=2.1.0,<2.3-dev"
-            },
-            "require-dev": {
-                "symfony/class-loader": ">=2.1.0,<2.3-dev",
-                "symfony/console": ">=2.1.0,<2.3-dev",
-                "symfony/css-selector": ">=2.1.0,<2.3-dev",
-                "symfony/dom-crawler": ">=2.1.0,<2.3-dev",
-                "symfony/form": ">=2.1.0,<2.3-dev",
-                "symfony/twig-bundle": ">=2.1.0,<2.3-dev",
-                "symfony/yaml": ">=2.1.0,<2.3-dev"
-            },
-            "suggest": {
-                "symfony/twig-bundle": ">=2.1.0,<2.3-dev"
-=======
                 "reference": "90d3e238743a5c8def765079ad8084151d4e4fee"
             },
             "dist": {
@@ -2914,7 +1979,6 @@
             },
             "suggest": {
                 "symfony/twig-bundle": "~2.1"
->>>>>>> Stashed changes
             },
             "type": "symfony-bundle",
             "extra": {
@@ -2945,11 +2009,7 @@
                 "compression",
                 "minification"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-02-23 22:29:21"
-=======
             "time": "2013-03-25 20:16:21"
->>>>>>> Stashed changes
         },
         {
             "name": "symfony/monolog-bundle",
@@ -2958,25 +2018,6 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle.git",
-<<<<<<< Updated upstream
-                "reference": "v2.2.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/v2.2.0",
-                "reference": "v2.2.0",
-                "shasum": ""
-            },
-            "require": {
-                "monolog/monolog": ">=1.3,<2.0",
-                "php": ">=5.3.2",
-                "symfony/config": ">=2.2-beta2,<3.0",
-                "symfony/dependency-injection": ">=2.2-beta2,<3.0",
-                "symfony/monolog-bridge": ">=2.2-beta2,<3.0"
-            },
-            "require-dev": {
-                "symfony/yaml": ">=2.2-beta2,<3.0"
-=======
                 "reference": "b492800896b6abe2a6fe622c0f03e04a2d5b3fae"
             },
             "dist": {
@@ -2994,7 +2035,6 @@
             },
             "require-dev": {
                 "symfony/yaml": "~2.2-beta2"
->>>>>>> Stashed changes
             },
             "type": "symfony-bundle",
             "extra": {
@@ -3031,44 +2071,21 @@
         },
         {
             "name": "symfony/swiftmailer-bundle",
-<<<<<<< Updated upstream
-            "version": "v2.2.1",
-=======
             "version": "v2.2.6",
->>>>>>> Stashed changes
             "target-dir": "Symfony/Bundle/SwiftmailerBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/SwiftmailerBundle.git",
-<<<<<<< Updated upstream
-                "reference": "v2.2.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/SwiftmailerBundle/zipball/v2.2.1",
-                "reference": "v2.2.1",
-=======
                 "reference": "f5e5d12629c26a835c7aa1d74e2e041486b92d93"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/SwiftmailerBundle/zipball/f5e5d12629c26a835c7aa1d74e2e041486b92d93",
                 "reference": "f5e5d12629c26a835c7aa1d74e2e041486b92d93",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-<<<<<<< Updated upstream
-                "swiftmailer/swiftmailer": ">=4.2.0,<4.4-dev",
-                "symfony/swiftmailer-bridge": ">=2.1,<3.0"
-            },
-            "require-dev": {
-                "symfony/config": ">=2.1,<3.0",
-                "symfony/dependency-injection": ">=2.1,<3.0",
-                "symfony/http-kernel": ">=2.1,<3.0",
-                "symfony/yaml": ">=2.1,<3.0"
-=======
                 "swiftmailer/swiftmailer": ">=4.2.0,<5.1-dev",
                 "symfony/swiftmailer-bridge": "~2.1"
             },
@@ -3077,7 +2094,6 @@
                 "symfony/dependency-injection": "~2.1",
                 "symfony/http-kernel": "~2.1",
                 "symfony/yaml": "~2.1"
->>>>>>> Stashed changes
             },
             "type": "symfony-bundle",
             "extra": {
@@ -3097,13 +2113,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-<<<<<<< Updated upstream
-                    "email": "fabien@symfony.com"
-=======
                     "email": "fabien@symfony.com",
                     "homepage": "http://fabien.potencier.org",
                     "role": "Lead Developer"
->>>>>>> Stashed changes
                 },
                 {
                     "name": "Symfony Community",
@@ -3112,29 +2124,6 @@
             ],
             "description": "Symfony SwiftmailerBundle",
             "homepage": "http://symfony.com",
-<<<<<<< Updated upstream
-            "time": "2013-03-25 20:02:12"
-        },
-        {
-            "name": "symfony/symfony",
-            "version": "v2.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/symfony.git",
-                "reference": "v2.2.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/v2.2.1",
-                "reference": "v2.2.1",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/common": ">=2.2,<3.0",
-                "php": ">=5.3.3",
-                "psr/log": ">=1.0,<2.0",
-                "twig/twig": ">=1.11.0,<2.0"
-=======
             "time": "2013-08-22 13:32:58"
         },
         {
@@ -3156,7 +2145,6 @@
                 "php": ">=5.3.3",
                 "psr/log": "~1.0",
                 "twig/twig": "~1.11"
->>>>>>> Stashed changes
             },
             "replace": {
                 "symfony/browser-kit": "self.version",
@@ -3196,15 +2184,9 @@
             },
             "require-dev": {
                 "doctrine/data-fixtures": "1.0.*",
-<<<<<<< Updated upstream
-                "doctrine/dbal": ">=2.2,<3.0",
-                "doctrine/orm": ">=2.2,<3.0,>=2.2.3",
-                "monolog/monolog": ">=1.3,<2.0",
-=======
                 "doctrine/dbal": "~2.2",
                 "doctrine/orm": "~2.2,>=2.2.3",
                 "monolog/monolog": "~1.3",
->>>>>>> Stashed changes
                 "propel/propel1": "1.6.*"
             },
             "type": "library",
@@ -3229,13 +2211,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-<<<<<<< Updated upstream
-                    "email": "fabien@symfony.com"
-=======
                     "email": "fabien@symfony.com",
                     "homepage": "http://fabien.potencier.org",
                     "role": "Lead Developer"
->>>>>>> Stashed changes
                 },
                 {
                     "name": "Symfony Community",
@@ -3247,11 +2225,7 @@
             "keywords": [
                 "framework"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-04-06 10:16:33"
-=======
             "time": "2013-12-02 07:14:10"
->>>>>>> Stashed changes
         },
         {
             "name": "tacker/icalparser",
@@ -3296,22 +2270,6 @@
         },
         {
             "name": "twig/extensions",
-<<<<<<< Updated upstream
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fabpot/Twig-extensions.git",
-                "reference": "v1.0.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig-extensions/zipball/v1.0.0",
-                "reference": "v1.0.0",
-                "shasum": ""
-            },
-            "require": {
-                "twig/twig": "1.*"
-=======
             "version": "v1.0.1",
             "source": {
                 "type": "git",
@@ -3326,7 +2284,6 @@
             },
             "require": {
                 "twig/twig": "~1.0"
->>>>>>> Stashed changes
             },
             "type": "library",
             "extra": {
@@ -3356,26 +2313,6 @@
                 "i18n",
                 "text"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-02-28 14:21:30"
-        },
-        {
-            "name": "twig/twig",
-            "version": "v1.12.2",
-            "source": {
-                "type": "git",
-                "url": "git://github.com/fabpot/Twig.git",
-                "reference": "v1.12.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/v1.12.2",
-                "reference": "v1.12.2",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.4"
-=======
             "time": "2013-10-18 19:37:15"
         },
         {
@@ -3394,16 +2331,11 @@
             },
             "require": {
                 "php": ">=5.2.7"
->>>>>>> Stashed changes
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< Updated upstream
-                    "dev-master": "1.12-dev"
-=======
                     "dev-master": "1.18-dev"
->>>>>>> Stashed changes
                 }
             },
             "autoload": {
@@ -3413,22 +2345,11 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-<<<<<<< Updated upstream
-                "BSD-3"
-=======
                 "BSD-3-Clause"
->>>>>>> Stashed changes
             ],
             "authors": [
                 {
                     "name": "Fabien Potencier",
-<<<<<<< Updated upstream
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Armin Ronacher",
-                    "email": "armin.ronacher@active-4.com"
-=======
                     "email": "fabien@symfony.com",
                     "homepage": "http://fabien.potencier.org",
                     "role": "Lead Developer"
@@ -3442,7 +2363,6 @@
                     "name": "Twig Team",
                     "homepage": "http://twig.sensiolabs.org/contributors",
                     "role": "Contributors"
->>>>>>> Stashed changes
                 }
             ],
             "description": "Twig, the flexible, fast, and secure template language for PHP",
@@ -3450,1055 +2370,24 @@
             "keywords": [
                 "templating"
             ],
-<<<<<<< Updated upstream
-            "time": "2013-02-09 18:21:53"
-        }
-    ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
-    "minimum-stability": "alpha",
-    "stability-flags": {
-        "dflydev/markdown": 20,
-        "tacker/icalparser": 20,
-        "nesbot/carbon": 20,
-=======
             "time": "2015-04-19 08:30:27"
         }
     ],
-    "packages-dev": [
-        {
-            "name": "alexandresalome/php-selenium",
-            "version": "v1.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/alexandresalome/PHP-Selenium.git",
-                "reference": "a9997e74d8016a5cdb995ca8d06263d1843e3cc0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/alexandresalome/PHP-Selenium/zipball/a9997e74d8016a5cdb995ca8d06263d1843e3cc0",
-                "reference": "a9997e74d8016a5cdb995ca8d06263d1843e3cc0",
-                "shasum": ""
-            },
-            "require-dev": {
-                "symfony/dom-crawler": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Selenium": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Alexandre Salomé",
-                    "email": "alexandre.salome@gmail.com",
-                    "homepage": "http://alexandre-salome.fr"
-                }
-            ],
-            "description": "PHP Library for Selenium",
-            "keywords": [
-                "selenium"
-            ],
-            "time": "2014-02-05 08:32:37"
-        },
-        {
-            "name": "behat/behat",
-            "version": "v2.5.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Behat/Behat.git",
-                "reference": "ba257dd19d47b6e196c4e43995a2d2db4dd95991"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Behat/zipball/ba257dd19d47b6e196c4e43995a2d2db4dd95991",
-                "reference": "ba257dd19d47b6e196c4e43995a2d2db4dd95991",
-                "shasum": ""
-            },
-            "require": {
-                "behat/gherkin": "~2.3.0",
-                "php": ">=5.3.1",
-                "symfony/config": "~2.0",
-                "symfony/console": "~2.0",
-                "symfony/dependency-injection": "~2.0",
-                "symfony/event-dispatcher": "~2.0",
-                "symfony/finder": "~2.0",
-                "symfony/translation": "~2.0",
-                "symfony/yaml": "~2.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~3.7.19"
-            },
-            "suggest": {
-                "behat/mink-extension": "for integration with Mink testing framework",
-                "behat/symfony2-extension": "for integration with Symfony2 web framework",
-                "behat/yii-extension": "for integration with Yii web framework"
-            },
-            "bin": [
-                "bin/behat"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Behat\\Behat": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Konstantin Kudryashov",
-                    "email": "ever.zet@gmail.com",
-                    "homepage": "http://everzet.com"
-                }
-            ],
-            "description": "Scenario-oriented BDD framework for PHP 5.3",
-            "homepage": "http://behat.org/",
-            "keywords": [
-                "BDD",
-                "Behat",
-                "Symfony2"
-            ],
-            "time": "2015-01-23 22:18:15"
-        },
-        {
-            "name": "behat/gherkin",
-            "version": "v2.3.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Behat/Gherkin.git",
-                "reference": "2b33963da5525400573560c173ab5c9c057e1852"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/2b33963da5525400573560c173ab5c9c057e1852",
-                "reference": "2b33963da5525400573560c173ab5c9c057e1852",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.1",
-                "symfony/finder": "~2.0"
-            },
-            "require-dev": {
-                "symfony/config": "~2.0",
-                "symfony/translation": "~2.0",
-                "symfony/yaml": "~2.0"
-            },
-            "suggest": {
-                "symfony/config": "If you want to use Config component to manage resources",
-                "symfony/translation": "If you want to use Symfony2 translations adapter",
-                "symfony/yaml": "If you want to parse features, represented in YAML files"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-develop": "2.2-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Behat\\Gherkin": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Konstantin Kudryashov",
-                    "email": "ever.zet@gmail.com",
-                    "homepage": "http://everzet.com"
-                }
-            ],
-            "description": "Gherkin DSL parser for PHP 5.3",
-            "homepage": "http://behat.org/",
-            "keywords": [
-                "BDD",
-                "Behat",
-                "DSL",
-                "Symfony2",
-                "parser"
-            ],
-            "time": "2013-10-15 11:22:17"
-        },
-        {
-            "name": "behat/mink",
-            "version": "v1.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/minkphp/Mink.git",
-                "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/Mink/zipball/0769e6d9726c140a54dbf827a438c0f9912749fe",
-                "reference": "0769e6d9726c140a54dbf827a438c0f9912749fe",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.1",
-                "symfony/css-selector": "~2.0"
-            },
-            "suggest": {
-                "behat/mink-browserkit-driver": "extremely fast headless driver for Symfony\\Kernel-based apps (Sf2, Silex)",
-                "behat/mink-goutte-driver": "fast headless driver for any app without JS emulation",
-                "behat/mink-selenium2-driver": "slow, but JS-enabled driver for any app (requires Selenium2)",
-                "behat/mink-zombie-driver": "fast and JS-enabled headless driver for any app (requires node.js)"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-develop": "1.5.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Behat\\Mink": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Konstantin Kudryashov",
-                    "email": "ever.zet@gmail.com",
-                    "homepage": "http://everzet.com"
-                }
-            ],
-            "description": "Web acceptance testing framework for PHP 5.3",
-            "homepage": "http://mink.behat.org/",
-            "keywords": [
-                "browser",
-                "testing",
-                "web"
-            ],
-            "time": "2013-04-13 23:39:27"
-        },
-        {
-            "name": "behat/mink-browserkit-driver",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/minkphp/MinkBrowserKitDriver.git",
-                "reference": "63960c8fcad4529faad1ff33e950217980baa64c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/MinkBrowserKitDriver/zipball/63960c8fcad4529faad1ff33e950217980baa64c",
-                "reference": "63960c8fcad4529faad1ff33e950217980baa64c",
-                "shasum": ""
-            },
-            "require": {
-                "behat/mink": "~1.5.0",
-                "php": ">=5.3.1",
-                "symfony/browser-kit": "~2.0",
-                "symfony/dom-crawler": "~2.0"
-            },
-            "require-dev": {
-                "silex/silex": "@dev"
-            },
-            "type": "mink-driver",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Behat\\Mink\\Driver": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Konstantin Kudryashov",
-                    "email": "ever.zet@gmail.com",
-                    "homepage": "http://everzet.com"
-                }
-            ],
-            "description": "Symfony2 BrowserKit driver for Mink framework",
-            "homepage": "http://mink.behat.org/",
-            "keywords": [
-                "Mink",
-                "Symfony2",
-                "browser",
-                "testing"
-            ],
-            "time": "2013-04-13 23:46:30"
-        },
-        {
-            "name": "behat/mink-extension",
-            "version": "v1.3.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Behat/MinkExtension.git",
-                "reference": "e3749ff6f2369e9a8d47bef35a552b95faed11b4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkExtension/zipball/e3749ff6f2369e9a8d47bef35a552b95faed11b4",
-                "reference": "e3749ff6f2369e9a8d47bef35a552b95faed11b4",
-                "shasum": ""
-            },
-            "require": {
-                "behat/behat": "~2.5.0",
-                "behat/mink": "~1.5",
-                "php": ">=5.3.2",
-                "symfony/config": "~2.2"
-            },
-            "require-dev": {
-                "behat/mink-goutte-driver": "~1.0"
-            },
-            "type": "behat-extension",
-            "autoload": {
-                "psr-0": {
-                    "Behat\\MinkExtension": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Konstantin Kudryashov",
-                    "email": "ever.zet@gmail.com",
-                    "homepage": "http://everzet.com"
-                }
-            ],
-            "description": "Mink extension for Behat",
-            "homepage": "http://mink.behat.org",
-            "keywords": [
-                "browser",
-                "gui",
-                "test",
-                "web"
-            ],
-            "time": "2014-05-15 09:02:13"
-        },
-        {
-            "name": "behat/mink-goutte-driver",
-            "version": "v1.0.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/minkphp/MinkGoutteDriver.git",
-                "reference": "fa1b073b48761464feb0b05e6825da44b20118d8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/MinkGoutteDriver/zipball/fa1b073b48761464feb0b05e6825da44b20118d8",
-                "reference": "fa1b073b48761464feb0b05e6825da44b20118d8",
-                "shasum": ""
-            },
-            "require": {
-                "behat/mink-browserkit-driver": ">=1.0.5,<1.2.0",
-                "fabpot/goutte": "~1.0.1",
-                "php": ">=5.3.1"
-            },
-            "type": "mink-driver",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Behat\\Mink\\Driver": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Konstantin Kudryashov",
-                    "email": "ever.zet@gmail.com",
-                    "homepage": "http://everzet.com"
-                }
-            ],
-            "description": "Goutte driver for Mink framework",
-            "homepage": "http://mink.behat.org/",
-            "keywords": [
-                "browser",
-                "goutte",
-                "headless",
-                "testing"
-            ],
-            "time": "2013-07-03 18:43:54"
-        },
-        {
-            "name": "behat/mink-sahi-driver",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/minkphp/MinkSahiDriver.git",
-                "reference": "c2a963e747590526d24ad7c725f649607c47118a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/MinkSahiDriver/zipball/c2a963e747590526d24ad7c725f649607c47118a",
-                "reference": "c2a963e747590526d24ad7c725f649607c47118a",
-                "shasum": ""
-            },
-            "require": {
-                "behat/mink": "~1.5.0",
-                "behat/sahi-client": "~1.1.0",
-                "php": ">=5.3.1"
-            },
-            "type": "mink-driver",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Behat\\Mink\\Driver": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Konstantin Kudryashov",
-                    "email": "ever.zet@gmail.com",
-                    "homepage": "http://everzet.com"
-                }
-            ],
-            "description": "Sahi.JS driver for Mink framework",
-            "homepage": "http://mink.behat.org/",
-            "keywords": [
-                "ajax",
-                "browser",
-                "javascript",
-                "sahi",
-                "testing"
-            ],
-            "time": "2013-04-13 23:49:06"
-        },
-        {
-            "name": "behat/mink-selenium-driver",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/minkphp/MinkSeleniumDriver.git",
-                "reference": "a782b031cb8a94b449b9ccecdcd0e79206bbc882"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/MinkSeleniumDriver/zipball/a782b031cb8a94b449b9ccecdcd0e79206bbc882",
-                "reference": "a782b031cb8a94b449b9ccecdcd0e79206bbc882",
-                "shasum": ""
-            },
-            "require": {
-                "alexandresalome/php-selenium": "~1.0.1",
-                "behat/mink": "~1.5.0",
-                "php": ">=5.3.1",
-                "symfony/dom-crawler": "~2.0"
-            },
-            "type": "mink-driver",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Behat\\Mink\\Driver": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Konstantin Kudryashov",
-                    "email": "ever.zet@gmail.com",
-                    "homepage": "http://everzet.com"
-                }
-            ],
-            "description": "Selenium driver for Mink framework",
-            "homepage": "http://mink.behat.org/",
-            "keywords": [
-                "ajax",
-                "browser",
-                "javascript",
-                "selenium",
-                "testing"
-            ],
-            "time": "2013-04-13 23:50:14"
-        },
-        {
-            "name": "behat/mink-selenium2-driver",
-            "version": "v1.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/minkphp/MinkSelenium2Driver.git",
-                "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/MinkSelenium2Driver/zipball/bcf1b537de37db6db0822d9e7bd97e600fd7a476",
-                "reference": "bcf1b537de37db6db0822d9e7bd97e600fd7a476",
-                "shasum": ""
-            },
-            "require": {
-                "behat/mink": "~1.5.0",
-                "instaclick/php-webdriver": "~1.0.12",
-                "php": ">=5.3.1"
-            },
-            "type": "mink-driver",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Behat\\Mink\\Driver": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Konstantin Kudryashov",
-                    "email": "ever.zet@gmail.com",
-                    "homepage": "http://everzet.com"
-                },
-                {
-                    "name": "Pete Otaqui",
-                    "email": "pete@otaqui.com",
-                    "homepage": "https://github.com/pete-otaqui"
-                }
-            ],
-            "description": "Selenium2 (WebDriver) driver for Mink framework",
-            "homepage": "http://mink.behat.org/",
-            "keywords": [
-                "ajax",
-                "browser",
-                "javascript",
-                "selenium",
-                "testing",
-                "webdriver"
-            ],
-            "time": "2013-06-02 19:09:45"
-        },
-        {
-            "name": "behat/sahi-client",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/minkphp/SahiClient.git",
-                "reference": "c3e09cc80cf7934a9230cba0440192147492f4e5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/SahiClient/zipball/c3e09cc80cf7934a9230cba0440192147492f4e5",
-                "reference": "c3e09cc80cf7934a9230cba0440192147492f4e5",
-                "shasum": ""
-            },
-            "require": {
-                "kriswallsmith/buzz": ">=0.7,<0.9-dev",
-                "php": ">=5.3.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Behat\\SahiClient": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Konstantin Kudryashov",
-                    "email": "ever.zet@gmail.com",
-                    "homepage": "http://everzet.com"
-                }
-            ],
-            "description": "Sahi.js client for PHP 5.3",
-            "homepage": "http://sahi.co.in/w/",
-            "keywords": [
-                "JS",
-                "browser",
-                "testing"
-            ],
-            "time": "2013-02-17 12:17:51"
-        },
-        {
-            "name": "behat/symfony2-extension",
-            "version": "v1.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Behat/Symfony2Extension.git",
-                "reference": "7055fac5845717f1a0895c503cd97637335d8562"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Symfony2Extension/zipball/7055fac5845717f1a0895c503cd97637335d8562",
-                "reference": "7055fac5845717f1a0895c503cd97637335d8562",
-                "shasum": ""
-            },
-            "require": {
-                "behat/behat": "~2.5.0",
-                "php": ">=5.3.2",
-                "symfony/framework-bundle": "~2.0"
-            },
-            "require-dev": {
-                "behat/mink-browserkit-driver": "~1.0",
-                "behat/mink-extension": "~1.0",
-                "phpunit/phpunit": "~3.7",
-                "symfony/symfony": "~2.1"
-            },
-            "type": "behat-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Behat\\Symfony2Extension": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Konstantin Kudryashov",
-                    "email": "ever.zet@gmail.com",
-                    "homepage": "http://everzet.com"
-                }
-            ],
-            "description": "Symfony2 framework extension for Behat",
-            "homepage": "http://behat.org",
-            "keywords": [
-                "BDD",
-                "framework",
-                "symfony"
-            ],
-            "time": "2014-02-03 22:28:56"
-        },
-        {
-            "name": "fabpot/goutte",
-            "version": "v1.0.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FriendsOfPHP/Goutte.git",
-                "reference": "794b196e76bdd37b5155cdecbad311f0a3b07625"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/Goutte/zipball/794b196e76bdd37b5155cdecbad311f0a3b07625",
-                "reference": "794b196e76bdd37b5155cdecbad311f0a3b07625",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "guzzle/http": "~3.1",
-                "php": ">=5.3.0",
-                "symfony/browser-kit": "~2.1",
-                "symfony/css-selector": "~2.1",
-                "symfony/dom-crawler": "~2.1",
-                "symfony/finder": "~2.1",
-                "symfony/process": "~2.1"
-            },
-            "require-dev": {
-                "guzzle/plugin-history": "~3.1",
-                "guzzle/plugin-mock": "~3.1"
-            },
-            "type": "application",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Goutte": "."
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "A simple PHP Web Scraper",
-            "homepage": "https://github.com/fabpot/Goutte",
-            "keywords": [
-                "scraper"
-            ],
-            "time": "2014-10-09 15:52:51"
-        },
-        {
-            "name": "guzzle/common",
-            "version": "v3.9.2",
-            "target-dir": "Guzzle/Common",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Guzzle3/common.git",
-                "reference": "2e36af7cf2ce3ea1f2d7c2831843b883a8e7b7dc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Guzzle3/common/zipball/2e36af7cf2ce3ea1f2d7c2831843b883a8e7b7dc",
-                "reference": "2e36af7cf2ce3ea1f2d7c2831843b883a8e7b7dc",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "symfony/event-dispatcher": ">=2.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Guzzle\\Common": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Common libraries used by Guzzle",
-            "homepage": "http://guzzlephp.org/",
-            "keywords": [
-                "collection",
-                "common",
-                "event",
-                "exception"
-            ],
-            "abandoned": "guzzle/guzzle",
-            "time": "2014-08-11 04:32:36"
-        },
-        {
-            "name": "guzzle/http",
-            "version": "v3.9.2",
-            "target-dir": "Guzzle/Http",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Guzzle3/http.git",
-                "reference": "1e8dd1e2ba9dc42332396f39fbfab950b2301dc5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Guzzle3/http/zipball/1e8dd1e2ba9dc42332396f39fbfab950b2301dc5",
-                "reference": "1e8dd1e2ba9dc42332396f39fbfab950b2301dc5",
-                "shasum": ""
-            },
-            "require": {
-                "guzzle/common": "self.version",
-                "guzzle/parser": "self.version",
-                "guzzle/stream": "self.version",
-                "php": ">=5.3.2"
-            },
-            "suggest": {
-                "ext-curl": "*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Guzzle\\Http": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "HTTP libraries used by Guzzle",
-            "homepage": "http://guzzlephp.org/",
-            "keywords": [
-                "Guzzle",
-                "client",
-                "curl",
-                "http",
-                "http client"
-            ],
-            "abandoned": "guzzle/guzzle",
-            "time": "2014-08-11 04:32:36"
-        },
-        {
-            "name": "guzzle/parser",
-            "version": "v3.9.2",
-            "target-dir": "Guzzle/Parser",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Guzzle3/parser.git",
-                "reference": "6874d171318a8e93eb6d224cf85e4678490b625c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Guzzle3/parser/zipball/6874d171318a8e93eb6d224cf85e4678490b625c",
-                "reference": "6874d171318a8e93eb6d224cf85e4678490b625c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Guzzle\\Parser": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Interchangeable parsers used by Guzzle",
-            "homepage": "http://guzzlephp.org/",
-            "keywords": [
-                "URI Template",
-                "cookie",
-                "http",
-                "message",
-                "url"
-            ],
-            "abandoned": "guzzle/guzzle",
-            "time": "2014-02-05 18:29:46"
-        },
-        {
-            "name": "guzzle/stream",
-            "version": "v3.9.2",
-            "target-dir": "Guzzle/Stream",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Guzzle3/stream.git",
-                "reference": "60c7fed02e98d2c518dae8f97874c8f4622100f0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Guzzle3/stream/zipball/60c7fed02e98d2c518dae8f97874c8f4622100f0",
-                "reference": "60c7fed02e98d2c518dae8f97874c8f4622100f0",
-                "shasum": ""
-            },
-            "require": {
-                "guzzle/common": "self.version",
-                "php": ">=5.3.2"
-            },
-            "suggest": {
-                "guzzle/http": "To convert Guzzle request objects to PHP streams"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Guzzle\\Stream": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "Guzzle stream wrapper component",
-            "homepage": "http://guzzlephp.org/",
-            "keywords": [
-                "Guzzle",
-                "component",
-                "stream"
-            ],
-            "abandoned": "guzzle/guzzle",
-            "time": "2014-05-01 21:36:02"
-        },
-        {
-            "name": "instaclick/php-webdriver",
-            "version": "1.0.17",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/instaclick/php-webdriver.git",
-                "reference": "47a6019553a7a5b42d35493276ffc2c9252c53d5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/instaclick/php-webdriver/zipball/47a6019553a7a5b42d35493276ffc2c9252c53d5",
-                "reference": "47a6019553a7a5b42d35493276ffc2c9252c53d5",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "php": ">=5.3.2"
-            },
-            "bin": [
-                "bin/webunit"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "WebDriver": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Justin Bishop",
-                    "email": "jubishop@gmail.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Anthon Pang",
-                    "email": "apang@softwaredevelopment.ca",
-                    "role": "developer"
-                }
-            ],
-            "description": "PHP WebDriver for Selenium 2",
-            "homepage": "http://instaclick.com/",
-            "keywords": [
-                "browser",
-                "selenium",
-                "webdriver",
-                "webtest"
-            ],
-            "time": "2013-10-04 15:03:51"
-        },
-        {
-            "name": "kriswallsmith/buzz",
-            "version": "v0.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kriswallsmith/Buzz.git",
-                "reference": "8ff1d1910b9e04ac571bcf6d639559e065093136"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/8ff1d1910b9e04ac571bcf6d639559e065093136",
-                "reference": "8ff1d1910b9e04ac571bcf6d639559e065093136",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "suggest": {
-                "ext-curl": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Buzz": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kris Wallsmith",
-                    "email": "kris.wallsmith@gmail.com",
-                    "homepage": "http://kriswallsmith.net/"
-                }
-            ],
-            "description": "Lightweight HTTP client",
-            "homepage": "https://github.com/kriswallsmith/Buzz",
-            "keywords": [
-                "curl",
-                "http client"
-            ],
-            "time": "2013-01-14 16:07:06"
-        }
-    ],
+    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "alpha",
     "stability-flags": {
-        "dothiv/dothiv-parsedown-bundle": 20,
         "tacker/icalparser": 20,
->>>>>>> Stashed changes
         "leafo/scssphp": 20,
         "ornicar/gravatar-bundle": 20,
         "gedmo/doctrine-extensions": 20,
         "doctrine/doctrine-migrations-bundle": 20,
         "phpoption/phpoption": 20
     },
-<<<<<<< Updated upstream
-    "platform": {
-        "php": ">=5.3.3"
-    },
-    "platform-dev": [
-
-    ]
-=======
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": ">=5.3.3"
     },
     "platform-dev": []
->>>>>>> Stashed changes
 }
