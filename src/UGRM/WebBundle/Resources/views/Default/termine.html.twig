@@ -26,6 +26,7 @@
                 </a><br>Treffen {% if meeting.usergroup.female %}der{% else %}des{% endif %}
                 <a href="{{ path('ugrm_web_default_usergroup', {'ug': meeting.usergroup.id}) }}">{{ macros.nickname(meeting.usergroup) }}</a>
                 <a href="{{ meeting.tweet }}" title="Tweet!" class="reveal"><i class="icon-twitter"></i></a>
+                <a href="https://app.cronofy.com/oauth/authorize?response_type=code&amp;client_id={{ cronofy_client_id }}&amp;redirect_uri={{ (app.request.schemeAndHttpHost ~ path('ugrm_web_cronofy_callback'))|url_encode }}&amp;scope=create_event%20list_calendars&amp;state={{ meeting.usergroup.id ~ "-" ~ meeting.time|date('U') }}">add to my calendar (via cronofy)</a>
             </li>
             {% if loop.last %}
                 </ul>

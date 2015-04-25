@@ -20,12 +20,13 @@
         "jms/di-extra-bundle": "1.3.*",
         "dflydev/markdown": "1.0.*@dev",
         "tacker/icalparser": "dev-master",
-        "nesbot/carbon": "dev-master",
+        "nesbot/carbon": "1.17.*",
         "leafo/scssphp": "dev-master",
         "ornicar/gravatar-bundle": "dev-master",
         "gedmo/doctrine-extensions": "dev-master",
         "doctrine/doctrine-migrations-bundle": "dev-master",
-        "phpoption/phpoption": "dev-master"
+        "phpoption/phpoption": "dev-master",
+        "guzzle/guzzle": "*"
     },
     "scripts": {
         "post-install-cmd": [

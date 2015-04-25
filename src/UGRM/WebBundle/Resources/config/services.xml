@@ -7,6 +7,12 @@
             <argument type="service" id="request"/>
             <argument type="service" id="ugrm.data.repo.usergroups"/>
         </service>
+        <service id="ugrm.web.controller.cronofy" class="UGRM\WebBundle\Controller\CronofyController" scope="request">
+            <argument type="service" id="ugrm.data.repo.usergroups"/>
+            <argument type="service" id="router"/>
+            <argument>%cronofy_client_id%</argument>
+            <argument>%cronofy_client_secret%</argument>
+        </service>
         <service id="ugrm.web.twig.extension.date" class="UGRM\WebBundle\Twig\Extension\Date" public="false">
             <tag name="twig.extension"/>
         </service>

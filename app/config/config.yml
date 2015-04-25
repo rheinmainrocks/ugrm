@@ -24,6 +24,8 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        cronofy_client_id: %cronofy_client_id%
 
 # Assetic Configuration
 assetic:
