@@ -16,6 +16,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  */
 class CronofyController
 {
+
     /**
      * @var \UGRM\DataBundle\UsergroupRepository
      */
@@ -41,7 +42,6 @@ class CronofyController
      */
     public function callbackAction(Request $request)
     {
-        return [];
         $state = $request->get('state');
 
         // Add event to calendar
@@ -61,10 +61,10 @@ class CronofyController
             throw new BadRequestHttpException();
         }
 
-        $start = new \DateTime($meetingToAdd->time);
+        $start = new \DateTime($meetingToAdd->time, new \DateTimeZone('Europe/Berlin'));
         $start->setTimezone(new \DateTimeZone('UTC'));
         $end = clone $start;
-        $end->modify('+2 hours');
+        $end->modify('+1 hours');
 
         // Request Access token
         $code                = $request->get('code');
@@ -93,21 +93,24 @@ class CronofyController
             ['Authorization' => 'Bearer ' . $accessToken]
         )->send();
 
-        $calendar_id         = json_decode($listCalendarsResponse->getBody(true))->calendars[0]->calendar_id;
+        $calendar_id = json_decode($listCalendarsResponse->getBody(true))->calendars[0]->calendar_id;
+        $data        = [
+            "event_id"    => $state,
+            "summary"     => $meetingToAdd->name,
+            "description" => $meetingToAdd->description,
+            "start"       => $start->format('Y-m-d') . 'T' . $start->format('H:i:s') . 'Z',
+            "end"         => $end->format('Y-m-d') . 'T' . $end->format('H:i:s') . 'Z'
+        ];
+        if ($meetingToAdd->location) {
+            $data["location"] = ["description" => sprintf('%s, %s %s, %s', $meetingToAdd->location->street, $meetingToAdd->location->zip, $meetingToAdd->location->city, $meetingToAdd->location->country)];
+        }
         $createEventResponse = $client->post(
             'https://api.cronofy.com/v1/calendars/' . urlencode($calendar_id) . '/events',
             [
                 'Authorization' => 'Bearer ' . $accessToken,
                 'Content-Type'  => 'application/json; charset=utf-8'
             ],
-            json_encode([
-                "event_id"    => $state,
-                "summary"     => $meetingToAdd->name,
-                "description" => $meetingToAdd->description,
-                "start"       => $start->format('Y-m-d') . 'T' . $start->format('H:i:s') . 'Z',
-                "end"         => $end->format('Y-m-d') . 'T' . $end->format('H:i:s') . 'Z',
-                "location"    => ["description" => sprintf('%s, %s %s, %s', $meetingToAdd->location->street, $meetingToAdd->location->zip, $meetingToAdd->location->city, $meetingToAdd->location->country)]
-            ])
+            json_encode($data)
         )->send();
         return [];
     }

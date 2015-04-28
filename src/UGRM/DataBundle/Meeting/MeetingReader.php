@@ -20,7 +20,9 @@ class MeetingReader
             $meeting->description = $event->DESCRIPTION;
             $meeting->time = new Carbon($event->DTSTART);
             $meeting->location = new SimpleLocation();
-            $meeting->location->description = $event->LOCATION;
+            if (isset($event->LOCATION)) {
+                $meeting->location->description = $event->LOCATION;
+            }
             $usergroup->meetings[] = $meeting;
         }
     }
