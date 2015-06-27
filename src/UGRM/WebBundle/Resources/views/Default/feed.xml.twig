@@ -20,9 +20,9 @@
         {% for meeting in meetings %}
             <item>
                 <title>{{ meeting.tweetText }}</title>
-                <link>{% if app.request.isSecure() %}https://{% else %}http://{% endif %}{{ app.request.host }}{{ path('ugrm_web_default_usergroup', {'ug': meeting.usergroup.id}) }}</link>
+                <link>{% if app.request.isSecure() %}https://{% else %}http://{% endif %}{{ app.request.host }}{{ path('ugrm_web_default_usergroup', {'ug': meeting.usergroup.id, 'meeting': (meeting.time|atomdate) }) }}</link>
                 <pubDate>{{ meeting.pubDate|RFC822date }}</pubDate>
-                <guid isPermaLink="true">{% if app.request.isSecure() %}https://{% else %}http://{% endif %}{{ app.request.host }}{{ path('ugrm_web_default_usergroup', {'ug': meeting.usergroup.id}) }}</guid>
+                <guid isPermaLink="true">{% if app.request.isSecure() %}https://{% else %}http://{% endif %}{{ app.request.host }}{{ path('ugrm_web_default_usergroup', {'ug': meeting.usergroup.id, 'meeting': (meeting.time|atomdate) }) }}</guid>
                 <description><![CDATA[
                     {{ meeting.description|markdown|striptags }}
                     ]]></description>

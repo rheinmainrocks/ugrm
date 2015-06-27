@@ -102,7 +102,8 @@ class DefaultController
         $hours = 8;
         return array(
             'meetings' => array_map(function($m) use($hours) {
-                $m->pubDate = $m->time->subHours($hours);
+                $t = clone $m->time;
+                $m->pubDate = $t->subHours($hours);
                 return $m;
             }, $this->convertMeetings(array_filter($this->repository->getMeetings(), function(MeetingData $m) use($hours) {
                 return Carbon::now()->diffInHours($m->time) < $hours;
