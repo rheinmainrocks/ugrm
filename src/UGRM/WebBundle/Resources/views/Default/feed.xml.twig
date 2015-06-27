@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+        >
+
+    <channel>
+        <title>Feed | UGRM – Usergroups RheinMain</title>
+        <atom:link href="{% if app.request.isSecure() %}https://{% else %}http://{% endif %}{{ app.request.host }}{{ app.request.pathInfo }}" rel="self" type="application/rss+xml"/>
+        <link>{% if app.request.isSecure() %}https://{% else %}http://{% endif %}{{ app.request.host }}</link>
+        <description>Beschreibung und Termine der Technologie-Usergroups im Rhein-Main-Gebiet.</description>
+        <language>de-DE</language>
+        <sy:updatePeriod>hourly</sy:updatePeriod>
+        <sy:updateFrequency>1</sy:updateFrequency>
+        <generator>https://github.com/coderbyheart/ugrm</generator>
+        {% for meeting in meetings %}
+            <item>
+                <title>{{ meeting.tweetText }}</title>
+                <link>{% if app.request.isSecure() %}https://{% else %}http://{% endif %}{{ app.request.host }}{{ path('ugrm_web_default_usergroup', {'ug': meeting.usergroup.id}) }}</link>
+                <pubDate>{{ meeting.pubDate|RFC822date }}</pubDate>
+                <guid isPermaLink="true">{% if app.request.isSecure() %}https://{% else %}http://{% endif %}{{ app.request.host }}{{ path('ugrm_web_default_usergroup', {'ug': meeting.usergroup.id}) }}</guid>
+                <description><![CDATA[
+                    {{ meeting.description|markdown|striptags }}
+                    ]]></description>
+                <content:encoded><![CDATA[
+                    {{ meeting.description|markdown }}
+                ]]></content:encoded>
+            </item>
+        {% endfor %}
+    </channel>
+</rss>

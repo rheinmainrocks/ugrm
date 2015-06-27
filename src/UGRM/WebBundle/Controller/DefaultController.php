@@ -2,10 +2,13 @@
 
 namespace UGRM\WebBundle\Controller;
 
+use Carbon\Carbon;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use UGRM\DataBundle\Model\Usergroup;
+use UGRM\DataBundle\Model\Meeting as MeetingData;
 use UGRM\DataBundle\UsergroupRepository;
 use UGRM\WebBundle\Model\Meeting;
 use UGRM\WebBundle\Model\MeetingTweet;
@@ -91,6 +94,24 @@ class DefaultController
 
 
     /**
+     * @Route("/todayfeed")
+     * @Template("UGRMWebBundle:Default:feed.xml.twig");
+     */
+    public function feedAction(Request $r)
+    {
+        $hours = 8;
+        return array(
+            'meetings' => array_map(function($m) use($hours) {
+                $m->pubDate = $m->time->subHours($hours);
+                return $m;
+            }, $this->convertMeetings(array_filter($this->repository->getMeetings(), function(MeetingData $m) use($hours) {
+                return Carbon::now()->diffInHours($m->time) < $hours;
+            })))
+        );
+    }
+
+
+    /**
      * @Route("/tags")
      * @Template()
      */
@@ -149,6 +170,7 @@ class DefaultController
             $viewMeeting->usergroup = $meeting->usergroup;
             $mt = new MeetingTweet($meeting, $this->request->getHost());
             $viewMeeting->tweet = $mt->getLink();
+            $viewMeeting->tweetText = $mt->getTweet();
             $viewMeetings[] = $viewMeeting;
         }
         return $viewMeetings;

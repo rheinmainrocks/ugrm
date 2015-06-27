@@ -10,6 +10,7 @@ class Date extends \Twig_Extension
             'shortdate' => new \Twig_Filter_Method($this, 'date', array('is_safe' => array('html'))),
             'longdate' => new \Twig_Filter_Method($this, 'longdate', array('is_safe' => array('html'))),
             'atomdate' => new \Twig_Filter_Method($this, 'atomdate', array('is_safe' => array('html'))),
+            'RFC822date' => new \Twig_Filter_Method($this, 'RFC822date', array('is_safe' => array('html'))),
         );
     }
 
@@ -26,6 +27,11 @@ class Date extends \Twig_Extension
     public function atomdate(\DateTime $d)
     {
         return $d->format(DATE_ATOM);
+    }
+
+    public function RFC822date(\DateTime $d)
+    {
+        return $d->format('D, d M Y H:i:s O');
     }
 
     public function getName()
