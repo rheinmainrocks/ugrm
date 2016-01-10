@@ -10,7 +10,7 @@ DTSTAMP:{{meeting.createdAt|icaldate}}
 DTEND:{{meeting.endDate|icaldate}}
 {% set location %}
 {% if meeting.location.name is defined %}
-{{ meeting.location.name }}, {{ meeting.location.street }}, {{ meeting.location.zip }} {{ meeting.location.city }}, {{ meeting.location.country }}
+{{ meeting.location.name }} ({{ meeting.location.street }}, {{ meeting.location.zip }} {{ meeting.location.city }}, {{ meeting.location.country }})
 {% else %}
 {{ meeting.location.description }}
 {% endif %}
