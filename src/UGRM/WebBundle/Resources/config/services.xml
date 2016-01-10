@@ -6,11 +6,16 @@
         <service id="ugrm.web.controller.default" class="UGRM\WebBundle\Controller\DefaultController" scope="request">
             <argument type="service" id="request"/>
             <argument type="service" id="ugrm.data.repo.usergroups"/>
+            <argument type="service" id="templating"/>
         </service>
         <service id="ugrm.web.twig.extension.date" class="UGRM\WebBundle\Twig\Extension\Date" public="false">
             <tag name="twig.extension"/>
         </service>
         <service id="ugrm.web.twig.extension.nicelink" class="UGRM\WebBundle\Twig\Extension\Nicelink"
+                 public="false">
+            <tag name="twig.extension"/>
+        </service>
+        <service id="ugrm.web.twig.extension.icalescape" class="UGRM\WebBundle\Twig\Extension\IcalEscape"
                  public="false">
             <tag name="twig.extension"/>
         </service>

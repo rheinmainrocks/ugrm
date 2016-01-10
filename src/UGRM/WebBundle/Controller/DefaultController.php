@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Templating\EngineInterface;
 use UGRM\DataBundle\Model\Usergroup;
 use UGRM\DataBundle\Model\Meeting as MeetingData;
 use UGRM\DataBundle\UsergroupRepository;
@@ -28,10 +29,16 @@ class DefaultController
      */
     private $request;
 
-    public function __construct(Request $request, UsergroupRepository $repository)
+    /**
+     * @var \Symfony\Component\Templating\EngineInterface
+     */
+    private $renderer;
+
+    public function __construct(Request $request, UsergroupRepository $repository, EngineInterface $renderer)
     {
-        $this->request = $request;
+        $this->request    = $request;
         $this->repository = $repository;
+        $this->renderer   = $renderer;
     }
 
     /**
@@ -109,6 +116,29 @@ class DefaultController
                 return Carbon::now()->diffInHours($m->time) < $hours;
             })))
         );
+    }
+
+
+    /**
+     * @Route("/ical")
+     */
+    public function icalAction(Request $r)
+    {
+        $response = new Response();
+        $response->headers->set('Content-Type', 'text/calendar; charset=utf-8');
+        $response->headers->set('Content-Disposition', 'attachment; filename=ugrm.ics');
+        $data = array(
+            'meetings' => array_map(function ($m) {
+                $m->createdAt = Carbon::now();
+                $t            = clone $m->time;
+                $m->endDate   = $t->addHours(3);
+                return $m;
+            }, $this->convertMeetings($this->repository->getMeetings()))
+        );
+        $response->setContent($this->renderer->render('UGRMWebBundle:Default:ical.ics.twig', $data));
+        $response->setPublic();
+        $response->setTtl(30 * 60);
+        return $response;
     }
 
 

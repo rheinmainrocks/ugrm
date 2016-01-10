@@ -11,6 +11,7 @@ class Date extends \Twig_Extension
             'longdate' => new \Twig_Filter_Method($this, 'longdate', array('is_safe' => array('html'))),
             'atomdate' => new \Twig_Filter_Method($this, 'atomdate', array('is_safe' => array('html'))),
             'RFC822date' => new \Twig_Filter_Method($this, 'RFC822date', array('is_safe' => array('html'))),
+            'icaldate' => new \Twig_Filter_Method($this, 'icaldate', array('is_safe' => array('html'))),
         );
     }
 
@@ -32,6 +33,11 @@ class Date extends \Twig_Extension
     public function RFC822date(\DateTime $d)
     {
         return $d->format('D, d M Y H:i:s O');
+    }
+
+    public function icaldate(\DateTime $d)
+    {
+        return $d->format('Ymd\THis\Z');
     }
 
     public function getName()

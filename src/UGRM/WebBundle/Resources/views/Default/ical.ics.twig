@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:https://github.com/coderbyheart/ugrm
+CALSCALE:GREGORIAN
+{% for meeting in meetings %}
+BEGIN:VEVENT
+UID:{{ meeting.usergroup.id ~ "-" ~ meeting.time.timestamp }}
+DTSTART:{{meeting.time|icaldate}}
+DTSTAMP:{{meeting.createdAt|icaldate}}
+DTEND:{{meeting.endDate|icaldate}}
+{% set location %}
+{% if meeting.location.name is defined %}
+{{ meeting.location.name }}, {{ meeting.location.street }}, {{ meeting.location.zip }} {{ meeting.location.city }}, {{ meeting.location.country }}
+{% else %}
+{{ meeting.location.description }}
+{% endif %}
+{% endset %}
+LOCATION:{{location|trim|icalescape}}
+SUMMARY:{{meeting.name|icalescape}}
+URL;VALUE=URI:{% if app.request.isSecure() %}https://{% else %}http://{% endif %}{{ app.request.host }}{{ path('ugrm_web_default_usergroup', {'ug': meeting.usergroup.id, 'meeting': (meeting.time|atomdate) }) }}
+DESCRIPTION:{{meeting.description|markdown|striptags|trim|icalescape}}
+END:VEVENT
+{% endfor %}
+END:VCALENDAR
