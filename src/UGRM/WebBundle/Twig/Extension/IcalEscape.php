@@ -14,7 +14,9 @@ class IcalEscape extends \Twig_Extension
 
     public function icalescape($str)
     {
-        return preg_replace('/([\,;])/', '\\\$1', $str);
+        $str = preg_replace('/([\,;])/', '\\\$1', $str);
+        $str = str_replace("\n", '\n', $str);
+        return $str;
     }
 
     public function getName()
