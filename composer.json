@@ -35,7 +35,7 @@
         "sensio/framework-extra-bundle": "2.2.*",
         "sensio/generator-bundle": "2.2.*",
         "dothiv/dothiv-parsedown-bundle": "dev-master",
-        "tacker/icalparser": "dev-master",
+        "coderbyheart/icalparser": "0.0.1",
         "nesbot/carbon": "1.17.0",
         "leafo/scssphp": "dev-master",
         "ornicar/gravatar-bundle": "dev-master",
