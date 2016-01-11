@@ -1,6 +1,22 @@
 {
-    "name": "symfony/framework-standard-edition",
-    "description": "The \"Symfony Standard Edition\" distribution",
+    "name": "ugrm",
+    "description": "Liste der Technologie-Usergroups in RheinMain.",
+    "type": "project",
+    "version": "1.1.1",
+    "homepage": "http://usergroups.rheinmainrocks.de/",
+    "license": "MIT",
+    "authors": [
+        {
+          "name": "Markus Tacker",
+          "email": "m@cto.hiv",
+          "homepage": "https://cto.hiv/",
+          "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/coderbyheart/ugrm/issues",
+        "source": "https://github.com/coderbyheart/ugrm"
+    },
     "autoload": {
         "psr-0": {
             "": "src/"
