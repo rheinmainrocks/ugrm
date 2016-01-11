@@ -17,8 +17,18 @@ DTEND:{{meeting.endDate|icaldate}}
 {% endset %}
 LOCATION:{{location|trim|icalescape}}
 SUMMARY:{{meeting.name|icalescape}}
-URL;VALUE=URI:{% if app.request.isSecure() %}https://{% else %}http://{% endif %}{{ app.request.host }}{{ path('ugrm_web_default_usergroup', {'ug': meeting.usergroup.id, 'meeting': (meeting.time|atomdate) }) }}
-DESCRIPTION:{{meeting.description|markdown|striptags|trim|icalescape}}
+{% set url %}{% if app.request.isSecure() %}https://{% else %}http://{% endif %}{{ app.request.host }}{{ path('ugrm_web_default_usergroup', {'ug': meeting.usergroup.id, 'meeting': (meeting.time|atomdate) }) }}{% endset %}
+URL;VALUE=URI:{{ url }}
+{% set description %}
+{{ meeting.usergroup.description }}
+
+Über diese Gruppe:
+
+{{ meeting.description }}
+
+<{{ url }}>
+{% endset %}
+DESCRIPTION:{{description|markdown|striptags|trim|icalescape}}
 END:VEVENT
 {% endfor %}
 END:VCALENDAR
