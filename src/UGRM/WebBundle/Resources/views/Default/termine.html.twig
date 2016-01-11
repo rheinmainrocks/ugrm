@@ -6,7 +6,12 @@
 {% import "UGRMWebBundle::partials/macros.html.twig" as macros %}
 {% block content %}
     <article>
-        <h2>{{ meta_description }}</h2>
+        <h2>
+            {{ meta_description }}
+        </h2>
+
+        <p>Termine als <a href="{{ path('ugrm_web_default_ical') }}"><i class="icon-calendar"></i> iCal</a>,
+            von heute als <a href="{{ path('ugrm_web_default_feed') }}"><i class="icon-rss"></i> RSS</a>.</p>
 
         {% for meeting in meetings %}
             {% if loop.first %}

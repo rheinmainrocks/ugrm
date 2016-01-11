@@ -12,6 +12,7 @@ use UGRM\DataBundle\Model\Usergroup;
 use UGRM\DataBundle\Model\Meeting as MeetingData;
 use UGRM\DataBundle\UsergroupRepository;
 use UGRM\WebBundle\Model\Meeting;
+use UGRM\DataBundle\Model\Meeting as DataBundleMeeting;
 use UGRM\WebBundle\Model\MeetingTweet;
 
 /**
@@ -120,25 +121,29 @@ class DefaultController
 
 
     /**
+     * @param Request $r
+     *
+     * @return Response
      * @Route("/ical")
      */
     public function icalAction(Request $r)
     {
-        $response = new Response();
-        $response->headers->set('Content-Type', 'text/calendar; charset=utf-8');
-        $response->headers->set('Content-Disposition', 'attachment; filename=ugrm.ics');
-        $data = array(
-            'meetings' => array_map(function ($m) {
-                $m->createdAt = Carbon::now();
-                $t            = clone $m->time;
-                $m->endDate   = $t->addHours(3);
-                return $m;
-            }, $this->convertMeetings($this->repository->getMeetings()))
-        );
-        $response->setContent($this->renderer->render('UGRMWebBundle:Default:ical.ics.twig', $data));
-        $response->setPublic();
-        $response->setTtl(30 * 60);
-        return $response;
+        $meetings = $this->repository->getMeetings();
+        return $this->createIcalFeed($meetings);
+    }
+
+
+    /**
+     * @param string $ug
+     *
+     * @return Response
+     * @Route("/~{ug}/ical")
+     */
+    public function usergroupIcalAction($ug)
+    {
+        $groups = $this->repository->listGroups(array('usergroup' => $ug));
+        $group  = array_shift($groups);
+        return $this->createIcalFeed($group->meetings);
     }
 
 
@@ -187,6 +192,11 @@ class DefaultController
         );
     }
 
+    /**
+     * @param DataBundleMeeting[] $meetings
+     *
+     * @return array
+     */
     protected function convertMeetings($meetings)
     {
         $viewMeetings = array();
@@ -205,5 +215,30 @@ class DefaultController
             $viewMeetings[] = $viewMeeting;
         }
         return $viewMeetings;
+    }
+
+    /**
+     * @param DataBundleMeeting[] $meetings
+     *
+     * @return Response
+     */
+    protected function createIcalFeed($meetings)
+    {
+        $response = new Response();
+        $response->headers->set('Content-Type', 'text/calendar; charset=utf-8');
+        $response->headers->set('Content-Disposition', 'attachment; filename=ugrm.ics');
+        $data = array(
+            'meetings' => array_map(function ($m) {
+                /** @var Carbon $t */
+                $m->createdAt = Carbon::now();
+                $t            = clone $m->time;
+                $m->endDate   = $t->addHours(3);
+                return $m;
+            }, $this->convertMeetings($meetings))
+        );
+        $response->setContent($this->renderer->render('UGRMWebBundle:Default:ical.ics.twig', $data));
+        $response->setPublic();
+        $response->setTtl(30 * 60);
+        return $response;
     }
 }
