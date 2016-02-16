@@ -1,11 +1,3 @@
-Todo
- * Kalender mit den nächsten Treffen
  * Karte mit den nächsten Treffen
    * http://geocoder-php.org/
  * Caching
-
-Done
- * Filter nach Tags
- * Alle Daten anzeigen
- * Detailansicht einer UG
- * CSS Cache Buster automatisieren (Caching von filemtime?)
