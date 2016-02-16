@@ -21,12 +21,21 @@
     }
   }
   #main {
-    @extend .clearfix;
     float: left;
     width: 85%;
     border-left: 1px solid rgba($text, 0.2);
     border-bottom: 1px solid rgba($text, 0.2);
     border-top: 1px solid rgba($text, 0.2);
+  }
+  // Replaces @extend .clearfix for sass compatibility
+  #main:before,
+  #main:after {
+    content: "";
+    display: table;
+  }
+
+  #main:after {
+    clear: both;
   }
 
   nav.main {
