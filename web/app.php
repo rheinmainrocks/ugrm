@@ -3,7 +3,8 @@
 use Symfony\Component\ClassLoader\ApcClassLoader;
 use Symfony\Component\HttpFoundation\Request;
 
-setlocale(LC_ALL, getenv('LOCALE'));
+setlocale(LC_ALL, getenv('REDIRECT_LOCALE')); // added by fcgi .htaccess
+date_default_timezone_set(getenv('REDIRECT_TIMEZONE'));  // added by fcgi via .htaccess
 
 $loader = require_once __DIR__.'/../app/bootstrap.php.cache';
 

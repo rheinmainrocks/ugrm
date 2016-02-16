@@ -6,6 +6,8 @@
 //umask(0000);
 
 set_time_limit(0);
+setlocale(LC_ALL, getenv('LOCALE'));
+date_default_timezone_set(getenv('TIMEZONE'));
 
 require_once __DIR__.'/bootstrap.php.cache';
 require_once __DIR__.'/AppKernel.php';
